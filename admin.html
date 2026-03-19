@@ -524,13 +524,13 @@
             e.preventDefault();
 
             const caseData = {
-                id: document.getElementById('code').value.trim().toUpperCase(),
+                caseId: document.getElementById('code').value.trim().toUpperCase(),
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
-                caseType: document.getElementById('caseType').value,
+                type: document.getElementById('caseType').value,
                 state: document.getElementById('state').value,
                 status: document.getElementById('status').value,
-                comp_amount: document.getElementById('comp_amount').value.trim(),
+                compensation: document.getElementById('comp_amount').value.trim(),
                 notes: document.getElementById('notes').value.trim(),
                 payment: {
                     pending: document.getElementById('payment_pending').checked,
@@ -543,11 +543,11 @@
                     carta: document.getElementById('doc_carta').checked,
                     medical: document.getElementById('doc_medical').checked
                 },
-                updated: new Date().toLocaleDateString('es-US', { day:'2-digit', month:'short', year:'numeric' })
+                date: new Date().toLocaleDateString('es-US', { day:'2-digit', month:'short', year:'numeric' })
             };
 
             let db = getDB();
-            const idx = db.findIndex(c => c.id === caseData.id);
+            const idx = db.findIndex(c => c.caseId === caseData.caseId);
             if (idx >= 0) { db[idx] = caseData; } else { db.push(caseData); }
             saveDB(db);
 
@@ -638,7 +638,7 @@
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td style="font-family:monospace; font-weight:700; color:var(--primary);">${c.caseId || c.id || 'N/A'}</td>
+                    <td style="font-family:monospace; font-weight:700; color:var(--primary);">${c.caseId}</td>
                     <td>
                         <div style="font-weight:700;">${c.name}</div>
                         <div style="font-size:0.75rem; color:#64748b;">${c.company || 'Empresa no especifi.'}</div>
@@ -657,8 +657,8 @@
                     <td style="text-align:center;">${hasFile}</td>
                     <td class="actions-cell">
                         <button class="btn btn-sm btn-accent" onclick='showMagicLink(${JSON.stringify(c)})' title="Magyc Link"><i class="fas fa-link"></i></button>
-                        <button class="btn btn-sm" style="background:var(--warning);" onclick='editCase("${c.caseId || c.id}")'><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-sm btn-red" onclick="deleteClient('${c.caseId || c.id}')"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-sm" style="background:var(--warning);" onclick='editCase("${c.caseId}")'><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-red" onclick="deleteClient('${c.caseId}')"><i class="fas fa-trash"></i></button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -679,7 +679,7 @@
         function editCase(id) {
             if (!id) { alert('Ingrese un código DLU primero.'); return; }
             const db = getDB();
-            const c = db.find(c => (c.caseId || c.id) === id);
+            const c = db.find(c => c.caseId === id);
             if (!c) { alert('No se encontró ningún expediente con ese código.'); return; }
             document.getElementById('name').value = c.name;
             document.getElementById('code').value = c.caseId;
@@ -703,7 +703,7 @@
         function deleteClient(id) {
             if (!confirm(`¿Eliminar expediente ${id}? Esta acción no se puede deshacer.`)) return;
             let db = getDB();
-            db = db.filter(c => (c.caseId || c.id) !== id);
+            db = db.filter(c => c.caseId !== id);
             saveDB(db);
             loadClients();
         }

@@ -194,7 +194,7 @@
             <div class="stories-grid">
                 <!-- Family 1 -->
                 <div class="story-card fade-up">
-                    <div class="story-img" style="background: url('historias_exito_familias_1773946150287.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div class="story-img" style="background: url('success_story_pedro.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
                         <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
@@ -206,7 +206,7 @@
 
                 <!-- Family 2 -->
                 <div class="story-card fade-up delay-1">
-                    <div class="story-img" style="background: url('historias_exito_familias_1773946150287.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div class="story-img" style="background: url('success_story_lucia.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
                         <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
@@ -218,7 +218,7 @@
 
                 <!-- Family 3 -->
                 <div class="story-card fade-up delay-2">
-                    <div class="story-img" style="background: url('historias_exito_familias_1773946150287.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
+                    <div class="story-img" style="background: url('success_story_jose.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
                         <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
@@ -380,6 +380,14 @@
                     <button type="submit" class="btn-primary" style="width: 100%; padding: 1.2rem; font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);">SOLICITAR VACANTES DISPONIBLES</button>
                     <p style="text-align: center; font-size: 0.8rem; margin-top: 15px; color: #64748b; font-weight: 600;">Servicio gratuito gestionado por Defensa Laboral USA.</p>
                 </form>
+                <div id="jobSuccess" style="display: none; text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 style="color: #0B1F4D; margin-bottom: 0.5rem;">Solicitud Recibida</h3>
+                    <p style="color: #475569;">Te contactaremos pronto por WhatsApp con vacantes disponibles en tu área.</p>
+                    <button onclick="location.reload()" class="btn-primary" style="margin-top: 1.5rem;">Nueva Solicitud</button>
+                </div>
             </div>
         </div>
     </section>
@@ -537,7 +545,7 @@
             <div class="legal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <!-- Lawyer 1: Martin Gasparian -->
                 <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('abogados_equipo_legal_1773946127521.png') 0% 0%/300% auto no-repeat;"></div>
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_martin.png') center/cover no-repeat;"></div>
                     <h4 style="color: white; margin-bottom: 0.5rem;">Martin Gasparian</h4>
                     <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">California Bar #255376</p>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Especialista en Derechos del Trabajador e Inmigración.</p>
@@ -546,7 +554,7 @@
 
                 <!-- Lawyer 2: Jacob Monty -->
                 <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('abogados_equipo_legal_1773946127521.png') 25% 0%/300% auto no-repeat;"></div>
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_jacob.png') center/cover no-repeat;"></div>
                     <h4 style="color: white; margin-bottom: 0.5rem;">Jacob Monty</h4>
                     <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Texas Bar #00789498</p>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Experto en Litigio Laboral y Defensa Migrante.</p>
@@ -555,7 +563,7 @@
 
                 <!-- Lawyer 3: Hovanes Margarian -->
                 <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('abogados_equipo_legal_1773946127521.png') 50% 0%/300% auto no-repeat;"></div>
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_hovanes.png') center/cover no-repeat;"></div>
                     <h4 style="color: white; margin-bottom: 0.5rem;">Hovanes Margarian</h4>
                     <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">California Bar #246359</p>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Defensor de Derechos de los Trabajadores en CA.</p>
@@ -564,7 +572,7 @@
 
                 <!-- Lawyer 4: Tammy Fox-Isicoff -->
                 <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('abogados_equipo_legal_1773946127521.png') 75% 0%/300% auto no-repeat;"></div>
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_tammy.png') center/cover no-repeat;"></div>
                     <h4 style="color: white; margin-bottom: 0.5rem;">Tammy Fox-Isicoff</h4>
                     <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Florida Bar #371661</p>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Socia Senior con Maestría en Derecho Migratorio.</p>
@@ -573,7 +581,7 @@
 
                 <!-- Lawyer 5: Cyrus D. Mehta -->
                 <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('abogados_equipo_legal_1773946127521.png') 100% 0%/300% auto no-repeat;"></div>
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_cyrus.png') center/cover no-repeat;"></div>
                     <h4 style="color: white; margin-bottom: 0.5rem;">Cyrus D. Mehta</h4>
                     <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">New York Bar (NYCS)</p>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Reconocido Experto en Inmigración y Laboral en NY.</p>

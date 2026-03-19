@@ -384,13 +384,13 @@
             setTimeout(() => {
                 // Try to find in localStorage DB
                 const db = JSON.parse(localStorage.getItem('dlu_cases_v2') || '[]');
-                const found = db.find(c => c.id === code);
+                const found = db.find(c => c.caseId === code);
 
                 if (found) {
                     renderDashboard(found);
                 } else {
                     // Show generic demo dashboard with entered code
-                    renderDashboard({ id: code, name: 'CLIENTE VERIFICADO', status: '3', caseType: 'despido', state: 'EE.UU.', comp_amount: 'En evaluación', docs: {} });
+                    renderDashboard({ caseId: code, name: 'CLIENTE VERIFICADO', status: '3', caseType: 'despido', state: 'EE.UU.', comp_amount: 'En evaluación', docs: {} });
                 }
             }, 1500);
         }
@@ -400,7 +400,7 @@
             const dash = document.getElementById('dashboardSection');
             dash.style.display = 'block';
 
-            document.getElementById('displayCode').innerText = c.id;
+            document.getElementById('displayCode').innerText = c.caseId;
 
             // Client name
             const nameEl = dash.querySelector('[data-field="name"]');
@@ -408,7 +408,7 @@
 
             // Case type
             const typeEl = dash.querySelector('[data-field="type"]');
-            if (typeEl) typeEl.textContent = TYPE_LABELS[c.caseType] || c.caseType || '';
+            if (typeEl) typeEl.textContent = TYPE_LABELS[c.type] || c.type || '';
 
             // Compensation
             const compEl = dash.querySelector('[data-field="comp"]');

@@ -131,7 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
             type: data.claim_type || 'Laboral',
             status: '1', 
             compensation: '$0',
-            documents: data.photo ? ['check-circle'] : [], // Mark if photo exists
+            notes: 'Caso iniciado desde la web principal.',
+            payment: { pending: false, amount: '' },
+            docs: {
+                id: false,
+                cheques: !!data.photo, // If they uploaded something
+                contrato: false,
+                carta: false,
+                medical: data.claim_type === 'Accidente'
+            },
             date: new Date().toLocaleDateString('es-ES')
         });
         localStorage.setItem('dlu_cases_v2', JSON.stringify(currentCases));
