@@ -1,0 +1,21 @@
+{
+  "name": "Defensa Laboral USA",
+  "short_name": "DefensaLaboral",
+  "description": "Justicia Legal para el Trabajador Inmigrante en EE.UU.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0B1F4D",
+  "theme_color": "#FFD700",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/192/000000/law.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://img.icons8.com/color/512/000000/law.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

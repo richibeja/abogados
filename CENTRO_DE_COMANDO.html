@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTRO DE COMANDO - Defensa Laboral USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0B1F4D;
+            --card: rgba(15, 30, 70, 0.95);
+            --text: #ffffff;
+            --accent: #FFD700;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #334155;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .card span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tag-private {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .tag-public {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1><i class="fas fa-gavel"></i> Centro de Comando</h1>
+    <p>Panel Central de Operaciones para Defensa Laboral USA. Control total del ecosistema legal.</p>
+
+    <div class="grid">
+
+        <!-- LEGAL BIBLE -->
+        <a href="tablero_respuestas.html" target="_blank" class="card">
+            <div class="tag tag-private"><i class="fas fa-eye-slash"></i> Uso Interno</div>
+            <i class="fas fa-book-open icon" style="color: var(--warning);"></i>
+            <h3>Biblia Legal</h3>
+            <span>Respuestas rápidas para casos laborales para copiar y pegar.</span>
+        </a>
+
+        <!-- ADMIN PANEL -->
+        <a href="landing_page/admin.html" target="_blank" class="card">
+            <div class="tag tag-private"><i class="fas fa-lock"></i> Solo Abogados</div>
+            <i class="fas fa-user-shield icon" style="color: #ef4444;"></i>
+            <h3>Panel Admin</h3>
+            <span>Crear casos, generar códigos y actualizar estados de clientes.</span>
+        </a>
+
+        <!-- LANDING PAGE -->
+        <a href="landing_page/index.html" target="_blank" class="card">
+            <div class="tag tag-public"><i class="fas fa-globe"></i> Público</div>
+            <i class="fas fa-laptop-code icon"></i>
+            <h3>Página Web Principal</h3>
+            <span>Lo que ven los clientes nuevos (Venta).</span>
+        </a>
+
+        <!-- TRACKING PORTAL -->
+        <a href="sistema_seguimiento.html" target="_blank" class="card">
+            <div class="tag tag-public"><i class="fas fa-search"></i> Público</div>
+            <i class="fas fa-file-invoice-dollar icon" style="color: var(--success);"></i>
+            <h3>Portal de Seguimiento</h3>
+            <span>Donde los clientes consultan el progreso de su indemnización.</span>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Defensa Laboral USA v1.0 - Panel de Administración Segura
+    </div>
+
+</body>
+
+</html>
