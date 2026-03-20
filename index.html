@@ -838,6 +838,39 @@
         </div>
     </div>
 
+    <!-- Horarios de Atención -->
+    <section id="horarios" class="section" style="background-color: var(--bg-dark); color: white; padding: 4rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                <div>
+                    <h2 style="color: var(--accent-gold); margin-bottom: 1.5rem;">Horarios de Oficina</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--glass-border);">
+                            <span>Lunes a Viernes</span>
+                            <span>8:00 AM - 6:00 PM (PST)</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--glass-border);">
+                            <span>Sábados</span>
+                            <span>9:00 AM - 2:00 PM (PST)</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 0.8rem 0; color: var(--text-muted);">
+                            <span>Domingos</span>
+                            <span>Cerrado (Atención vía Formulario)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div style="background: var(--glass-bg); padding: 2.5rem; border-radius: 15px; border: 1px solid var(--glass-border); text-align: center;">
+                    <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fas fa-headset"></i></div>
+                    <h3>Atención Ininterrumpida 24/7</h3>
+                    <p style="color: var(--text-muted); margin: 1rem 0;">
+                        Si nos contacta fuera de horario, nuestro sistema registrará su caso de inmediato. Un asesor senior revisará su información y le contactará en la primera hora del siguiente día hábil.
+                    </p>
+                    <a href="#contacto" class="btn primary">Dejar mis datos ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer
         style="background: #0f172a; padding: 2rem 0; text-align: center; color: #94a3b8; font-size: 0.8rem; border-top: 1px solid var(--glass-border);">
@@ -871,6 +904,84 @@
        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
         <i class="fab fa-whatsapp" style="font-size: 2rem; color: white;"></i>
     </a>
+
+    <!-- Floating Chatbot Widget -->
+    <div id="chatbot-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-family: 'Open Sans', sans-serif;">
+        <!-- Chat Bubble -->
+        <div id="chat-bubble" onclick="toggleChat()" style="background: var(--accent-gold); width: 60px; height: 60px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: black; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
+            <i class="fas fa-comment-alt"></i>
+            <div id="chat-notification" style="position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+        </div>
+
+        <!-- Chat Window -->
+        <div id="chat-window" style="display: none; position: absolute; bottom: 80px; right: 0; width: 320px; height: 450px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid var(--glass-border);">
+            <div style="background: var(--bg-dark); color: white; padding: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: #16a34a;"></div>
+                <span style="font-weight: 600;">Asesoría 24/7 en línea</span>
+                <span onclick="toggleChat()" style="margin-left: auto; cursor: pointer; opacity: 0.8;">&times;</span>
+            </div>
+            <div id="chat-messages" style="padding: 1rem; height: 320px; overflow-y: auto; background: #f8fafc; font-size: 0.9rem;">
+                <div style="background: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid #e2e8f0; max-width: 85%;">
+                    ¡Hola! Soy el asistente virtual de <strong>Defensa Laboral USA</strong>. ¿Desea que un experto revise su caso ahora mismo?
+                </div>
+            </div>
+            <div style="padding: 0.8rem; border-top: 1px solid #e2e8f0;">
+                <form id="chat-form" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 5px;">
+                    <input type="text" id="chat-input" placeholder="Escriba aquí..." required style="flex: 1; border: 1px solid #e2e8f0; border-radius: 20px; padding: 0.6rem 1rem; font-size: 0.85rem;">
+                    <button type="submit" style="background: var(--accent-gold); color: black; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const window = document.getElementById('chat-window');
+            const bubble = document.getElementById('chat-bubble');
+            const notification = document.getElementById('chat-notification');
+            if (window.style.display === 'none') {
+                window.style.display = 'block';
+                bubble.style.transform = 'scale(1.1)';
+                notification.style.display = 'none';
+            } else {
+                window.style.display = 'none';
+                bubble.style.transform = 'scale(1)';
+            }
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            if (input.value.trim() === '') return;
+
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; margin-left: auto; max-width: 85%; align-self: flex-end;";
+            userMsg.textContent = input.value;
+            messages.appendChild(userMsg);
+
+            // Add auto response after a delay
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.style.cssText = "background: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid #e2e8f0; max-width: 85%;";
+                botMsg.innerHTML = "Excelente. El sistema ha recibido su solicitud. Por favor, asegúrese de haber dejado su <strong>teléfono</strong> en el formulario principal. Un asesor lo contactará en breve.";
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 800);
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Show welcome message after 5 seconds
+        setTimeout(() => {
+            const notification = document.getElementById('chat-notification');
+            if (document.getElementById('chat-window').style.display === 'none') {
+                notification.style.display = 'flex';
+            }
+        }, 5000);
+    </script>
 
     <script type="module" src="main.js"></script>
     <script>
