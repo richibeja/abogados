@@ -211,27 +211,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let base = rate * hours * 52 * years;
         let factor = 0.1; 
 
-        // Adjusted factors based on clinical/legal averages for labor claims
-        // Optimistic Factors for Labor Claims
-        if (type === 'dismissal') factor = 0.6; // 60% of total salary (Optimistic)
-        if (type === 'unpaid') factor = 0.45;  // 45% for unpaid wages
-        if (type === 'accident') factor = 0.85; // 85% for workers' comp
+        // Optimized Factors for Labor Claims (Federal Max Averages)
+        if (type === 'dismissal') factor = 0.95; // 95% of total salary (Unjustified + Punitive)
+        if (type === 'unpaid') factor = 1.6;  // 160% (Double Damages + Penalties)
+        if (type === 'accident') factor = 1.45; // 145% (Medical + Loss of future earnings)
 
         const estimated = base * factor;
-        const min = Math.round(estimated * 0.9 / 500) * 500; // Round to nearest 500 for professional look
-        const max = Math.round(estimated * 1.6 / 500) * 500;
+        const min = Math.round(estimated * 0.95 / 500) * 500; 
+        const max = Math.round(estimated * 2.1 / 500) * 500;
 
         document.getElementById('minAmount').innerText = min.toLocaleString();
         document.getElementById('maxAmount').innerText = max.toLocaleString();
         document.getElementById('calcResult').style.display = 'block';
         
-        // Potential Message adjustment (Optimistic)
         const potentialMsg = document.getElementById('potentialMsg');
-        if (min > 15000) {
-            potentialMsg.innerHTML = "¡EXCELENTE POTENCIAL! Podrías recuperar hasta <strong>$" + max.toLocaleString() + "</strong> o más.";
+        if (max > 20000) {
+            potentialMsg.innerHTML = "¡SU CASO ES DE ALTO IMPACTO! Podría recuperar hasta <strong>$" + max.toLocaleString() + "</strong>. Hable con un asesor ahora.";
             potentialMsg.style.color = "#10b981";
         } else {
-            potentialMsg.innerHTML = "Tu caso califica para una reclamación legal importante.";
+            potentialMsg.innerHTML = "Candidato ideal para reclamación legal protegida.";
             potentialMsg.style.color = "#3b82f6";
         }
     };
