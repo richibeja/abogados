@@ -252,18 +252,37 @@
                 </div>
 
                 <div class="response-item">
-                    <div class="response-title">🏦 Enviar Datos Bancarios (Zelle/Transferencia)</div>
+                    <div class="response-title">🏦 Enviar Datos Bancarios (Wise USD - ACH/Wire)</div>
                     <div class="response-text" id="pay-info">
 ¡Hola! Estos son los datos oficiales para el depósito de apertura de su expediente: 
-🏦 Banco: [Nombre del Banco]
-📍 Titular: Defensa Laboral USA
-🔢 Cuenta: [Número de Cuenta o Zelle]
-📌 Concepto: Apertura Código DLU - [Su Nombre]
 
-Una vez realizado, por favor envíenos el comprobante por aquí para activar su seguimiento hoy mismo.
+📍 Titular: Richard Bejarano Aragon
+🏦 Banco: Column Bank (vía Wise)
+🔢 Número de Cuenta: 584051311222996
+📌 Número de Ruta (Routing): 084009519
+✅ Tipo de Cuenta: Checking / Deposit
+
+*Instrucciones:* Puede realizar una transferencia nacional (ACH o Wire) desde cualquier banco de EE.UU. Una vez realizado, por favor envíenos el comprobante para activar su seguimiento.
                     </div>
                     <button class="btn-copy" onclick="copyText('pay-info', this)">
                         <i class="fas fa-copy"></i> Copiar Datos
+                    </button>
+                </div>
+
+                <div class="response-item">
+                    <div class="response-title">🌐 Transferencia Internacional (SWIFT)</div>
+                    <div class="response-text" id="pay-swift">
+¡Hola! Para transferencias desde fuera de EE.UU., use estos datos:
+
+📍 Titular: Richard Bejarano Aragon
+🏦 SWIFT/BIC: TRWIUS35XXX
+🔢 Cuenta: 584051311222996
+📍 Dirección Banco: 108 W 13th St, Wilmington, DE, 19801, USA.
+
+Avísenos una vez enviada para estar pendientes de la recepción internacional.
+                    </div>
+                    <button class="btn-copy" onclick="copyText('pay-swift', this)">
+                        <i class="fas fa-copy"></i> Copiar Datos Internacionales
                     </button>
                 </div>
 
