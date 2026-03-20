@@ -1,0 +1,5 @@
+DOCS_PRIVADOS/
+node_modules/
+.env
+.vercel/
+*.log
