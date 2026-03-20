@@ -244,6 +244,50 @@
                 </div>
             </div>
 
+            <!-- PAGOS / CUENTAS -->
+            <div class="card" style="border-color: #3b82f6;">
+                <div class="card-header">
+                    <i class="fas fa-university" style="color: #3b82f6;"></i>
+                    <h2>Pagos / Cuentas</h2>
+                </div>
+
+                <div class="response-item">
+                    <div class="response-title">🏦 Enviar Datos Bancarios (Zelle/Transferencia)</div>
+                    <div class="response-text" id="pay-info">
+¡Hola! Estos son los datos oficiales para el depósito de apertura de su expediente: 
+🏦 Banco: [Nombre del Banco]
+📍 Titular: Defensa Laboral USA
+🔢 Cuenta: [Número de Cuenta o Zelle]
+📌 Concepto: Apertura Código DLU - [Su Nombre]
+
+Una vez realizado, por favor envíenos el comprobante por aquí para activar su seguimiento hoy mismo.
+                    </div>
+                    <button class="btn-copy" onclick="copyText('pay-info', this)">
+                        <i class="fas fa-copy"></i> Copiar Datos
+                    </button>
+                </div>
+
+                <div class="response-item">
+                    <div class="response-title">🔒 Verificación de Seguridad</div>
+                    <div class="response-text" id="pay-verify">
+Para su tranquilidad, somos una empresa legalmente registrada. Si lo desea, puedo enviarle nuestra Certificación Bancaria oficial donde consta el nombre de nuestra firma y la cuenta ligada. ¿Gusta que se la envíe antes de proceder con el depósito?
+                    </div>
+                    <button class="btn-copy" onclick="copyText('pay-verify', this)">
+                        <i class="fas fa-copy"></i> Copiar Respuesta
+                    </button>
+                </div>
+
+                <div class="response-item">
+                    <div class="response-title">🧾 Confirmación de Recepción</div>
+                    <div class="response-text" id="pay-thanks">
+¡Pago recibido con éxito! ✅ Ya estamos activando su código DLU en nuestro sistema. En breve, el abogado encargado de su caso se pondrá en contacto con usted para la investigación oficial. ¡Bienvenido a Defensa Laboral USA!
+                    </div>
+                    <button class="btn-copy" onclick="copyText('pay-thanks', this)">
+                        <i class="fas fa-copy"></i> Copiar Respuesta
+                    </button>
+                </div>
+            </div>
+
             <!-- CIERRE DE VENTA -->
             <div class="card" style="border-color: var(--success);">
                 <div class="card-header">
