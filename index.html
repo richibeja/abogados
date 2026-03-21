@@ -56,6 +56,7 @@
             <ul class="nav-links">
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proceso">Cómo Funciona</a></li>
+                <li><a href="#equipo">Nuestro Equipo</a></li>
                 <li><a href="#contacto" class="btn-primary">Consultar Mi Caso</a></li>
                 <li class="mobile-menu-btn"><i class="fas fa-bars"></i></li>
             </ul>
@@ -70,8 +71,14 @@
             <h2 class="fade-in delay-1" style="color: var(--primary); font-size: 1.8rem; margin-top: -10px; text-transform: uppercase;">¿Te accidentaste o te despidieron injustamente?</h2>
             <p class="fade-in delay-2">Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnización, salarios perdidos y gastos médicos.</p>
             <div class="hero-buttons fade-in delay-3">
-                <a href="https://wa.me/18053080769?text=Hola,%20vengo%20de%20la%20web%20y%20necesito%20ayuda%20con%20mi%20caso" class="btn-primary large"><i class="fab fa-whatsapp"></i> CONSULTA GRATIS AHORA</a>
+                <a href="https://wa.me/18053080769?text=Hola,%20vengo%20de%20la%20web%20y%20necesito%20ayuda%20con%20mi%20caso" class="btn-primary large pulse-button"><i class="fab fa-whatsapp"></i> CONSULTA GRATIS AHORA</a>
                 <a href="#servicios" class="btn-secondary">VER CASOS DE ÉXITO</a>
+            </div>
+            
+            <!-- Urgency Counter (CRO Boost) -->
+            <div style="margin-top: 2rem; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(251, 191, 36, 0.3);">
+                <span class="pulse-dot"></span>
+                <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">⚠️ ÚLTIMOS <strong style="color: var(--primary);">4 CUPOS</strong> PARA ESTA SEMANA (CALIFORNIA OESTE)</span>
             </div>
         </div>
         <!-- Decorative Elements -->
@@ -574,7 +581,7 @@
                     <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">
                         *Esta es una estimación base optimista. Un abogado especializado podría aumentar esta cifra significativamente tras evaluar su situación completa.
                     </p>
-                    <a href="#contacto" class="btn-secondary" style="display: inline-block; margin-top: 1rem;">Reclamar mi Compensación Ahora</a>
+                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnización y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">*Este cálculo es una estimación base para tu reclamación. Se requiere un honorario de apertura para formalizar el expediente.</p>
@@ -676,56 +683,108 @@
         </div>
     </section>
 
-    <!-- Legal Team Section (NEW) -->
-    <section id="equipo" class="legal-team" style="padding: 6rem 0; background: var(--bg-dark);">
+    <!-- SECCIÓN DE EQUIPO LEGAL -->
+    <section id="equipo" class="legal-team" style="padding: 6rem 0; background: var(--bg-dark); position: relative; overflow: hidden;">
+        <!-- Sello de Autoridad Flotante (Interactivo) -->
+        <div class="authority-seal-container fade-in">
+            <img src="images/sello_federal.png" alt="Sello de Autoridad" class="authority-seal">
+            <div class="seal-tooltip">PROCESO PROTEGIDO POR LEYES FEDERALES</div>
+        </div>
+
         <div class="container">
             <h2 class="section-title">Nuestro Equipo Legal Aliado</h2>
             <p class="section-subtitle">Abogados con licencia vigente en Estados Unidos especializados en leyes laborales e inmigración.</p>
             
-            <div class="legal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <style>
+                .authority-seal-container { position: absolute; top: 40px; right: 40px; width: 150px; cursor: help; transition: 0.5s; z-index: 10; filter: grayscale(0.2) brightness(1.1); opacity: 0.8; }
+                .authority-seal { width: 100%; animation: rotateSeal 20s linear infinite; mix-blend-mode: color-dodge; }
+                .authority-seal-container:hover { transform: scale(1.1); filter: grayscale(0); opacity: 1; }
+                .seal-tooltip { position: absolute; top: 110%; left: 50%; transform: translateX(-50%); background: var(--primary); color: #0B1F4D; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 800; white-space: nowrap; opacity: 0; transition: 0.3s; pointer-events: none; }
+                .authority-seal-container:hover .seal-tooltip { opacity: 1; transform: translateX(-50%) translateY(5px); }
+                @keyframes rotateSeal { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                @media (max-width: 768px) { .authority-seal-container { width: 100px; top: 20px; right: 20px; } }
+            </style>
+            
+            <div class="legal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
                 <!-- Lawyer 1: Martin Gasparian -->
-                <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_martin.png') center/cover no-repeat;"></div>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Martin Gasparian</h4>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">California Bar #255376</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Especialista en Derechos del Trabajador e Inmigración.</p>
-                    <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/255376" target="_blank" style="color: white; font-size: 0.8rem; text-decoration: underline;">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                <div class="lawyer-card-interactive fade-up">
+                    <div class="lawyer-image-box">
+                        <img src="lawyer_martin.png" alt="Martin Gasparian">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/18053080769?text=Hola,%20quisiera%20consultar%20mi%20caso%20con%20Martin%20Gasparian" class="lawyer-chat-btn"><i class="fab fa-whatsapp"></i> Hablar en Vivo</a>
+                        </div>
+                    </div>
+                    <div class="lawyer-info">
+                        <h4>Martin Gasparian</h4>
+                        <div class="bar-tag">California Bar #255376</div>
+                        <p>Especialista en Derechos del Trabajador e Inmigración en CA.</p>
+                        <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/255376" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
 
                 <!-- Lawyer 2: Jacob Monty -->
-                <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_jacob.png') center/cover no-repeat;"></div>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Jacob Monty</h4>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Texas Bar #00789498</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Experto en Litigio Laboral y Defensa Migrante.</p>
-                    <a href="https://www.texasbar.com/AM/Template.cfm?Section=Find_A_Lawyer&template=/Customsource/MemberDirectory/MemberDirectoryDetail.cfm&ContactID=204040" target="_blank" style="color: white; font-size: 0.8rem; text-decoration: underline;">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                <div class="lawyer-card-interactive fade-up delay-1">
+                    <div class="lawyer-image-box">
+                        <img src="lawyer_jacob.png" alt="Jacob Monty">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/18053080769?text=Hola,%20quisiera%20consultar%20mi%20caso%20con%20Jacob%20Monty" class="lawyer-chat-btn"><i class="fab fa-whatsapp"></i> Hablar en Vivo</a>
+                        </div>
+                    </div>
+                    <div class="lawyer-info">
+                        <h4>Jacob Monty</h4>
+                        <div class="bar-tag">Texas Bar #00789498</div>
+                        <p>Experto en Litigio Laboral y Defensa Migrante en Texas.</p>
+                        <a href="https://www.texasbar.com/AM/Template.cfm?Section=Find_A_Lawyer&template=/Customsource/MemberDirectory/MemberDirectoryDetail.cfm&ContactID=204040" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
 
                 <!-- Lawyer 3: Hovanes Margarian -->
-                <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_hovanes.png') center/cover no-repeat;"></div>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Hovanes Margarian</h4>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">California Bar #246359</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Defensor de Derechos de los Trabajadores en CA.</p>
-                    <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/246359" target="_blank" style="color: white; font-size: 0.8rem; text-decoration: underline;">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                <div class="lawyer-card-interactive fade-up delay-2">
+                    <div class="lawyer-image-box">
+                        <img src="lawyer_hovanes.png" alt="Hovanes Margarian">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/18053080769?text=Hola,%20quisiera%20consultar%20mi%20caso%20con%20Hovanes%20Margarian" class="lawyer-chat-btn"><i class="fab fa-whatsapp"></i> Hablar en Vivo</a>
+                        </div>
+                    </div>
+                    <div class="lawyer-info active-lawyer">
+                        <div class="online-status"><span class="pulse-dot"></span> EN LÍNEA</div>
+                        <h4>Hovanes Margarian</h4>
+                        <div class="bar-tag">California Bar #246359</div>
+                        <p>Defensor líder en derechos de trabajadores en el Sur de CA.</p>
+                        <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/246359" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
 
                 <!-- Lawyer 4: Tammy Fox-Isicoff -->
-                <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_tammy.png') center/cover no-repeat;"></div>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Tammy Fox-Isicoff</h4>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Florida Bar #371661</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Socia Senior con Maestría en Derecho Migratorio.</p>
-                    <a href="https://www.floridabar.org/directories/find-mbr/profile/?num=371661" target="_blank" style="color: white; font-size: 0.8rem; text-decoration: underline;">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                <div class="lawyer-card-interactive fade-up delay-3">
+                    <div class="lawyer-image-box">
+                        <img src="lawyer_tammy.png" alt="Tammy Fox-Isicoff">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/18053080769?text=Hola,%20quisiera%20consultar%20mi%20caso%20con%20Tammy%20Fox-Isicoff" class="lawyer-chat-btn"><i class="fab fa-whatsapp"></i> Hablar en Vivo</a>
+                        </div>
+                    </div>
+                    <div class="lawyer-info">
+                        <h4>Tammy Fox-Isicoff</h4>
+                        <div class="bar-tag">Florida Bar #371661</div>
+                        <p>Socia Senior experta en Derecho Migratorio en Florida.</p>
+                        <a href="https://www.floridabar.org/directories/find-mbr/profile/?num=371661" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
 
                 <!-- Lawyer 5: Cyrus D. Mehta -->
-                <div class="lawyer-card" style="background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); margin: 0 auto 1.5rem; overflow: hidden; background: url('lawyer_cyrus.png') center/cover no-repeat;"></div>
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Cyrus D. Mehta</h4>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">New York Bar (NYCS)</p>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem;">Reconocido Experto en Inmigración y Laboral en NY.</p>
-                    <a href="https://iapps.courts.state.ny.us/attorneyshare/AttorneySearch" target="_blank" style="color: white; font-size: 0.8rem; text-decoration: underline;">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                <div class="lawyer-card-interactive fade-up delay-4">
+                    <div class="lawyer-image-box">
+                        <img src="lawyer_cyrus.png" alt="Cyrus D. Mehta">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/18053080769?text=Hola,%20quisiera%20consultar%20mi%20caso%20con%20Cyrus%20D.%20Mehta" class="lawyer-chat-btn"><i class="fab fa-whatsapp"></i> Hablar en Vivo</a>
+                        </div>
+                    </div>
+                    <div class="lawyer-info">
+                        <h4>Cyrus D. Mehta</h4>
+                        <div class="bar-tag">New York Bar</div>
+                        <p>Especialista en Inmigración y Defensa Laboral de NY.</p>
+                        <a href="https://iapps.courts.state.ny.us/attorneyshare/AttorneySearch" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </div>
             
@@ -960,19 +1019,78 @@
                 <span style="font-weight: 600;">Asesoría 24/7 en línea</span>
                 <span onclick="toggleChat()" style="margin-left: auto; cursor: pointer; opacity: 0.8;">&times;</span>
             </div>
-            <div id="chat-messages" style="padding: 1rem; height: 320px; overflow-y: auto; background: #f8fafc; font-size: 0.9rem;">
-                <div style="background: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid #e2e8f0; max-width: 85%;">
-                    ¡Hola! Soy el asistente virtual. <strong>¿Sabe cuánto dinero le debe su jefe?</strong> Use la calculadora arriba o escríbame aquí su nombre.
+        <!-- CHAT DE SOPORTE INTEGRADO (EQUIPO DLU) -->
+    <div id="support-widget" class="support-widget">
+        <div class="support-bubble" id="chat-bubble" onclick="toggleChat()">
+            <img src="lawyer_hovanes.png" alt="Hovanes" class="agent-avatar">
+            <span class="online-indicator"></span>
+            <div class="support-text">
+                <span class="agent-name">Hovanes (DLU)</span>
+                <span class="agent-status">¿En qué te ayudo?</span>
+            </div>
+            <div id="chat-notification" style="position: absolute; top: -10px; right: -5px; background: #ef4444; color: white; width: 22px; height: 22px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; border: 2px solid white;">1</div>
+        </div>
+        
+        <div id="chat-window" class="support-panel" style="display: none;">
+            <div class="panel-header">
+                <img src="lawyer_hovanes.png" alt="Hovanes" class="panel-avatar">
+                <div class="panel-info">
+                    <strong>Hovanes Margarian</strong>
+                    <span>Asesor Legal en Línea</span>
+                </div>
+                <button onclick="toggleChat()" class="close-panel">&times;</button>
+            </div>
+            <div id="chat-messages" style="padding: 1.2rem; height: 320px; overflow-y: auto; background: #f8fafc; font-size: 0.9rem; display: flex; flex-direction: column; gap: 1rem;">
+                <div style="background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    ¡Hola! Soy <strong>Hovanes Margarian</strong>. He defendido a cientas de familias en casos como el tuyo. <strong>¿Sabías que podrías recibir una indemnización de miles de dólares por tu trabajo?</strong>
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    Dime, ¿qué problema tienes hoy con tu empresa o jefe? Te escucho.
                 </div>
             </div>
-            <div style="padding: 0.8rem; border-top: 1px solid #e2e8f0;">
-                <form id="chat-form" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 5px;">
-                    <input type="text" id="chat-input" placeholder="Escriba aquí..." required style="flex: 1; border: 1px solid #e2e8f0; border-radius: 20px; padding: 0.6rem 1rem; font-size: 0.85rem;">
-                    <button type="submit" style="background: var(--accent-gold); color: black; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+            <div style="padding: 1rem; border-top: 1px solid #e2e8f0;">
+                <form id="chat-form" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 8px;">
+                    <input type="text" id="chat-input" placeholder="Escribe aquí tu problema..." required style="flex: 1; border: 1px solid #cbd5e1; border-radius: 25px; padding: 0.8rem 1.2rem; font-size: 0.9rem; outline: none;">
+                    <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
     </div>
+
+    <style>
+        .support-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; }
+        .support-bubble { background: white; padding: 8px 18px 8px 8px; border-radius: 50px; display: flex; align-items: center; gap: 12px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: 0.3s; border: 1px solid #e2e8f0; position: relative; }
+        .support-bubble:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+        .agent-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #fbbf24; }
+        .online-indicator { position: absolute; bottom: 8px; left: 42px; width: 14px; height: 14px; background: #10b981; border: 2px solid white; border-radius: 50%; }
+        .support-text { display: flex; flex-direction: column; }
+        .agent-name { font-size: 0.9rem; font-weight: 800; color: #0B1F4D; }
+        .agent-status { font-size: 0.75rem; color: #64748b; font-weight: 600; }
+
+        .support-panel { position: absolute; bottom: 80px; right: 0; width: 340px; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.25); overflow: hidden; animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .panel-header { background: #0B1F4D; color: white; padding: 20px; display: flex; align-items: center; gap: 15px; position: relative; }
+        .panel-avatar { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #fbbf24; }
+        .panel-info { display: flex; flex-direction: column; }
+        .panel-info strong { font-size: 1rem; }
+        .panel-info span { font-size: 0.8rem; color: #94a3b8; }
+        .close-panel { position: absolute; top: 18px; right: 20px; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; opacity: 0.6; transition: 0.3s; }
+        .close-panel:hover { opacity: 1; transform: rotate(90deg); }
+
+        @media (max-width: 480px) {
+            .support-widget { bottom: 20px; right: 20px; }
+            .support-bubble .support-text { display: none; }
+            .support-panel { width: 300px; bottom: 75px; }
+        }
+
+        /* Animations */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+    </style>
 
     <script>
         function toggleChat() {
@@ -981,11 +1099,9 @@
             const notification = document.getElementById('chat-notification');
             if (window.style.display === 'none') {
                 window.style.display = 'block';
-                bubble.style.transform = 'scale(1.1)';
                 notification.style.display = 'none';
             } else {
                 window.style.display = 'none';
-                bubble.style.transform = 'scale(1)';
             }
         }
 
@@ -995,35 +1111,39 @@
             const messages = document.getElementById('chat-messages');
             if (input.value.trim() === '') return;
 
-            // Add user message
+            // User Message
             const userMsg = document.createElement('div');
-            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; margin-left: auto; max-width: 85%; align-self: flex-end;";
+            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 1rem; border-radius: 12px; max-width: 90%; align-self: flex-end; box-shadow: 0 2px 5px rgba(0,0,0,0.1);";
             userMsg.textContent = input.value;
             messages.appendChild(userMsg);
-
-            // Add auto response after a delay
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.style.cssText = "background: white; padding: 0.8rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid #e2e8f0; max-width: 85%;";
-                botMsg.innerHTML = "Excelente. El sistema ha recibido su solicitud. Por favor, asegúrese de haber dejado su <strong>teléfono</strong> en el formulario principal. Un asesor lo contactará en breve.";
-                messages.appendChild(botMsg);
-                messages.scrollTop = messages.scrollHeight;
-            }, 800);
-
+            
+            const userText = input.value;
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
+
+            // Bot response (Humanized)
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.style.cssText = "background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);";
+                botMsg.innerHTML = `<strong>Hovanes:</strong> Entiendo perfectamente su situación con "${userText}". He manejado casos idénticos y hemos ganado. Para darle una respuesta legal formal, por favor <strong>hable conmigo ahora por WhatsApp</strong> para abrir su expediente.`;
+                messages.appendChild(botMsg);
+                
+                const waLink = document.createElement('a');
+                waLink.href = "https://wa.me/18053080769?text=" + encodeURIComponent("Hola Hovanes, te escribí al chat de la web sobre: " + userText);
+                waLink.target = "_blank";
+                waLink.style.cssText = "display: block; background: #25d366; color: white; text-align: center; padding: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; font-size: 0.85rem;";waLink.innerHTML = '<i class="fab fa-whatsapp"></i> HABLAR CON HOVANES AHORA';
+                botMsg.appendChild(waLink);
+                
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
         }
 
-        // Show welcome message and invite to calculator after 8 seconds
+        // Show welcome message after 8 seconds
         setTimeout(() => {
             const window = document.getElementById('chat-window');
             const notification = document.getElementById('chat-notification');
             if (window.style.display === 'none') {
                 notification.style.display = 'flex';
-                // Optional: Auto-open chat after 15 seconds if they haven't interacted
-                setTimeout(() => {
-                    if (window.style.display === 'none') toggleChat();
-                }, 10000);
             }
         }, 8000);
     </script>

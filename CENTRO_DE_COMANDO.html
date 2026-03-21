@@ -4,177 +4,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENTRO DE COMANDO - Defensa Laboral USA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>MISSION CONTROL - Defensa Laboral USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #0B1F4D;
-            --card: rgba(15, 30, 70, 0.95);
-            --text: #ffffff;
-            --accent: #FFD700;
+            --bg: #020617;
+            --card: rgba(15, 23, 42, 0.8);
+            --text: #f8fafc;
+            --accent: #fbbf24;
             --success: #10b981;
-            --warning: #f59e0b;
+            --blue: #3b82f6;
+            --danger: #ef4444;
+            --border: rgba(51, 65, 85, 0.5);
         }
 
         body {
             background: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
             color: var(--text);
             font-family: 'Montserrat', sans-serif;
             margin: 0;
-            padding: 40px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        h1 {
-            margin-bottom: 10px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
         }
 
-        p {
-            color: #94a3b8;
-            margin-bottom: 40px;
-            text-align: center;
-            max-width: 600px;
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.3));
+        }
+
+        .subtitle {
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--blue);
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-transform: uppercase;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .card {
             background: var(--card);
-            border: 1px solid #334155;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
             text-decoration: none;
             color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
+            align-items: flex-start;
+            gap: 20px;
             position: relative;
             overflow: hidden;
         }
 
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--blue);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
         .card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--blue);
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+        .card:hover::before {
+            opacity: 1;
         }
 
-        .card h3 {
-            margin: 0 0 10px 0;
+        .card.danger:hover { border-color: var(--danger); }
+        .card.danger::before { background: var(--danger); }
+        
+        .card.success:hover { border-color: var(--success); }
+        .card.success::before { background: var(--success); }
+        
+        .card.warning:hover { border-color: var(--accent); }
+        .card.warning::before { background: var(--accent); }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
+            color: var(--blue);
+            flex-shrink: 0;
         }
 
-        .card span {
-            font-size: 0.9rem;
+        .warning .icon-box { background: rgba(251, 191, 36, 0.1); color: var(--accent); }
+        .danger .icon-box { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .success .icon-box { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .card-content p {
+            margin: 5px 0 0 0;
+            font-size: 0.85rem;
             color: #94a3b8;
+            line-height: 1.4;
         }
 
         .tag {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
+            top: 10px;
+            right: 10px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
             text-transform: uppercase;
         }
 
-        .tag-private {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border: 1px solid #ef4444;
-        }
-
-        .tag-public {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--success);
-            border: 1px solid var(--success);
-        }
+        .tag-private { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+        .tag-public { background: rgba(16, 185, 129, 0.15); color: var(--success); }
 
         .footer {
-            margin-top: auto;
-            padding-top: 40px;
-            color: #64748b;
+            margin-top: 80px;
+            color: #475569;
             font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
 
-    <h1><i class="fas fa-gavel"></i> Centro de Comando</h1>
-    <p>Panel Central de Operaciones para Defensa Laboral USA. Control total del ecosistema legal.</p>
+    <div class="header">
+        <h1><i class="fas fa-microchip"></i> Mission Control</h1>
+        <div class="subtitle">Defensa Laboral USA &bull; Operaciones Centralizadas</div>
+    </div>
 
-    <div class="grid">
+    <div class="container">
 
-        <!-- LEGAL BIBLE -->
-        <a href="tablero_respuestas.html" target="_blank" class="card">
-            <div class="tag tag-private"><i class="fas fa-eye-slash"></i> Uso Interno</div>
-            <i class="fas fa-book-open icon" style="color: var(--warning);"></i>
-            <h3>Biblia Legal</h3>
-            <span>Respuestas rápidas para casos laborales para copiar y pegar.</span>
-        </a>
+        <!-- OPERACIONES DE CASOS -->
+        <h2 class="section-title"><i class="fas fa-folder-tree"></i> Gestión Estratégica</h2>
+        <div class="grid">
+            <a href="DOCS_PRIVADOS/admin.html" target="_blank" class="card danger">
+                <div class="tag tag-private">Secure</div>
+                <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+                <div class="card-content">
+                    <h3>Panel Admin DLU</h3>
+                    <p>Creación de expedientes, códigos de rastreo y control de estados.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/tablero_respuestas.html" target="_blank" class="card warning">
+                <div class="tag tag-private">Internal</div>
+                <div class="icon-box"><i class="fas fa-book-bookmark"></i></div>
+                <div class="card-content">
+                    <h3>Biblia Legal (FAQ)</h3>
+                    <p>Base de conocimientos para objeciones y respuestas rápidas.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/sistema_seguimiento.html" target="_blank" class="card success">
+                <div class="tag tag-public">Client Facing</div>
+                <div class="icon-box"><i class="fas fa-radar"></i></div>
+                <div class="card-content">
+                    <h3>Portal de Rastreo</h3>
+                    <p>Interface pública donde el cliente verifica su radicación federal.</p>
+                </div>
+            </a>
+        </div>
 
-        <!-- ADMIN PANEL -->
-        <a href="admin.html" target="_blank" class="card">
-            <div class="tag tag-private"><i class="fas fa-lock"></i> Solo Abogados</div>
-            <i class="fas fa-user-shield icon" style="color: #ef4444;"></i>
-            <h3>Panel Admin</h3>
-            <span>Crear casos, generar códigos y actualizar estados de clientes.</span>
-        </a>
+        <!-- GUIONES DE PODER -->
+        <h2 class="section-title" style="color: var(--accent);"><i class="fas fa-microphone-lines"></i> Guiones de Autoridad</h2>
+        <div class="grid">
+            <a href="DOCS_PRIVADOS/guion_imprimible.html" target="_blank" class="card warning">
+                <div class="icon-box"><i class="fas fa-scroll"></i></div>
+                <div class="card-content">
+                    <h3>Guion Maestro Elite</h3>
+                    <p>El protocolo completo de cierre y manejo de objeciones (Ver 3.0).</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/GUION_APERTURA_TECNICA.html" target="_blank" class="card success">
+                <div class="icon-box"><i class="fas fa-gears"></i></div>
+                <div class="card-content">
+                    <h3>Protocolo Técnico</h3>
+                    <p>Guion para la fase de apertura de expediente y solicitud de evidencias.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/GUION_SUBSIDIOS_USA.html" target="_blank" class="card">
+                <div class="icon-box"><i class="fas fa-hand-holding-dollar"></i></div>
+                <div class="card-content">
+                    <h3>Guion Subsidios USA</h3>
+                    <p>Especializado en Tax Refunds, ITIN y créditos por hijos.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/GUION_CIERRE_WOLF.html" target="_blank" class="card danger">
+                <div class="icon-box"><i class="fas fa-wolf-pack-white"></i></div>
+                <div class="card-content">
+                    <h3>The Wolf Closer</h3>
+                    <p>Estrategia de cierre de alta presión y manejo de objeciones críticas.</p>
+                </div>
+            </a>
+        </div>
 
-        <!-- LANDING PAGE -->
-        <a href="index.html" target="_blank" class="card">
-            <div class="tag tag-public"><i class="fas fa-globe"></i> Público</div>
-            <i class="fas fa-laptop-code icon"></i>
-            <h3>Página Web Principal</h3>
-            <span>Lo que ven los clientes nuevos (Venta).</span>
-        </a>
+        <!-- DOCUMENTACIÓN DE SALIDA -->
+        <h2 class="section-title" style="color: #a855f7;"><i class="fas fa-file-contract"></i> Emisión de Documentos</h2>
+        <div class="grid">
+            <a href="DOCS_PRIVADOS/ACUSE_DE_RADICACION.html" target="_blank" class="card">
+                <div class="icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);"><i class="fas fa-file-signature"></i></div>
+                <div class="card-content">
+                    <h3>Acuse de Radicación</h3>
+                    <p>Certificado oficial de inicio de trámite federal para el cliente.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/RECIBO_OFICIAL_DLU.html" target="_blank" class="card">
+                <div class="icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);"><i class="fas fa-receipt"></i></div>
+                <div class="card-content">
+                    <h3>Recibo Oficial DLU</h3>
+                    <p>Comprobante de pago por servicios de radicación técnica.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/AVISO_FEDERAL_RADICACION.html" target="_blank" class="card">
+                <div class="icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);"><i class="fas fa-building-columns"></i></div>
+                <div class="card-content">
+                    <h3>Aviso Federal</h3>
+                    <p>Documento de advertencia de radicación ante agencias (DOL/IRS).</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/ACTA_RESOLUCION_MAURICIO.html" target="_blank" class="card success">
+                <div class="icon-box"><i class="fas fa-trophy"></i></div>
+                <div class="card-content">
+                    <h3>Certificado de Resolución</h3>
+                    <p>Documento final de liquidación exitosa de fondos recuperados.</p>
+                </div>
+            </a>
+        </div>
 
-        <!-- TRACKING PORTAL -->
-        <a href="sistema_seguimiento.html" target="_blank" class="card">
-            <div class="tag tag-public"><i class="fas fa-search"></i> Público</div>
-            <i class="fas fa-file-invoice-dollar icon" style="color: var(--success);"></i>
-            <h3>Portal de Seguimiento</h3>
-            <span>Donde los clientes consultan el progreso de su indemnización.</span>
-        </a>
-
-        <!-- ADVERTISING MATERIAL -->
-        <a href="material_publicitario.html" target="_blank" class="card">
-            <div class="tag tag-private"><i class="fas fa-bullhorn"></i> Uso Interno</div>
-            <i class="fas fa-images icon" style="color: #ff00ff;"></i>
-            <h3>Material Publicitario</h3>
-            <span>Anuncios, portadas y activos para Facebook Ads.</span>
-        </a>
+        <!-- FRONTEND & ASSETS -->
+        <h2 class="section-title" style="color: #f43f5e;"><i class="fas fa-rocket"></i> Despliegue & Marketing</h2>
+        <div class="grid">
+            <a href="index.html" target="_blank" class="card">
+                <div class="tag tag-public">Public</div>
+                <div class="icon-box" style="color: #f43f5e; background: rgba(244, 63, 94, 0.1);"><i class="fas fa-globe"></i></div>
+                <div class="card-content">
+                    <h3>Landing Page</h3>
+                    <p>Sitio web principal optimizado para conversión de leads.</p>
+                </div>
+            </a>
+            <a href="DOCS_PRIVADOS/material_publicitario.html" target="_blank" class="card danger">
+                <div class="icon-box"><i class="fas fa-images"></i></div>
+                <div class="card-content">
+                    <h3>Creativos & Ads</h3>
+                    <p>Biblioteca de imágenes, portadas y videos para Facebook Ads.</p>
+                </div>
+            </a>
+        </div>
 
     </div>
 
     <div class="footer">
-        Defensa Laboral USA v1.0 - Panel de Administración Segura
+        DLU MISSION CONTROL &bull; VERSION 2.0 ELITE &bull; EST. 2026
     </div>
 
 </body>

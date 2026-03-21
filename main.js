@@ -232,6 +232,24 @@ document.addEventListener('DOMContentLoaded', () => {
             potentialMsg.innerHTML = "Candidato ideal para reclamación legal protegida.";
             potentialMsg.style.color = "#3b82f6";
         }
+
+        // --- Proactive Hovanes Trigger (CONVERSION FLOW) ---
+        setTimeout(() => {
+            const hovanesBubble = document.getElementById('chat-bubble');
+            const hovanesNotif = document.getElementById('chat-notification');
+            const hovanesText = document.querySelector('.agent-status');
+            
+            if (hovanesBubble && hovanesNotif) {
+                hovanesNotif.innerText = "1";
+                hovanesNotif.style.display = "flex";
+                hovanesText.innerText = "¡He visto tu cálculo!";
+                hovanesText.style.color = "#10b981";
+                
+                // Add a little vibration effect
+                hovanesBubble.style.animation = "shake 0.5s ease-in-out infinite";
+                setTimeout(() => hovanesBubble.style.animation = "none", 3000);
+            }
+        }, 1500);
     };
 
     // --- AI Assistant ("Operadora") Logic ---
