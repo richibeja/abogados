@@ -29,10 +29,27 @@
     <meta property="twitter:description" content="Abogados especializados en defensa del trabajador inmigrante en USA.">
     <meta property="twitter:image" content="https://defensalaboralusa.com/og-image.png">
 
+    <!-- Meta Pixel (Para bajar el costo por LPV) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(n,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '746330423266559'); // <--- ID ACTIVADO: latinas
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=746330423266559&ev=PageView&noscript=1"
+    /></noscript>
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0B1F4D">
 
-    <!-- Fonts -->
+    <!-- Pre-conectar fuentes (Velocidad) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -986,7 +1003,7 @@
     </footer>
 
     <!-- Floating AI Assistant ("Operadora") -->
-    <div id="ai-assistant" class="ai-assistant-wrap" style="position: fixed; bottom: 30px; right: 30px; z-index: 3000;">
+    <div id="ai-assistant" class="ai-assistant-wrap" style="position: fixed; bottom: 30px; left: 30px; z-index: 3000;">
         <div id="ai-bubble" class="ai-bubble" style="background: white; color: #0B1F4D; padding: 15px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 15px; max-width: 250px; font-weight: 600; position: relative; display: none;">
             <p id="ai-text">¡Hola! Soy tu asistente legal. ¿Cómo puedo ayudarte hoy?</p>
             <button onclick="readAloud()" style="background: none; border: none; color: #0B1F4D; font-size: 1.2rem; cursor: pointer; position: absolute; bottom: 5px; right: 10px;" title="Escuchar respuesta"><i class="fas fa-volume-up"></i></button>
@@ -1050,8 +1067,11 @@
             </div>
             <div style="padding: 1rem; border-top: 1px solid #e2e8f0;">
                 <form id="chat-form" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 8px;">
+                    <button type="button" onclick="startDictation()" style="background: #f1f5f9; color: #0B1F4D; border: 1px solid #cbd5e1; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;" title="Hablar a Hovanes">
+                        <i id="mic-icon" class="fas fa-microphone"></i>
+                    </button>
                     <input type="text" id="chat-input" placeholder="Escribe aquí tu problema..." required style="flex: 1; border: 1px solid #cbd5e1; border-radius: 25px; padding: 0.8rem 1.2rem; font-size: 0.9rem; outline: none;">
-                    <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;"><i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;" title="Enviar"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
@@ -1090,62 +1110,148 @@
             10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
             20%, 40%, 60%, 80% { transform: translateX(5px); }
         }
+        .support-bubble {
+            animation: none; /* Default no animation */
+        }
     </style>
 
     <script>
+        // --- CEREBRO INTELIGENTE DE HOVANES (KB de Guiones) ---
+        const chatbotBrain = {
+            'itin': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
+            'reembolso': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
+            'impuesto': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
+            'accidente': "Si sufrió una lesión o caída en el trabajo, gestionamos su Workers' Comp y todos sus gastos médicos sin importar su estatus migratorio. No deje que su patrón le niegue la atención que merece.",
+            'caida': "Si sufrió una lesión o caída en el trabajo, gestionamos su Workers' Comp y todos sus gastos médicos sin importar su estatus migratorio. No deje que su patrón le niegue la atención que merece.",
+            'despido': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
+            'pago': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
+            'sueldo': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
+            'papeles': "Nuestras leyes protegen al trabajador independientemente de su situación migratoria. Su información con nosotros es 100% confidencial y segura.",
+            'seguro': "Nuestras leyes protegen al trabajador independientemente de su situación migratoria. Su información con nosotros es 100% confidencial y segura.",
+            'california': "Atención especial en California: Usted tiene protecciones estatales robustas. Podemos radicar su caso hoy mismo.",
+            'texas': "Atención especial en Texas: El litigio laboral y la defensa del migrante son nuestra prioridad.",
+            'florida': "Atención especial en Florida: Contamos con socios abogados expertos en leyes de este estado.",
+            'codigo': "Su código DLU es su número único de radicado federal. Al abrir su expediente, recibirá este código para seguir su caso en tiempo real.",
+            'dlu': "Su código DLU es su número único de radicado federal. Al abrir su expediente, recibirá este código para seguir su caso en tiempo real."
+        };
+
+        const defaultResponse = "Como le dije anoche, he manejado casos idénticos y hemos ganado. Usted tiene derechos protegidos por ley federal. Para darle una solución técnica formal, hablemos por WhatsApp ahora para abrir su expediente.";
+
         function toggleChat() {
-            const window = document.getElementById('chat-window');
+            const windowObj = document.getElementById('chat-window');
             const bubble = document.getElementById('chat-bubble');
             const notification = document.getElementById('chat-notification');
-            if (window.style.display === 'none') {
-                window.style.display = 'block';
+            if (windowObj.style.display === 'none') {
+                windowObj.style.display = 'block';
                 notification.style.display = 'none';
+                bubble.style.animation = "none";
             } else {
-                window.style.display = 'none';
+                windowObj.style.display = 'none';
             }
         }
 
         function handleChatSubmit(e) {
-            e.preventDefault();
+            if (e) e.preventDefault();
             const input = document.getElementById('chat-input');
             const messages = document.getElementById('chat-messages');
             if (input.value.trim() === '') return;
 
+            const userText = input.value.toLowerCase();
+            
             // User Message
             const userMsg = document.createElement('div');
-            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 1rem; border-radius: 12px; max-width: 90%; align-self: flex-end; box-shadow: 0 2px 5px rgba(0,0,0,0.1);";
+            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 1rem; border-radius: 12px; max-width: 90%; align-self: flex-end; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 0.95rem;";
             userMsg.textContent = input.value;
             messages.appendChild(userMsg);
             
-            const userText = input.value;
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
 
-            // Bot response (Humanized)
+            // Intelligent Processing
+            let botResponse = defaultResponse;
+            for (let keyword in chatbotBrain) {
+                if (userText.includes(keyword)) {
+                    botResponse = "¡Excelente pregunta! " + chatbotBrain[keyword];
+                    break;
+                }
+            }
+
+            // Bot response (Humanized + VOICE)
             setTimeout(() => {
                 const botMsg = document.createElement('div');
-                botMsg.style.cssText = "background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);";
-                botMsg.innerHTML = `<strong>Hovanes:</strong> Entiendo perfectamente su situación con "${userText}". He manejado casos idénticos y hemos ganado. Para darle una respuesta legal formal, por favor <strong>hable conmigo ahora por WhatsApp</strong> para abrir su expediente.`;
+                botMsg.style.cssText = "background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-weight: 600; color: #1e293b; font-size: 0.95rem;";
+                botMsg.innerHTML = `<strong>Hovanes:</strong> ${botResponse}`;
                 messages.appendChild(botMsg);
                 
+                // --- VOICE ENGINE (TTS) ---
+                if ('speechSynthesis' in window) {
+                    const speechText = botResponse.replace('DLU', 'D L U');
+                    const utterance = new SpeechSynthesisUtterance(speechText);
+                    utterance.lang = 'es-US';
+                    utterance.rate = 1.0;
+                    window.speechSynthesis.speak(utterance);
+                }
+
                 const waLink = document.createElement('a');
-                waLink.href = "https://wa.me/18053080769?text=" + encodeURIComponent("Hola Hovanes, te escribí al chat de la web sobre: " + userText);
+                waLink.href = "https://wa.me/18053080769?text=" + encodeURIComponent("Hola Hovanes, te escribí al chat de la web sobre mi caso: " + userText);
                 waLink.target = "_blank";
-                waLink.style.cssText = "display: block; background: #25d366; color: white; text-align: center; padding: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; font-size: 0.85rem;";waLink.innerHTML = '<i class="fab fa-whatsapp"></i> HABLAR CON HOVANES AHORA';
+                waLink.style.cssText = "display: block; background: #25d366; color: white; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; font-size: 0.9rem; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);";
+                waLink.innerHTML = '<i class="fab fa-whatsapp"></i> HABLAR CON HOVANES (CONEXIÓN SEGURA)';
                 botMsg.appendChild(waLink);
                 
                 messages.scrollTop = messages.scrollHeight;
-            }, 1000);
+            }, 800);
         }
 
-        // Show welcome message after 8 seconds
-        setTimeout(() => {
-            const window = document.getElementById('chat-window');
-            const notification = document.getElementById('chat-notification');
-            if (window.style.display === 'none') {
-                notification.style.display = 'flex';
+        // --- SPEECH RECOGNITION (Escuchar al migrante) ---
+        function startDictation() {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'es-US';
+                recognition.interimResults = false;
+                
+                const micIcon = document.getElementById('mic-icon');
+                micIcon.style.color = "#ef4444"; // Red when listening
+                micIcon.classList.add('fa-pulse');
+
+                recognition.onresult = function(e) {
+                    const transcript = e.results[0][0].transcript;
+                    document.getElementById('chat-input').value = transcript;
+                    handleChatSubmit();
+                    micIcon.style.color = "#0B1F4D";
+                    micIcon.classList.remove('fa-pulse');
+                };
+
+                recognition.onerror = function() {
+                    micIcon.style.color = "#0B1F4D";
+                    micIcon.classList.remove('fa-pulse');
+                    alert("No se pudo escuchar. Intenta otra vez o escribe tu consulta.");
+                };
+
+                recognition.start();
+            } else {
+                alert("Tu navegador no soporta el dictado por voz.");
             }
-        }, 8000);
+        }
+
+        // Show welcome message after 5 seconds + Shake
+        setTimeout(() => {
+            const windowObj = document.getElementById('chat-window');
+            const notification = document.getElementById('chat-notification');
+            const bubble = document.getElementById('chat-bubble');
+            if (windowObj && windowObj.style.display === 'none') {
+                notification.style.display = 'flex';
+                bubble.style.animation = "shake 0.8s ease-in-out infinite";
+                
+                // Voice welcome
+                if ('speechSynthesis' in window) {
+                    const welcome = new SpeechSynthesisUtterance("¡Hola! Soy Hovanes Margarian. ¿Le han negado sus derechos laborales hoy? Hablemos.");
+                    welcome.lang = 'es-US';
+                    welcome.rate = 1.0;
+                    window.speechSynthesis.speak(welcome);
+                }
+            }
+        }, 6000);
     </script>
 
     <script type="module" src="main.js"></script>
