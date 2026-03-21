@@ -233,21 +233,25 @@ document.addEventListener('DOMContentLoaded', () => {
             potentialMsg.style.color = "#3b82f6";
         }
 
-        // --- Proactive Hovanes Trigger (CONVERSION FLOW) ---
+        // --- Proactive Tammy Trigger (CONVERSION FLOW) ---
         setTimeout(() => {
-            const hovanesBubble = document.getElementById('chat-bubble');
-            const hovanesNotif = document.getElementById('chat-notification');
-            const hovanesText = document.querySelector('.agent-status');
+            const tammyBubble = document.getElementById('v3-main-bubble');
+            const tammyNotif = document.getElementById('v3-notif-pill');
+            const tammyTooltip = document.getElementById('v3-bot-tooltip');
             
-            if (hovanesBubble && hovanesNotif) {
-                hovanesNotif.innerText = "1";
-                hovanesNotif.style.display = "flex";
-                hovanesText.innerText = "¡He visto tu cálculo!";
-                hovanesText.style.color = "#10b981";
+            if (tammyBubble && tammyNotif) {
+                tammyNotif.innerText = "1";
+                tammyNotif.style.display = "flex";
+                if(tammyTooltip) {
+                    tammyTooltip.innerHTML = '<i class="fas fa-hand-holding-usd" style="color:#0B1F4D;"></i> ¡Tu caso vale mucho dinero! Click aquí para iniciar el trámite.';
+                    tammyTooltip.style.background = "#10b981"; // Cambiar a verde de éxito
+                    tammyTooltip.style.borderColor = "#10b981";
+                    tammyTooltip.style.color = "white";
+                }
                 
                 // Add a little vibration effect
-                hovanesBubble.style.animation = "shake 0.5s ease-in-out infinite";
-                setTimeout(() => hovanesBubble.style.animation = "none", 3000);
+                tammyBubble.style.animation = "v3-shake 0.5s ease-in-out infinite";
+                setTimeout(() => tammyBubble.style.animation = "none", 4000);
             }
         }, 1500);
     };

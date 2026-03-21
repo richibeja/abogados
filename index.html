@@ -83,8 +83,11 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="fade-in">JUSTICIA PARA EL TRABAJADOR INMIGRANTE</h1>
+        
+        <div class="container hero-content" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; text-align: left; max-width: 1200px;">
+            <div class="hero-text-side" style="flex: 1; min-width: 300px; padding-top: 2rem;">
+        
+            <h1 class="fade-in">CALCULA CUÁNTO DINERO ESTÁS PERDIENDO</h1>
             <h2 class="fade-in delay-1" style="color: var(--primary); font-size: 1.8rem; margin-top: -10px; text-transform: uppercase;">¿Te accidentaste o te despidieron injustamente?</h2>
             <p class="fade-in delay-2">Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnización, salarios perdidos y gastos médicos.</p>
             <div class="hero-buttons fade-in delay-3">
@@ -96,6 +99,54 @@
             <div style="margin-top: 2rem; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(251, 191, 36, 0.3);">
                 <span class="pulse-dot"></span>
                 <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">⚠️ ÚLTIMOS <strong style="color: var(--primary);">4 CUPOS</strong> PARA ESTA SEMANA (CALIFORNIA OESTE)</span>
+            </div>
+        
+            </div>
+            <div class="hero-calc-side" style="flex: 1; min-width: 300px; z-index: 10; display: flex; justify-content: center; padding-top: 1rem;">
+                <div class="calculator-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; width: 100%; max-width: 400px; margin: 0 auto; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px);">
+                <h3 style="color: var(--primary); font-size: 1.2rem; margin-top: 0; text-align: center;">¿Cuánto Dinero Estás Perdiendo?</h3>
+<form id="calcForm" onsubmit="calculateCompensation(event)">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Sueldo por Hora (USD)</label>
+                        <input type="number" id="hourlyRate" placeholder="Ej: 15" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Horas por Semana</label>
+                        <input type="number" id="hoursPerWeek" placeholder="Ej: 40" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>Tiempo Trabajado (Años)</label>
+                        <input type="number" id="yearsWorked" placeholder="Ej: 2" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label>Tipo de Reclamación</label>
+                        <select id="claimType" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                            <option value="dismissal">Despido Injustificado</option>
+                            <option value="unpaid">Salarios / Horas Extra No Pagadas</option>
+                            <option value="accident">Accidente de Trabajo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary pulse-button" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        <i class="fas fa-calculator"></i> CALCULAR INDEMNIZACIÓN MÁXIMA
+                    </button>
+                    <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; text-align: center;">
+                        <i class="fas fa-certificate" style="color: var(--primary);"></i> 
+                        <strong>Incluso si no tiene documentos hoy, nosotros le ayudamos a recopilar las pruebas.</strong>
+                    </p>
+                </form>
+
+                <div id="calcResult" style="margin-top: 2rem; display: none; text-align: center; background: rgba(255,215,0,0.1); padding: 2rem; border-radius: 15px; border: 1px solid var(--primary); animation: fadeIn 0.5s ease;">
+                    <h4 style="margin:0; font-size: 0.9rem; letter-spacing: 1px;">POTENCIAL DE COMPENSACIÓN</h4>
+                    <div style="font-size: 2.8rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0;">
+                        $<span id="minAmount">0</span> - $<span id="maxAmount">0</span>*
+                    </div>
+                    <p id="potentialMsg" style="font-weight: 700; color: #10b981; margin-bottom: 1rem;"></p>
+                    <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">
+                        *Esta es una estimación base optimista. Un abogado especializado podría aumentar esta cifra significativamente tras evaluar su situación completa.
+                    </p>
+                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnización y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
+                </div>
+            </div>
             </div>
         </div>
         <!-- Decorative Elements -->
@@ -142,6 +193,11 @@
             </div>
         </div>
     </section>
+
+<!-- Compensation Calculator Section (NEW) -->
+    
+
+
 
     <!-- Destinations Section -->
     <section id="servicios" class="destinations">
@@ -550,60 +606,7 @@
         </div>
     </section>
 
-    <!-- Compensation Calculator Section (NEW) -->
-    <section id="calculadora" class="calculator-section" style="padding: 6rem 0; background: linear-gradient(135deg, #0B1F4D, #1e293b); color: white;">
-        <div class="container" style="max-width: 800px;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 class="section-title" style="color: var(--primary);">Calculadora de Compensación</h2>
-                <p style="color: var(--text-muted);">Estima cuánto podrías reclamar por tu caso. (Rango aproximado)</p>
-            </div>
-            
-            <div class="calculator-card" style="background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px);">
-                <form id="calcForm" onsubmit="calculateCompensation(event)">
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Sueldo por Hora (USD)</label>
-                        <input type="number" id="hourlyRate" placeholder="Ej: 15" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Horas por Semana</label>
-                        <input type="number" id="hoursPerWeek" placeholder="Ej: 40" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Tiempo Trabajado (Años)</label>
-                        <input type="number" id="yearsWorked" placeholder="Ej: 2" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 2rem;">
-                        <label>Tipo de Reclamación</label>
-                        <select id="claimType" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                            <option value="dismissal">Despido Injustificado</option>
-                            <option value="unpaid">Salarios / Horas Extra No Pagadas</option>
-                            <option value="accident">Accidente de Trabajo</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary pulse-button" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-calculator"></i> CALCULAR INDEMNIZACIÓN MÁXIMA
-                    </button>
-                    <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; text-align: center;">
-                        <i class="fas fa-certificate" style="color: var(--primary);"></i> 
-                        <strong>Incluso si no tiene documentos hoy, nosotros le ayudamos a recopilar las pruebas.</strong>
-                    </p>
-                </form>
-
-                <div id="calcResult" style="margin-top: 2rem; display: none; text-align: center; background: rgba(255,215,0,0.1); padding: 2rem; border-radius: 15px; border: 1px solid var(--primary); animation: fadeIn 0.5s ease;">
-                    <h4 style="margin:0; font-size: 0.9rem; letter-spacing: 1px;">POTENCIAL DE COMPENSACIÓN</h4>
-                    <div style="font-size: 2.8rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0;">
-                        $<span id="minAmount">0</span> - $<span id="maxAmount">0</span>*
-                    </div>
-                    <p id="potentialMsg" style="font-weight: 700; color: #10b981; margin-bottom: 1rem;"></p>
-                    <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">
-                        *Esta es una estimación base optimista. Un abogado especializado podría aumentar esta cifra significativamente tras evaluar su situación completa.
-                    </p>
-                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnización y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">*Este cálculo es una estimación base para tu reclamación. Se requiere un honorario de apertura para formalizar el expediente.</p>
-        </div>
-    </section>
+    
 
     <!-- Contact Form (Lead Capture) -->
     <section id="contacto" class="contact">
@@ -979,279 +982,197 @@
                     <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fas fa-headset"></i></div>
                     <h3>Atención Ininterrumpida 24/7</h3>
                     <p style="color: var(--text-muted); margin: 1rem 0;">
-                        Si nos contacta fuera de horario, nuestro sistema registrará su caso de inmediato. Un asesor senior revisará su información y le contactará en la primera hora del siguiente día hábil.
-                    </p>
-                    <a href="#contacto" class="btn primary">Dejar mis datos ahora</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer
-        style="background: #0f172a; padding: 2rem 0; text-align: center; color: #94a3b8; font-size: 0.8rem; border-top: 1px solid var(--glass-border);">
+                        Si nos contacta fuera de horario, nuestro sistema registrará su caso de inmediato. Un asesor senior revisará su información y le contactará en la primera hora del siguiente día h�    <!-- Footer -->
+    <footer style="background: #0f172a; padding: 3rem 0; text-align: center; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1);">
         <div class="container">
             <p>&copy; 2026 Defensa Laboral USA. Todos los derechos reservados.</p>
-            <div style="margin: 1rem 0; display: flex; justify-content: center; gap: 1.5rem;">
-                <a href="#" style="color: #cbd5e1; text-decoration: none;">Aviso Legal</a>
-                <a href="#" style="color: #cbd5e1; text-decoration: none;">Política de Privacidad</a>
+            <div style="margin: 1.5rem 0; display: flex; justify-content: center; gap: 2rem;">
+                <a href="#" style="color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='#cbd5e1'">Aviso Legal</a>
+                <a href="#" style="color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='#cbd5e1'">Política de Privacidad</a>
             </div>
-            <p style="max-width: 600px; margin: 0 auto; opacity: 0.7;">
-                <strong>Descargo de Responsabilidad:</strong> Defensa Laboral USA es una agencia privada de consultoría legal y no está afiliada con ningún gobierno. El código DLU es un número de referencia interno para el seguimiento de su caso con nuestros abogados asociados. Los resultados pueden variar según el caso.
+            <p style="max-width: 700px; margin: 0 auto; opacity: 0.7; line-height: 1.6;">
+                <strong>Descargo de Responsabilidad:</strong> Defensa Laboral USA es una agencia privada de consultoría legal y no está afiliada con ningún gobierno. El código DLU es un número de referencia para el seguimiento interno de casos con nuestros abogados asociados.
             </p>
         </div>
     </footer>
 
-    <!-- Floating AI Assistant ("Operadora") -->
-    <div id="ai-assistant" class="ai-assistant-wrap" style="position: fixed; bottom: 30px; left: 30px; z-index: 3000;">
-        <div id="ai-bubble" class="ai-bubble" style="background: white; color: #0B1F4D; padding: 15px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 15px; max-width: 250px; font-weight: 600; position: relative; display: none;">
-            <p id="ai-text">¡Hola! Soy tu asistente legal. ¿Cómo puedo ayudarte hoy?</p>
-            <button onclick="readAloud()" style="background: none; border: none; color: #0B1F4D; font-size: 1.2rem; cursor: pointer; position: absolute; bottom: 5px; right: 10px;" title="Escuchar respuesta"><i class="fas fa-volume-up"></i></button>
-        </div>
-        <button onclick="toggleAIAssistant()" class="ai-toggle-btn" style="width: 70px; height: 70px; border-radius: 50%; background: var(--primary); border: none; box-shadow: 0 10px 25px rgba(255,215,0,0.4); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
-            <i class="fas fa-headset" style="font-size: 2rem; color: #0B1F4D;"></i>
-        </button>
-    </div>
+    <!-- ===================================================
+         V3: SISTEMA UNIFICADO DE ASISTENCIA Y CONVERSIÓN
+         Hovanes (Izquierda) | WhatsApp (Derecha)
+         =================================================== -->
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/18053080769?text=Hola%2C%20necesito%20ayuda%20con%20mi%20caso%20laboral" target="_blank"
-       id="whatsapp-btn" class="whatsapp-m"
-       style="position: fixed; bottom: 115px; right: 30px; z-index: 3000; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(37,211,102,0.5); transition: transform 0.2s;"
+    <!-- WHATSAPP (DERECHA) -->
+    <a href="https://wa.me/18053080769?text=Hola%20Hovanes%2C%20necesito%20ayuda%20legal%20urgente" target="_blank"
+       style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,211,102,0.4); text-decoration: none; border: 2px solid white; transition: 0.3s; cursor: pointer;"
        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-        <i class="fab fa-whatsapp" style="font-size: 2rem; color: white;"></i>
+        <i class="fab fa-whatsapp" style="font-size: 2.2rem;"></i>
     </a>
 
-    <!-- Floating Chatbot Widget -->
-    <div id="chatbot-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-family: 'Open Sans', sans-serif;">
-        <!-- Chat Bubble -->
-        <div id="chat-bubble" onclick="toggleChat()" style="background: var(--accent-gold); width: 60px; height: 60px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: black; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
-            <i class="fas fa-comment-alt"></i>
-            <div id="chat-notification" style="position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
-        </div>
-
-        <!-- Chat Window -->
-        <div id="chat-window" style="display: none; position: absolute; bottom: 80px; right: 0; width: 320px; height: 450px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid var(--glass-border);">
-            <div style="background: var(--bg-dark); color: white; padding: 1.2rem; display: flex; align-items: center; gap: 10px;">
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: #16a34a;"></div>
-                <span style="font-weight: 600;">Asesoría 24/7 en línea</span>
-                <span onclick="toggleChat()" style="margin-left: auto; cursor: pointer; opacity: 0.8;">&times;</span>
-            </div>
-        <!-- CHAT DE SOPORTE INTEGRADO (EQUIPO DLU) -->
-    <div id="support-widget" class="support-widget">
-        <div class="support-bubble" id="chat-bubble" onclick="toggleChat()">
-            <img src="lawyer_hovanes.png" alt="Hovanes" class="agent-avatar">
-            <span class="online-indicator"></span>
-            <div class="support-text">
-                <span class="agent-name">Hovanes (DLU)</span>
-                <span class="agent-status">¿En qué te ayudo?</span>
-            </div>
-            <div id="chat-notification" style="position: absolute; top: -10px; right: -5px; background: #ef4444; color: white; width: 22px; height: 22px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; border: 2px solid white;">1</div>
-        </div>
-        
-        <div id="chat-window" class="support-panel" style="display: none;">
-            <div class="panel-header">
-                <img src="lawyer_hovanes.png" alt="Hovanes" class="panel-avatar">
-                <div class="panel-info">
-                    <strong>Hovanes Margarian</strong>
-                    <span>Asesor Legal en Línea</span>
+    <!-- HOVANES AI CHAT (IZQUIERDA) -->
+    <div id="hovanes-v3-root" style="position: fixed; bottom: 30px; left: 30px; z-index: 10000; font-family: 'Open Sans', sans-serif;">
+        <!-- Ventana de Chat -->
+        <div id="v3-chat-panel" style="display: none; position: absolute; bottom: 85px; left: 0; width: 350px; height: 500px; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); flex-direction: column; overflow: hidden; border: 1px solid #e2e8f0; animation: v3-slide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+            <!-- Cabecera -->
+            <div style="background: #0B1F4D; color: white; padding: 1.2rem; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid #fbbf24;">
+                <div style="width: 45px; height: 45px; border-radius: 50%; background: #fbbf24; border: 2px solid white; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="lawyer_tammy.png" alt="Tammy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="width: 100%; height: 100%; object-fit: cover;">
+                    <i class="fas fa-user-tie" style="display: none; color: #0B1F4D; font-size: 1.5rem;"></i>
                 </div>
-                <button onclick="toggleChat()" class="close-panel">&times;</button>
-            </div>
-            <div id="chat-messages" style="padding: 1.2rem; height: 320px; overflow-y: auto; background: #f8fafc; font-size: 0.9rem; display: flex; flex-direction: column; gap: 1rem;">
-                <div style="background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    ¡Hola! Soy <strong>Hovanes Margarian</strong>. He defendido a cientas de familias en casos como el tuyo. <strong>¿Sabías que podrías recibir una indemnización de miles de dólares por tu trabajo?</strong>
+                <div>
+                    <h4 style="margin: 0; font-size: 1rem; font-weight: 800;">Abogada Tammy</h4>
+                    <span style="font-size: 0.75rem; color: #94a3b8;"><i class="fas fa-circle" style="color: #10b981; font-size: 0.6rem;"></i> Abogada Asociada DLU</span>
                 </div>
-                <div style="background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    Dime, ¿qué problema tienes hoy con tu empresa o jefe? Te escucho.
-                </div>
+                <button onclick="toggleTammyV3()" style="margin-left: auto; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
             </div>
-            <div style="padding: 1rem; border-top: 1px solid #e2e8f0;">
-                <form id="chat-form" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 8px;">
-                    <button type="button" onclick="startDictation()" style="background: #f1f5f9; color: #0B1F4D; border: 1px solid #cbd5e1; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;" title="Hablar a Hovanes">
-                        <i id="mic-icon" class="fas fa-microphone"></i>
-                    </button>
-                    <input type="text" id="chat-input" placeholder="Escribe aquí tu problema..." required style="flex: 1; border: 1px solid #cbd5e1; border-radius: 25px; padding: 0.8rem 1.2rem; font-size: 0.9rem; outline: none;">
-                    <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; transition: 0.2s;" title="Enviar"><i class="fas fa-paper-plane"></i></button>
+            <!-- Mensajes -->
+            <div id="v3-messages-area" style="flex: 1; overflow-y: auto; padding: 1.2rem; display: flex; flex-direction: column; gap: 1rem; background: #f8fafc;">
+                <!-- Conversation Starts via JS -->
+            </div>
+            <!-- Input -->
+            <div style="padding: 1rem; border-top: 1px solid #e2e8f0; background: white;">
+                <form onsubmit="handleV3Submit(event)" style="display: flex; gap: 8px; align-items: center;">
+                    <button type="button" id="v3-mic-btn" onclick="startV3Dictation()" style="background: #f1f5f9; color: #0B1F4D; border: 1px solid #cbd5e1; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i id="v3-mic-icon" class="fas fa-microphone"></i></button>
+                    <input type="text" id="v3-chat-input" placeholder="Escriba su problema aquí..." required style="flex: 1; border: 2px solid #e2e8f0; border-radius: 20px; padding: 0.7rem 1rem; outline: none;">
+                    <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
+        </div>
+        <!-- Burbuja -->
+        
+        <!-- Texto explicativo junto a la burbuja para mayor visibilidad -->
+        <div id="v3-bot-tooltip" onclick="toggleTammyV3()" style="position: absolute; left: 100%; margin-left: 15px; top: 15px; background: white; padding: 10px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-size: 0.85rem; font-weight: bold; color: #0B1F4D; display: flex; align-items: center; gap: 8px; cursor: pointer; white-space: nowrap; animation: v3-slide 0.5s ease-out; border: 2px solid #fbbf24; background: #fbbf24;;">
+            ¡Consulta Gratis! Click aquí <i class="fas fa-hand-pointer" style="margin-left: 5px; color: #0B1F4D; animation: v3-shake 1s infinite;"></i>
+        </div>
+        <div id="v3-main-bubble" onclick="toggleTammyV3()" style="width: 70px; height: 70px; border-radius: 50%; background: #0B1F4D; border: 3px solid #fbbf24; box-shadow: 0 10px 30px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                <img src="lawyer_tammy.png" alt="Tammy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="width: 100%; height: 100%; object-fit: cover;">
+                <i class="fas fa-user-shield" style="display: none; color: #0B1F4D; font-size: 2rem;"></i>
+            </div>
+            <div id="v3-notif-pill" style="position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; min-width: 22px; height: 22px; border-radius: 50%; font-size: 0.75rem; font-weight: 800; display: none; align-items: center; justify-content: center; border: 2px solid white; animation: v3-pulse 2s infinite;">1</div>
         </div>
     </div>
 
     <style>
-        .support-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; }
-        .support-bubble { background: white; padding: 8px 18px 8px 8px; border-radius: 50px; display: flex; align-items: center; gap: 12px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: 0.3s; border: 1px solid #e2e8f0; position: relative; }
-        .support-bubble:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-        .agent-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #fbbf24; }
-        .online-indicator { position: absolute; bottom: 8px; left: 42px; width: 14px; height: 14px; background: #10b981; border: 2px solid white; border-radius: 50%; }
-        .support-text { display: flex; flex-direction: column; }
-        .agent-name { font-size: 0.9rem; font-weight: 800; color: #0B1F4D; }
-        .agent-status { font-size: 0.75rem; color: #64748b; font-weight: 600; }
-
-        .support-panel { position: absolute; bottom: 80px; right: 0; width: 340px; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.25); overflow: hidden; animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        
-        .panel-header { background: #0B1F4D; color: white; padding: 20px; display: flex; align-items: center; gap: 15px; position: relative; }
-        .panel-avatar { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #fbbf24; }
-        .panel-info { display: flex; flex-direction: column; }
-        .panel-info strong { font-size: 1rem; }
-        .panel-info span { font-size: 0.8rem; color: #94a3b8; }
-        .close-panel { position: absolute; top: 18px; right: 20px; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; opacity: 0.6; transition: 0.3s; }
-        .close-panel:hover { opacity: 1; transform: rotate(90deg); }
-
-        @media (max-width: 480px) {
-            .support-widget { bottom: 20px; right: 20px; }
-            .support-bubble .support-text { display: none; }
-            .support-panel { width: 300px; bottom: 75px; }
-        }
-
-        /* Animations */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        .support-bubble {
-            animation: none; /* Default no animation */
-        }
+        @keyframes v3-pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        @keyframes v3-shake { 0%, 100% { transform: rotate(0deg); } 10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); } 20%, 40%, 60%, 80% { transform: rotate(10deg); } }
+        @keyframes v3-slide { from { opacity: 0; transform: translateY(50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        #v3-main-bubble:hover { transform: scale(1.1); }
     </style>
 
     <script>
-        // --- CEREBRO INTELIGENTE DE HOVANES (KB de Guiones) ---
-        const chatbotBrain = {
-            'itin': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
-            'reembolso': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
-            'impuesto': "Muchos trabajadores pierden hasta $7,000 dólares en reembolsos federales porque creen que sin Seguro Social no pueden reclamar. ¡Eso es falso! Si usted trabaja con ITIN y tiene hijos, esos reembolsos le pertenecen por derecho legal.",
-            'accidente': "Si sufrió una lesión o caída en el trabajo, gestionamos su Workers' Comp y todos sus gastos médicos sin importar su estatus migratorio. No deje que su patrón le niegue la atención que merece.",
-            'caida': "Si sufrió una lesión o caída en el trabajo, gestionamos su Workers' Comp y todos sus gastos médicos sin importar su estatus migratorio. No deje que su patrón le niegue la atención que merece.",
-            'despido': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
-            'pago': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
-            'sueldo': "El despido injustificado es ilegal. Reclamamos su indemnización completa y todos sus salarios caídos. Contamos con abogados con licencia vigente en varios estados para defenderle.",
-            'papeles': "Nuestras leyes protegen al trabajador independientemente de su situación migratoria. Su información con nosotros es 100% confidencial y segura.",
-            'seguro': "Nuestras leyes protegen al trabajador independientemente de su situación migratoria. Su información con nosotros es 100% confidencial y segura.",
-            'california': "Atención especial en California: Usted tiene protecciones estatales robustas. Podemos radicar su caso hoy mismo.",
-            'texas': "Atención especial en Texas: El litigio laboral y la defensa del migrante son nuestra prioridad.",
-            'florida': "Atención especial en Florida: Contamos con socios abogados expertos en leyes de este estado.",
-            'codigo': "Su código DLU es su número único de radicado federal. Al abrir su expediente, recibirá este código para seguir su caso en tiempo real.",
-            'dlu': "Su código DLU es su número único de radicado federal. Al abrir su expediente, recibirá este código para seguir su caso en tiempo real."
-        };
+        const v3Knowledge = {
+            'atiend': "Sí, nosotros le atendemos directamente. Somos una firma legal de California con abogados en todo el país. Su consulta de hoy no tiene costo.",
+            'ayuda': "Sí, estamos aquí para ayudarle con procesos contra despidos injustos, falta de pago o accidentes laborales. ¿En qué estado se encuentra?",
+            'hola': "¡Hola! Bienvenido. Soy la abogada Tammy. Con gusto analizo su situación laboral sin costo. ¿Qué ocurrió en su trabajo?",
+            'buenos dias': "¡Buenos días! Soy la abogada Tammy. Estoy listo para revisar su caso laboral de manera gratuita. ¿En qué le puedo servir hoy?",
+            'buenas tardes': "¡Buenas tardes! Soy la abogada Tammy. Mi equipo y yo estamos listos para defender sus derechos laborales. Cuénteme su problema.",
+            'itin': "Si trabaja con ITIN y tiene hijos, protegemos su derecho a recuperar hasta $7,000 en reembolsos federales. No necesita Seguro Social para reclamar lo que es suyo.",
+            'accidente': "Un accidente laboral ignorado es una injusticia. Gestionamos su Workers' Comp y atención médica completa sin importar su estatus migratorio.",
+            'despido': "El despido injustificado es ilegal. Reclamamos su indemnización y salarios caídos bajo ley federal. Luchamos hasta el final por su familia.",
+            'papeles': "Nuestras leyes protegen al trabajador independientemente de su situación migratoria. Su información con nosotros es 100% confidencial.",
+            'dlu': "Su código DLU es su número único de radicado federal. Es la prueba técnica de que su defensa legal ha comenzado formalmente.",
+            'gratis': "Nuestra consulta es 100% gratuita y totalmente confidencial. Solo cobramos si usted gana su caso. ¡No tiene nada que perder y mucho que ganar!",
+            'costo': "Nuestra consulta es 100% gratuita y confidencial. Solo cobramos si ganamos su caso. ¡No tiene nada que perder!",
+            'pagar': "Usted no paga nada por la consulta. Nuestra asesoría legal es gratuita y si tomamos su caso, solo cobramos si lo ganamos.",
+            'calcula': "Aquí en nuestra plataforma tenemos una Calculadora de Salarios para estimar cuánto dinero está perdiendo en horas extras o abusos. ¡Le ayudamos a hacer cuentas!",
+            'servicios': "Defendemos a trabajadores en casos de despido injusto, accidentes, falta de pago en horas extras y discriminación o reclamos de ITIN.",
+            'empleo': "Si abusaron de usted en su empleo, ya sea con despidos o sin pagarle lo justo, nosotros lo representamos ante la ley federal.",
+            'dinero': "Si sufrió un accidente o le negaron sus derechos, es posible que esté perdiendo miles de dólares en compensación. Nosotros llevamos las pruebas ante la corte.",
+            'hora': "La ley federal exige el pago de tiempo y medio por cada hora extra después de las 40 horas semanales. Reclamamos cada centavo que le deben.",
+            'discrimin': "La discriminación en el trabajo por nacionalidad o género es ilegal en EE. UU. Nadie debe tolerar abusos."};
 
-        const defaultResponse = "Como le dije anoche, he manejado casos idénticos y hemos ganado. Usted tiene derechos protegidos por ley federal. Para darle una solución técnica formal, hablemos por WhatsApp ahora para abrir su expediente.";
-
-        function toggleChat() {
-            const windowObj = document.getElementById('chat-window');
-            const bubble = document.getElementById('chat-bubble');
-            const notification = document.getElementById('chat-notification');
-            if (windowObj.style.display === 'none') {
-                windowObj.style.display = 'block';
-                notification.style.display = 'none';
-                bubble.style.animation = "none";
-            } else {
-                windowObj.style.display = 'none';
-            }
+        function toggleTammyV3() {
+            const p = document.getElementById('v3-chat-panel');
+            const n = document.getElementById('v3-notif-pill');
+            const b = document.getElementById('v3-main-bubble');
+            if (p.style.display === 'none') {
+                p.style.display = 'flex';
+                n.style.display = 'none';
+                b.style.animation = "none";
+                if (document.getElementById('v3-messages-area').children.length === 0) {
+                    const wt = "¡Hola! Soy Abogada Tammy. ¿Le han negado sus derechos laborales hoy? ¿O busca recuperar los $7,000 por ITIN? Hábleme o use el micrófono.";
+                    v3AppendBot(wt);
+                    v3SpeakNow(wt);
+                }
+            } else { p.style.display = 'none'; }
         }
 
-        function handleChatSubmit(e) {
+        function v3AppendBot(txt) {
+            const a = document.getElementById('v3-messages-area');
+            const d = document.createElement('div');
+            d.style.cssText = "background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; font-weight: 600; font-size: 0.95rem; color: #1e293b; box-shadow: 0 4px 10px rgba(0,0,0,0.05);";
+            d.innerHTML = `<strong>Tammy:</strong> ${txt}`;
+            a.appendChild(d);
+            a.scrollTop = a.scrollHeight;
+        }
+
+        function handleV3Submit(e) {
             if (e) e.preventDefault();
-            const input = document.getElementById('chat-input');
-            const messages = document.getElementById('chat-messages');
-            if (input.value.trim() === '') return;
+            const i = document.getElementById('v3-chat-input');
+            const a = document.getElementById('v3-messages-area');
+            if (!i.value.trim()) return;
+            const uv = i.value;
+            const um = document.createElement('div');
+            um.style.cssText = "background: #0B1F4D; color: white; padding: 1rem; border-radius: 12px; max-width: 85%; align-self: flex-end; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);";
+            um.textContent = uv;
+            a.appendChild(um);
+            i.value = '';
+            a.scrollTop = a.scrollHeight;
 
-            const userText = input.value.toLowerCase();
-            
-            // User Message
-            const userMsg = document.createElement('div');
-            userMsg.style.cssText = "background: #0B1F4D; color: white; padding: 1rem; border-radius: 12px; max-width: 90%; align-self: flex-end; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 0.95rem;";
-            userMsg.textContent = input.value;
-            messages.appendChild(userMsg);
-            
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
+            let r = "Entiendo perfectamente su situación. Por favor hable conmigo por WhatsApp para empezar una consulta gratuita y estudiar su caso. Recuerde que esto no tiene costo.";
+            const l = uv.toLowerCase();
+            for (let k in v3Knowledge) { if (l.includes(k)) { r = "¡Excelente pregunta! " + v3Knowledge[k]; break; } }
 
-            // Intelligent Processing
-            let botResponse = defaultResponse;
-            for (let keyword in chatbotBrain) {
-                if (userText.includes(keyword)) {
-                    botResponse = "¡Excelente pregunta! " + chatbotBrain[keyword];
-                    break;
-                }
-            }
-
-            // Bot response (Humanized + VOICE)
             setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.style.cssText = "background: white; padding: 1rem; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 90%; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-weight: 600; color: #1e293b; font-size: 0.95rem;";
-                botMsg.innerHTML = `<strong>Hovanes:</strong> ${botResponse}`;
-                messages.appendChild(botMsg);
-                
-                // --- VOICE ENGINE (TTS) ---
-                if ('speechSynthesis' in window) {
-                    const speechText = botResponse.replace('DLU', 'D L U');
-                    const utterance = new SpeechSynthesisUtterance(speechText);
-                    utterance.lang = 'es-US';
-                    utterance.rate = 1.0;
-                    window.speechSynthesis.speak(utterance);
-                }
-
-                const waLink = document.createElement('a');
-                waLink.href = "https://wa.me/18053080769?text=" + encodeURIComponent("Hola Hovanes, te escribí al chat de la web sobre mi caso: " + userText);
-                waLink.target = "_blank";
-                waLink.style.cssText = "display: block; background: #25d366; color: white; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; font-size: 0.9rem; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);";
-                waLink.innerHTML = '<i class="fab fa-whatsapp"></i> HABLAR CON HOVANES (CONEXIÓN SEGURA)';
-                botMsg.appendChild(waLink);
-                
-                messages.scrollTop = messages.scrollHeight;
-            }, 800);
+                v3AppendBot(r);
+                v3SpeakNow(r);
+                const w = document.createElement('a');
+                w.href = "https://wa.me/18053080769?text=" + encodeURIComponent("Tammy, te hablé por el chat sobre: " + uv);
+                w.target = "_blank";
+                w.style.cssText = "display: block; background: #25d366; color: white; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 800; margin-top: 10px; font-size: 0.85rem; border: 2px solid white; box-shadow: 0 5px 15px rgba(37,211,102,0.3);";
+                w.innerHTML = '<i class="fab fa-whatsapp"></i> INICIAR CONSULTA GRATUITA';
+                a.lastChild.appendChild(w);
+                a.scrollTop = a.scrollHeight;
+            }, 900);
         }
 
-        // --- SPEECH RECOGNITION (Escuchar al migrante) ---
-        function startDictation() {
+        function v3SpeakNow(t) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(t.replace('DLU', 'D L U').replace('$', 'dólares '));
+                u.lang = 'es-US';
+                u.rate = 1.0;
+                window.speechSynthesis.speak(u);
+            }
+        }
+
+        window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+        function startV3Dictation() {
             if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.lang = 'es-US';
-                recognition.interimResults = false;
-                
-                const micIcon = document.getElementById('mic-icon');
-                micIcon.style.color = "#ef4444"; // Red when listening
-                micIcon.classList.add('fa-pulse');
-
-                recognition.onresult = function(e) {
-                    const transcript = e.results[0][0].transcript;
-                    document.getElementById('chat-input').value = transcript;
-                    handleChatSubmit();
-                    micIcon.style.color = "#0B1F4D";
-                    micIcon.classList.remove('fa-pulse');
-                };
-
-                recognition.onerror = function() {
-                    micIcon.style.color = "#0B1F4D";
-                    micIcon.classList.remove('fa-pulse');
-                    alert("No se pudo escuchar. Intenta otra vez o escribe tu consulta.");
-                };
-
-                recognition.start();
-            } else {
-                alert("Tu navegador no soporta el dictado por voz.");
+                const rec = new webkitSpeechRecognition();
+                rec.lang = 'es-US';
+                const i = document.getElementById('v3-mic-icon');
+                i.style.color = "red";
+                rec.onresult = (e) => { document.getElementById('v3-chat-input').value = e.results[0][0].transcript; handleV3Submit(); };
+                rec.onend = () => { i.style.color = "#0B1F4D"; };
+                rec.start();
             }
         }
 
-        // Show welcome message after 5 seconds + Shake
         setTimeout(() => {
-            const windowObj = document.getElementById('chat-window');
-            const notification = document.getElementById('chat-notification');
-            const bubble = document.getElementById('chat-bubble');
-            if (windowObj && windowObj.style.display === 'none') {
-                notification.style.display = 'flex';
-                bubble.style.animation = "shake 0.8s ease-in-out infinite";
-                
-                // Voice welcome
+            const p = document.getElementById('v3-chat-panel');
+            const n = document.getElementById('v3-notif-pill');
+            const b = document.getElementById('v3-main-bubble');
+            if (p && p.style.display === 'none') {
+                n.style.display = 'flex';
+                b.style.animation = "v3-shake 0.8s ease-in-out infinite";
                 if ('speechSynthesis' in window) {
-                    const welcome = new SpeechSynthesisUtterance("¡Hola! Soy Hovanes Margarian. ¿Le han negado sus derechos laborales hoy? Hablemos.");
-                    welcome.lang = 'es-US';
-                    welcome.rate = 1.0;
-                    window.speechSynthesis.speak(welcome);
+                    const wel = new SpeechSynthesisUtterance("¡Hola! Soy la abogada Abogada Tammy. ¿Le han negado sus derechos laborales hoy? Hablemos.");
+                    wel.lang = 'es-US';
+                    window.speechSynthesis.speak(wel);
                 }
             }
-        }, 6000);
+        }, 8000);
     </script>
 
     <script type="module" src="main.js"></script>
@@ -1259,6 +1180,13 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW Registered', reg))
+                    .catch(err => console.log('SW Error', err));
+            });
+        }
+    </script>
+</body>
+</html>ceWorker.register('./sw.js')
                     .then(reg => console.log('SW Registered', reg))
                     .catch(err => console.log('SW Error', err));
             });
