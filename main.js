@@ -145,28 +145,57 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('dlu_cases_v2', JSON.stringify(currentCases));
         // -------------------------------------
 
-        // Show Success Message with Code
-        leadForm.innerHTML = `
-            <div style="text-align: center; padding: 2rem;">
-                <div style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h3 style="color: #fff; margin-bottom: 0.5rem;">Expediente Iniciado</h3>
-                <p style="color: #94a3b8; margin-bottom: 1.5rem;">Excelente ${data.name}. Se ha generado tu código DLU. Nuestro equipo jurídico revisará tu información sin costo para verificar la viabilidad total de realizar una reclamación federal.</p>
-                
-                <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid var(--primary); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
-                    <p style="color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">CÓDIGO DE SEGUIMIENTO:</p>
-                    <div style="font-size: 2rem; font-weight: 800; color: var(--primary); letter-spacing: 2px;">${trackingCode}</div>
-                    <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.5rem;">
-                        <i class="fas fa-shield-alt"></i> Proceso supervisado legalmente.
-                    </p>
-                </div>
+        // Show Loading State
+        const submitBtn = leadForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO EXPEDIENTE...';
 
-                <p style="color: #94a3b8; font-size: 0.9rem;">Guarda este código. Uno de nuestros abogados asociados lo solicitará para iniciar tu trámite.</p>
-                
-                <button onclick="location.reload()" class="btn-primary" style="margin-top: 2rem;">Volver al Inicio</button>
-            </div>
-        `;
+        // Add tracking code to form data
+        formData.append('case_tracking_code', trackingCode);
+
+        // SEND DATA TO FORMSPREE (Using richardbejarano52@gmail.com as endpoint)
+        fetch('https://formspree.io/f/richardbejarano52@gmail.com', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Show Success Message with Code
+                leadForm.innerHTML = `
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 style="color: #fff; margin-bottom: 0.5rem;">Expediente Enviado con Éxito</h3>
+                        <p style="color: #94a3b8; margin-bottom: 1.5rem;">Excelente ${data.name}. Hemos recibido tus pruebas. Nuestro equipo jurídico revisará tu información sin costo para verificar la viabilidad total de realizar una reclamación federal.</p>
+                        
+                        <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid var(--primary); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                            <p style="color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">CÓDIGO DE SEGUIMIENTO:</p>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--primary); letter-spacing: 2px;">${trackingCode}</div>
+                            <p style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.5rem;">
+                                <i class="fas fa-shield-alt"></i> Proceso supervisado legalmente.
+                            </p>
+                        </div>
+        
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Guarda este código. Uno de nuestros abogados asociados lo solicitará para iniciar tu trámite oficial.</p>
+                        
+                        <button onclick="location.reload()" class="btn-primary" style="margin-top: 2rem;">Volver al Inicio</button>
+                    </div>
+                `;
+            } else {
+                alert('Hubo un error al enviar el expediente. Por favor intenta de nuevo.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('Error de conexión. Intente nuevamente.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
     });
 
     // --- Smooth Scroll for Anchor Links ---
