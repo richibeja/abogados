@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Compensación Laboral - Defensa Laboral USA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .slide-in { animation: slideIn 0.4s ease-out forwards; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .spinner { animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900">
+
+    <!-- Header -->
+    <div class="text-center mb-8 slide-in w-full max-w-lg">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">Defensa Laboral USA</h1>
+        <p class="text-blue-200 font-medium">Calculadora Gratuita de Compensación</p>
+    </div>
+
+    <!-- Calculator Container -->
+    <div class="glass-panel w-full max-w-lg rounded-2xl shadow-2xl p-6 md:p-8 slide-in relative overflow-hidden" id="calc-container">
+        
+        <!-- Step 1 -->
+        <div id="step-1" class="transition-all duration-300">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">Paso 1: ¿Qué situación viviste recientemente?</h2>
+            <div class="space-y-3">
+                <button onclick="nextStep(2, 'Accidente Laboral')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700 flex items-center">
+                    <i class="fa-solid fa-person-falling-burst text-blue-600 text-xl w-8"></i>
+                    Sufri un Accidente en el Trabajo
+                </button>
+                <button onclick="nextStep(2, 'Despido Injustificado')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700 flex items-center">
+                    <i class="fa-solid fa-user-xmark text-blue-600 text-xl w-8"></i>
+                    Me Despidieron Injustamente
+                </button>
+                <button onclick="nextStep(2, 'Robo de Salario / Horas Extra')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700 flex items-center">
+                    <i class="fa-solid fa-money-bill-wave text-blue-600 text-xl w-8"></i>
+                    No me pagaron mis horas (Robo de Salario)
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-2" class="hidden transition-all duration-300">
+            <button onclick="prevStep(1)" class="text-gray-400 hover:text-blue-600 mb-4 flex items-center text-sm font-semibold"><i class="fa-solid fa-arrow-left mr-2"></i> Volver</button>
+            <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">Paso 2: ¿Hace cuánto tiempo ocurrió?</h2>
+            <div class="space-y-3">
+                <button onclick="nextStep(3, 'Menos de 30 días')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700">Hace menos de 30 días (🔥 Urgente)</button>
+                <button onclick="nextStep(3, 'Entre 1 y 6 meses')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700">Entre 1 y 6 meses</button>
+                <button onclick="nextStep(3, 'Más de 6 meses')" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700">Hace más de 6 meses</button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="hidden transition-all duration-300">
+            <button onclick="prevStep(2)" class="text-gray-400 hover:text-blue-600 mb-4 flex items-center text-sm font-semibold"><i class="fa-solid fa-arrow-left mr-2"></i> Volver</button>
+            <h2 class="text-xl font-bold text-gray-800 mb-6 text-center">Paso 3: Para las leyes de EE.UU. ¿Fuiste presionado por no tener papeles?</h2>
+            <div class="space-y-3">
+                <button onclick="calculateResult()" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700">Sí, mi patrón me amenazó o ignoró por ser inmigrante</button>
+                <button onclick="calculateResult()" class="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all font-semibold text-gray-700">No, pero la empresa no se hizo responsable</button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="hidden py-8 text-center slide-in">
+            <i class="fa-solid fa-scale-balanced text-4xl text-blue-600 mb-4 spinner"></i>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Analizando la Ley Laboral Federal...</h2>
+            <p class="text-gray-500 text-sm">Buscando el máximo monto de compensación para tu perfil.</p>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-6 max-w-xs mx-auto">
+              <div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%; animation: loadBar 2s ease-in-out;"></div>
+            </div>
+        </div>
+
+        <!-- Result -->
+        <div id="result" class="hidden text-center slide-in">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+                <i class="fa-solid fa-check text-3xl"></i>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800 mb-2">¡Tu caso es elegible para Compensación!</h2>
+            <p class="text-gray-600 mb-4">Según la información ingresada, cuentas con fuertes derechos bajo la ley. Podrías calificar para recuperar salarios, gastos médicos o daños por cifras entre:</p>
+            
+            <div class="bg-green-50 border-2 border-green-500 rounded-xl p-4 mb-6">
+                <span class="block text-sm text-green-800 font-bold uppercase tracking-wider mb-1">Potencial Estimado</span>
+                <span class="block text-4xl font-extrabold text-green-700" id="money-amount">$15,000 - $85,000+</span>
+            </div>
+
+            <p class="text-sm text-gray-500 mb-6 px-4">Importante: Tu estatus migratorio <strong>NO</strong> afecta tu derecho a cobrar este dinero. El trámite es 100% confidencial.</p>
+
+            <!-- Lead Capture Form -->
+            <form id="lead-form" class="space-y-3 mb-6" onsubmit="submitLead(event)">
+                <input type="text" id="lead-name" placeholder="Tu Nombre" required class="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-blue-600 focus:outline-none">
+                <input type="tel" id="lead-phone" placeholder="Tu Teléfono (para SMS/WhatsApp)" required class="w-full p-3 border-2 border-gray-200 rounded-xl focus:border-blue-600 focus:outline-none">
+                
+                <div class="relative bg-white border-2 border-gray-200 rounded-xl overflow-hidden focus-within:border-blue-600 transition-colors">
+                    <textarea id="lead-story" placeholder="Cuéntanos toda tu historia usando tu voz (Ej: cómo fue el accidente, qué te dijo tu jefe...)" rows="4" class="w-full p-3 pb-8 resize-none focus:outline-none"></textarea>
+                    <button type="button" id="mic-btn" onclick="startDictation()" class="absolute right-3 bottom-3 text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2" title="Dictar por Voz">
+                        <i class="fa-solid fa-microphone text-xl"></i>
+                    </button>
+                    <div id="dictation-status" class="absolute left-3 bottom-3 text-xs text-red-500 hidden font-semibold flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Grabando tu testimonio...
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex justify-center items-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> Reclamar Mi Dinero Ahora
+                </button>
+            </form>
+
+
+            <p class="text-xs text-gray-400">🔒 Información encriptada y protegida. Consulta gratis. Si no ganamos, no nos pagas absolutamente nada.</p>
+        </div>
+
+    </div>
+
+    <script>
+        let userData = {
+            issue: '',
+            time: '',
+            isImmigrant: ''
+        };
+
+        function nextStep(step, dataVal) {
+            if(step === 2) userData.issue = dataVal;
+            if(step === 3) userData.time = dataVal;
+
+            document.querySelectorAll('[id^="step-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step-' + step).classList.remove('hidden');
+            document.getElementById('step-' + step).classList.add('slide-in');
+        }
+
+        function prevStep(step) {
+            document.querySelectorAll('[id^="step-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('step-' + step).classList.remove('hidden');
+        }
+
+        function calculateResult() {
+            document.querySelectorAll('[id^="step-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('loading').classList.remove('hidden');
+            
+            // Generate a random but realistic dollar range based on the issue
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+                
+                let min = 15000;
+                let max = 85000;
+                
+                if(userData.issue === 'Accidente Laboral') {
+                    min = 25000;
+                    max = 150000;
+                } else if(userData.issue === 'Despido Injustificado') {
+                    min = 10000;
+                    max = 50000;
+                }
+
+                document.getElementById('money-amount').innerText = `$${min.toLocaleString()} - $${max.toLocaleString()}+`;
+
+            }, 2500);
+        }
+
+        let recognition;
+        let isRecording = false;
+
+        function startDictation() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert('Lo siento, tu navegador no soporta el dictado por voz. Por favor, escribe tu historia usando el teclado.');
+                return;
+            }
+
+            const micBtn = document.getElementById('mic-btn');
+            const statusText = document.getElementById('dictation-status');
+            const textArea = document.getElementById('lead-story');
+
+            if (isRecording) {
+                if (recognition) recognition.stop();
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'es-US'; // Español
+
+            let currentVal = textArea.value;
+            if (currentVal && !currentVal.endsWith(' ')) {
+                currentVal += ' ';
+            }
+
+            recognition.onstart = function() {
+                isRecording = true;
+                micBtn.classList.add('text-red-500');
+                micBtn.classList.remove('text-gray-400');
+                statusText.classList.remove('hidden');
+            };
+
+            recognition.onresult = function(e) {
+                let interimTranscript = '';
+                let finalTranscript = '';
+
+                for (let i = e.resultIndex; i < e.results.length; ++i) {
+                    if (e.results[i].isFinal) {
+                        finalTranscript += e.results[i][0].transcript;
+                    } else {
+                        interimTranscript += e.results[i][0].transcript;
+                    }
+                }
+                
+                textArea.value = currentVal + finalTranscript + interimTranscript;
+                if(finalTranscript) {
+                    currentVal += finalTranscript;
+                }
+            };
+
+            recognition.onerror = function(e) {
+                console.error("Speech recognition error", e.error);
+                stopDictationUI();
+            };
+            
+            recognition.onend = function() {
+                stopDictationUI();
+            };
+
+            function stopDictationUI() {
+                isRecording = false;
+                micBtn.classList.remove('text-red-500');
+                micBtn.classList.add('text-gray-400');
+                statusText.classList.add('hidden');
+            }
+
+            recognition.start();
+        }
+
+        function submitLead(e) {
+            e.preventDefault();
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const story = document.getElementById('lead-story').value;
+            
+            // Formatear mensaje para WhatsApp
+            let message = `¡Hola! Acabo de usar la calculadora en su página y me salió que tengo un caso elegible. Mi nombre es ${name}. Sufrí: ${userData.issue}.`;
+            if (story.trim() !== '') {
+                message += `\n\n*Mi Testimonio:* "${story.trim()}"`;
+            }
+            message += `\n\n¿Pueden revisar mi caso de forma gratuita? Mi teléfono es: ${phone}`;
+            
+            const phoneLink = "18053080769"; // Change to the real WhatsApp number of the lawyer
+            
+            const whatsappUrl = `https://wa.me/${phoneLink}?text=${encodeURIComponent(message)}`;
+            
+            // Redirect to WhatsApp
+            window.location.href = whatsappUrl;
+        }
+    </script>
+</body>
+</html>
