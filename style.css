@@ -944,4 +944,26 @@ a {
 @media (max-width: 480px) {
     .hero-content h1 { font-size: 1.8rem !important; }
 }
+
+/* JOB PORTAL STYLES */
+.job-portal { padding: 8rem 0; background: radial-gradient(circle at center, #0B1F4D 0%, #070e1b 100%); position: relative; }
+.job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+.job-card { background: var(--bg-card); border: 1px solid var(--glass-border); padding: 2.5rem; border-radius: 20px; transition: 0.4s; position: relative; overflow: hidden; }
+.job-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 40px rgba(251, 191, 36, 0.1); }
+.job-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; display: block; }
+.job-card h4 { font-size: 1.4rem; color: white; margin-bottom: 1rem; }
+.job-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+.job-tag { position: absolute; top: 20px; right: 20px; background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; }
+
+.job-form-box { margin-top: 5rem; background: white; padding: 3.5rem; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); max-width: 800px; margin-left: auto; margin-right: auto; }
+.job-form-box h3 { color: #0B1F4D; font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; font-weight: 800; }
+.job-input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.job-field { margin-bottom: 1.5rem; }
+.job-field label { display: block; color: #475569; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.job-field input, .job-field select { width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 12px; outline: none; transition: 0.3s; font-size: 1rem; color: #000; }
+.job-field input:focus { border-color: var(--primary); }
+.btn-job { background: #0B1F4D; color: white; border: none; padding: 1.2rem; border-radius: 12px; width: 100%; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
+.btn-job:hover { background: #fbbf24; color: #0B1F4D; transform: scale(1.02); }
+
+@media (max-width: 768px) { .job-input-group { grid-template-columns: 1fr; } .job-form-box { padding: 2rem; } }
 
