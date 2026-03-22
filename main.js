@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add tracking code to form data
         formData.append('case_tracking_code', trackingCode);
 
-        // SEND DATA TO FORMSPREE (Using richardbejarano52@gmail.com as endpoint)
-        fetch('https://formspree.io/f/richardbejarano52@gmail.com', {
+        // SEND DATA TO FORMSPREE (Using official email as endpoint)
+        fetch('https://formspree.io/juliethramirez415@gmail.com', {
             method: 'POST',
             body: formData,
             headers: {
