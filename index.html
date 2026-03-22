@@ -1010,6 +1010,77 @@
         </div>
     </section>
 
+    </section>
+
+    <!-- SECCIÓN BOLSA DE EMPLEO DLU -->
+    <section id="trabajos" class="job-portal">
+        <div class="container">
+            <h2 class="section-title">Bolsa de Empleo DLU</h2>
+            <p class="section-subtitle">Conectamos a nuestra comunidad con empresas serias que respetan las leyes laborales en EE. UU. y el mundo.</p>
+
+            <div class="job-grid">
+                <div class="job-card fade-up">
+                    <span class="job-tag">DISPONIBLE</span>
+                    <i class="fas fa-hammer"></i>
+                    <h4>Construcción y Remodelación</h4>
+                    <p>Vacantes en NY, FL y CA. Salarios competitivos y protección legal garantizada.</p>
+                </div>
+                <div class="job-card fade-up delay-1">
+                    <span class="job-tag">URGENTE</span>
+                    <i class="fas fa-truck-moving"></i>
+                    <h4>Transporte y Logística</h4>
+                    <p>Buscamos conductores con licencia y personal de almacén en Texas y New Jersey.</p>
+                </div>
+                <div class="job-card fade-up delay-2">
+                    <span class="job-tag">CONTINUO</span>
+                    <i class="fas fa-broom"></i>
+                    <h4>Limpieza y Mantenimiento</h4>
+                    <p>Oportunidades en hotelería y residencias privadas. Ambiente seguro y pago puntual.</p>
+                </div>
+            </div>
+
+            <div class="job-form-box fade-in">
+                <h3>Regístrate para Recibir Ofertas</h3>
+                <form id="job-lead-form" onsubmit="handleJobSubmit(event)">
+                    <div class="job-input-group">
+                        <div class="job-field">
+                            <label>Nombre Completo</label>
+                            <input type="text" id="job-name" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="job-field">
+                            <label>WhatsApp / Teléfono</label>
+                            <input type="tel" id="job-phone" placeholder="Ej: (123) 456-7890" required>
+                        </div>
+                    </div>
+                    <div class="job-input-group">
+                        <div class="job-field">
+                            <label>Estado donde vive</label>
+                            <select id="job-state" required>
+                                <option value="">Seleccione su estado...</option>
+                                <option value="California">California</option>
+                                <option value="Florida">Florida</option>
+                                <option value="New York">New York</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Otros">Otros (Consultar)</option>
+                            </select>
+                        </div>
+                        <div class="job-field">
+                            <label>Área de Experiencia</label>
+                            <select id="job-area" required>
+                                <option value="">Seleccione su área...</option>
+                                <option value="Construccion">Construcción</option>
+                                <option value="Limpieza">Limpieza</option>
+                                <option value="Conductor">Conductor</option>
+                                <option value="Otros">Otro Oficio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-job">UNIRME A LA BOLSA DE EMPLEO <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Official Sources Section -->
     <section class="official-links">
         <div class="container">
@@ -1378,6 +1449,19 @@
                 }
             }
         }, 8000);
+
+        function handleJobSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('job-name').value;
+            const phone = document.getElementById('job-phone').value;
+            const state = document.getElementById('job-state').value;
+            const area = document.getElementById('job-area').value;
+            
+            const message = `¡Hola! Me gustaría unirme a la Bolsa de Empleo DLU. Mis datos son:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n📍 *Estado:* ${state}\n🛠️ *Área:* ${area}\n\nQuedo pendiente de vacantes.`;
+            
+            const whatsappUrl = `https://wa.me/18053080769?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
     </script>
     <script type="module" src="main.js"></script>
     <script>
