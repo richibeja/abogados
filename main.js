@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             type: data.claim_type || 'Laboral',
             status: '1', 
             compensation: '$0',
-            notes: 'Caso iniciado desde la web principal.',
+            notes: 'Caso iniciado desde la web principal. Pendiente de revisión de pruebas gratuita.',
             payment: { pending: false, amount: '' },
             docs: {
                 id: false,
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <h3 style="color: #fff; margin-bottom: 0.5rem;">Expediente Iniciado</h3>
-                <p style="color: #94a3b8; margin-bottom: 1.5rem;">Excelente ${data.name}. Se ha generado tu código DLU. Para activar la investigación y defensa legal, se requiere el pago de honorarios de apertura.</p>
+                <p style="color: #94a3b8; margin-bottom: 1.5rem;">Excelente ${data.name}. Se ha generado tu código DLU. Nuestro equipo jurídico revisará tu información sin costo para verificar la viabilidad total de realizar una reclamación federal.</p>
                 
                 <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid var(--primary); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
                     <p style="color: #fff; margin-bottom: 0.5rem; font-size: 0.9rem;">CÓDIGO DE SEGUIMIENTO:</p>
