@@ -1053,6 +1053,18 @@
                             <input type="tel" id="job-phone" placeholder="Ej: (123) 456-7890" required>
                         </div>
                     </div>
+                    <div class="job-field">
+                        <label>Estado donde vive (Para vacantes locales)</label>
+                        <select id="job-state" required style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 12px; outline: none; transition: 0.3s; font-size: 1rem; color: #000;">
+                            <option value="">Seleccione su estado...</option>
+                            <option value="California">California</option>
+                            <option value="Florida">Florida</option>
+                            <option value="New York">New York</option>
+                            <option value="Texas">Texas</option>
+                            <option value="New Jersey">New Jersey</option>
+                            <option value="Otros">Otros (Consultar)</option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn-job">UNIRME A LA BOLSA DE TRABAJO <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
@@ -1432,8 +1444,9 @@
             e.preventDefault();
             const name = document.getElementById('job-name').value;
             const phone = document.getElementById('job-phone').value;
+            const state = document.getElementById('job-state').value;
             
-            const message = `¡Hola! Me gustaría unirme a la Bolsa de Empleo DLU. Mis datos son:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n\nQuedo pendiente de vacantes disponibles en mi área.`;
+            const message = `¡Hola! Me gustaría unirme a la Bolsa de Empleo DLU. Mis datos son:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n📍 *Estado:* ${state}\n\nQuedo pendiente de vacantes disponibles en mi área de forma automática.`;
             
             const whatsappUrl = `https://wa.me/18053080769?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
