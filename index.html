@@ -1020,27 +1020,28 @@
 
             <div class="job-grid">
                 <div class="job-card fade-up">
-                    <span class="job-tag">DISPONIBLE</span>
+                    <span class="job-tag">24 VACANTES</span>
                     <i class="fas fa-hammer"></i>
-                    <h4>Construcción y Remodelación</h4>
-                    <p>Vacantes en NY, FL y CA. Salarios competitivos y protección legal garantizada.</p>
+                    <h4>Construcción (Texas y Florida)</h4>
+                    <p>Buscamos ayudantes y oficiales ($25 - $40 por hora). Pago semanal y horas extra garantizadas por ley federal.</p>
                 </div>
                 <div class="job-card fade-up delay-1">
-                    <span class="job-tag">URGENTE</span>
+                    <span class="job-tag">ALTA DEMANDA</span>
                     <i class="fas fa-truck-moving"></i>
-                    <h4>Transporte y Logística</h4>
-                    <p>Buscamos conductores con licencia y personal de almacén en Texas y New Jersey.</p>
+                    <h4>Choferes CDL y Delivery</h4>
+                    <p>Rutas locales y nacionales. Salarios desde $1,800 hasta $3,000 semanales según experiencia y licencia.</p>
                 </div>
                 <div class="job-card fade-up delay-2">
-                    <span class="job-tag">CONTINUO</span>
+                    <span class="job-tag">INMEDIATO</span>
                     <i class="fas fa-broom"></i>
-                    <h4>Limpieza y Mantenimiento</h4>
-                    <p>Oportunidades en hotelería y residencias privadas. Ambiente seguro y pago puntual.</p>
+                    <h4>Hospitalidad y Limpieza</h4>
+                    <p>Limpieza de hoteles y mantenimiento en hospitales. $18 - $28 por hora. Sin importar estatus migratorio.</p>
                 </div>
             </div>
 
             <div class="job-form-box fade-in">
-                <h3>Regístrate para Recibir Ofertas</h3>
+                <h3>Regístrate para Recibir Ofertas Gratis</h3>
+                <p style="text-align: center; color: #475569; margin-bottom: 2rem;">Solo deje su nombre y teléfono para enviarle vacantes en su área.</p>
                 <form id="job-lead-form" onsubmit="handleJobSubmit(event)">
                     <div class="job-input-group">
                         <div class="job-field">
@@ -1052,30 +1053,7 @@
                             <input type="tel" id="job-phone" placeholder="Ej: (123) 456-7890" required>
                         </div>
                     </div>
-                    <div class="job-input-group">
-                        <div class="job-field">
-                            <label>Estado donde vive</label>
-                            <select id="job-state" required>
-                                <option value="">Seleccione su estado...</option>
-                                <option value="California">California</option>
-                                <option value="Florida">Florida</option>
-                                <option value="New York">New York</option>
-                                <option value="Texas">Texas</option>
-                                <option value="Otros">Otros (Consultar)</option>
-                            </select>
-                        </div>
-                        <div class="job-field">
-                            <label>Área de Experiencia</label>
-                            <select id="job-area" required>
-                                <option value="">Seleccione su área...</option>
-                                <option value="Construccion">Construcción</option>
-                                <option value="Limpieza">Limpieza</option>
-                                <option value="Conductor">Conductor</option>
-                                <option value="Otros">Otro Oficio</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-job">UNIRME A LA BOLSA DE EMPLEO <i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" class="btn-job">UNIRME A LA BOLSA DE TRABAJO <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
@@ -1454,10 +1432,8 @@
             e.preventDefault();
             const name = document.getElementById('job-name').value;
             const phone = document.getElementById('job-phone').value;
-            const state = document.getElementById('job-state').value;
-            const area = document.getElementById('job-area').value;
             
-            const message = `¡Hola! Me gustaría unirme a la Bolsa de Empleo DLU. Mis datos son:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n📍 *Estado:* ${state}\n🛠️ *Área:* ${area}\n\nQuedo pendiente de vacantes.`;
+            const message = `¡Hola! Me gustaría unirme a la Bolsa de Empleo DLU. Mis datos son:\n\n👤 *Nombre:* ${name}\n📱 *WhatsApp:* ${phone}\n\nQuedo pendiente de vacantes disponibles en mi área.`;
             
             const whatsappUrl = `https://wa.me/18053080769?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
