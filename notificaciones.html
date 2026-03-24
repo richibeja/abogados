@@ -71,47 +71,81 @@
     </footer>
 
     <script>
+        // BASE DE DATOS MAESTRA (Simulada para demostraciÃ³n y control)
+        const masterCases = {
+            'DLU-FG-0324': {
+                name: 'Francisco Gonzalez Arias',
+                status: '3',
+                detail: 'Pago de apertura recibido. Su expediente ha sido enviado a la divisÃ³n legal para la auditorÃ­a técnica de sus talones de pago.',
+                log: [
+                    { date: 'Hoy', action: 'ConfirmaciÃ³n de Pago de Honorarios (Wise).' },
+                    { date: 'Hoy', action: 'AsignaciÃ³n de Oficial de Seguimiento Senior.' },
+                    { date: 'Pendiente', action: 'EmisiÃ³n de NotificaciÃ³n Federal DOL.' }
+                ]
+            }
+        };
+
         function trackCase() {
             const code = document.getElementById('caseNumber').value.trim().toUpperCase();
             const resultBox = document.getElementById('resultBox');
             const errorBox = document.getElementById('errorBox');
+            const actionLog = document.getElementById('actionLog');
             
-            // Basic validation
             if (!code.startsWith('DLU-')) {
                 errorBox.style.display = 'block';
                 resultBox.style.display = 'none';
                 return;
             }
 
-            // In a real app we'd fetch from server. 
-            // Here we check localStorage first (for the person who submitted on this device)
+            // 1. Prioridad: Revisar Base de Datos Maestra
+            if (masterCases[code]) {
+                errorBox.style.display = 'none';
+                resultBox.style.display = 'block';
+                
+                const c = masterCases[code];
+                const statusMap = {
+                    '1': { text: 'EN REVISIÓN PRELIMINAR', color: '#fbbf24' },
+                    '2': { text: 'VIABLE - PENDIENTE ACTIVACIÓN', color: '#3b82f6' },
+                    '3': { text: 'ACTIVO - EN PROCESO', color: '#10b981' }
+                };
+                
+                document.getElementById('statusText').innerText = statusMap[c.status].text;
+                document.getElementById('statusText').style.color = statusMap[c.status].color;
+                document.getElementById('statusDot').style.background = statusMap[c.status].color;
+                document.getElementById('detailsText').innerText = c.detail;
+                
+                // Actualizar log
+                actionLog.innerHTML = c.log.map(l => `
+                    <div style="margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <span style="color: #94a3b8;">• ${l.date}:</span> ${l.action}
+                    </div>
+                `).join('');
+                return;
+            }
+
+            // 2. Fallback: Revisar LocalStorage
             const localCases = JSON.parse(localStorage.getItem('dlu_cases_v2') || '[]');
             const found = localCases.find(c => c.caseId === code);
 
             if (found) {
                 errorBox.style.display = 'none';
                 resultBox.style.display = 'block';
-                
                 const statusMap = {
-                    '1': { text: 'EN REVISIÓN PRELIMINAR', color: '#fbbf24', detail: 'Auditando pruebas de 20 años de servicio.' },
-                    '2': { text: 'VIABLE - PENDIENTE ACTIVACIÓN', color: '#3b82f6', detail: 'Caso aprobado. Esperando firma de contrato y honorario.' },
-                    '3': { text: 'ACTIVO - EN PROCESO', color: '#10b981', detail: 'Acción legal en curso. Se le notificará cada avance.' }
+                    '1': { text: 'EN REVISIÓN PRELIMINAR', color: '#fbbf24', detail: 'Auditando pruebas iniciales.' },
+                    '2': { text: 'VIABLE - PENDIENTE ACTIVACIÓN', color: '#3b82f6', detail: 'Caso aprobado. Esperando firma de contrato.' }
                 };
-                
                 const s = statusMap[found.status] || statusMap['1'];
                 document.getElementById('statusText').innerText = s.text;
-                document.getElementById('statusText').style.color = s.color;
-                document.getElementById('statusDot').style.background = s.color;
                 document.getElementById('detailsText').innerText = s.detail;
             } else {
-                // If not in local storage but has correct format, we show a generic "Registered" state 
-                // to give confidence (simulating server check)
+                // 3. Respuesta genérica de seguridad
                 errorBox.style.display = 'none';
                 resultBox.style.display = 'block';
                 document.getElementById('statusText').innerText = 'EXPEDIENTE EN RECEPCIÓN';
                 document.getElementById('statusText').style.color = '#fbbf24';
                 document.getElementById('statusDot').style.background = '#fbbf24';
-                document.getElementById('detailsText').innerText = 'Su código ha sido validado. Estamos sincronizando su información con la base de datos federal.';
+                document.getElementById('detailsText').innerText = 'Código validado. Su información está en proceso de sincronización federal.';
+                actionLog.innerHTML = '<div style="color: #fbbf24; font-style: italic;">Esperando asignación de oficial legal.</div>';
             }
         }
     </script>
