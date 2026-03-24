@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAL DEL CLIENTE - DEFENSA LABORAL USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #0B1F4D; --accent: #fbbf24; --text: #1e293b; --bg: #f8fafc; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); margin: 0; padding: 0; color: var(--text); }
+        .header { background: var(--primary); color: white; padding: 30px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
+        .firm-name { font-family: 'Playfair Display'; font-size: 1.5rem; letter-spacing: 1px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        
+        .client-info { background: #f1f5f9; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        .client-info h2 { margin: 0 0 10px 0; color: var(--primary); font-family: 'Montserrat'; font-size: 1.2rem; }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: #fffbeb; padding: 15px; border-radius: 10px; border: 1px solid #fde68a; text-align: center; }
+        .stat-label { font-size: 0.75rem; color: #92400e; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+        .stat-value { font-size: 1.3rem; color: var(--primary); font-weight: 900; font-family: 'Montserrat'; }
+
+        .rights-box { margin-bottom: 30px; }
+        .right-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #e2e8f0; }
+        .right-item i { color: #16a34a; font-size: 1.2rem; margin-top: 3px; }
+        .right-item strong { display: block; color: var(--primary); }
+
+        .contract-preview { background: #fafafa; border: 1px solid #e5e7eb; padding: 25px; border-radius: 10px; margin-bottom: 30px; font-size: 0.9rem; line-height: 1.6; max-height: 300px; overflow-y: auto; }
+
+        .btn-action { display: block; width: 100%; background: #16a34a; color: white; text-align: center; padding: 20px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3); border: none; cursor: pointer; }
+        .btn-action:hover { transform: translateY(-3px); background: #15803d; }
+        
+        .footer { text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        #error-message { display: none; text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+    <div id="loader" style="text-align: center; padding: 100px;">
+        <i class="fas fa-circle-notch fa-spin fa-3x" style="color: var(--primary);"></i>
+        <p>Cargando su expediente seguro...</p>
+    </div>
+
+    <div id="portal-content" style="display: none;">
+        <div class="header">
+            <div class="firm-name">DEFENSA LABORAL USA</div>
+            <div style="font-size: 0.75rem; opacity: 0.8; font-weight: 700; letter-spacing: 1px;">DR. FRANCISCO HERNÁNDEZ - DIVISIÓN FEDERAL</div>
+        </div>
+
+        <div class="container">
+            <div class="client-info">
+                <h2 id="client-name">---</h2>
+                <div id="case-id" style="font-weight: 700; color: #64748b; font-size: 0.9rem;">EXPEDIENTE: ---</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">RECLAMACIÓN ESTIMADA</div>
+                    <div class="stat-value" id="case-amount">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">ESTATUS</div>
+                    <div class="stat-value" style="color: #16a34a;">ACTIVO</div>
+                </div>
+            </div>
+
+            <div class="rights-box">
+                <h3 style="font-family: 'Montserrat'; font-size: 1rem; color: var(--primary); margin-bottom: 15px;">DERECHOS PROTEGIDOS BAJO AUDITORÍA:</h3>
+                <div id="rights-list">
+                    <!-- Dynamic List -->
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Montserrat'; font-size: 1rem; color: var(--primary);">CONTRATO DE REPRESENTACIÓN</h3>
+            <div class="contract-preview">
+                <p>Por la presente, autorizo al equipo legal de <strong>Defensa Laboral USA</strong>, dirigido por el <strong>Dr. Francisco Hernández</strong>, para actuar en mi representaciÃ³n oficial ante las autoridades laborales federales y estatales.</p>
+                <p>Este mandato incluye la facultad de auditar registros de nómina, interponer quejas por discriminación y ambiente laboral hostil, y negociar indemnizaciones por robo de salarios y horas extra no pagadas.</p>
+                <p>Me comprometo a proporcionar toda la evidencia necesaria y confirmo que los datos presentados son verídicos.</p>
+            </div>
+
+            <button onclick="acceptProtocol()" class="btn-action">✍️ ACEPTAR Y ACTIVAR BLINDAJE</button>
+
+            <div class="footer">
+                ESTE ES UN PORTAL PRIVADO Y SEGURO. SU INFORMACIÓN ESTÁ PROTEGIDA POR EL SECRETO PROFESIONAL.<br>
+                © 2026 DEFENSA LABORAL USA - HQ SANTA BARBARA.
+            </div>
+        </div>
+    </div>
+
+    <div id="error-message">
+        <i class="fas fa-exclamation-triangle fa-3x" style="color: #ef4444; margin-bottom: 20px;"></i>
+        <h2>Caso No Encontrado</h2>
+        <p>Por favor verifique el código enviado por su asesor o contacte a soporte.</p>
+        <a href="index.html" style="color: var(--primary); font-weight: 700;">Volver al inicio</a>
+    </div>
+
+    <script>
+        const clientData = {
+            'DLU-ERD-0324': {
+                name: 'Elisa Rangel DomÃ­nguez',
+                amount: '$45,000.00',
+                rights: [
+                    'DiscriminaciÃ³n por Edad (Reemplazo Juvenil)',
+                    'Acoso Sexual y Hostigamiento Laboral',
+                    'Sabotaje de Métrica de ProducciÃ³n',
+                    'RecuperaciÃ³n de 6 aÃ±os de AntigÃ¼edad'
+                ]
+            },
+            'DLU-BGM-0324': {
+                name: 'Balbina Anali Gomez Mendoza',
+                amount: '$50,000.00',
+                rights: [
+                    'DiscriminaciÃ³n por Origen Nacional (EEOC)',
+                    'Robo de Salarios y Propinas Retenidas',
+                    'Incumplimiento de Horas Extra (OT)',
+                    'Falta de Entrega de Talones de Pago (OCGA)'
+                ]
+            },
+            'DLU-JPG-0324': {
+                name: 'Juan Daniel Pérez Gallardo',
+                amount: '$15,000.00',
+                rights: [
+                    'Robo Sistemático de 7 Horas Extra/Semana',
+                    'RetenciÃ³n Ilegal de Propinas por el DueÃ±o',
+                    'Falta de Registro Legal de Horas',
+                    'AuditorÃ­a de Cheques Retroactiva'
+                ]
+            }
+        };
+
+        function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                
+                if (id && clientData[id]) {
+                    const data = clientData[id];
+                    document.getElementById('case-id').innerText = `EXPEDIENTE: ${id}`;
+                    document.getElementById('client-name').innerText = data.name;
+                    document.getElementById('case-amount').innerText = data.amount;
+                    
+                    const rightsList = document.getElementById('rights-list');
+                    data.rights.forEach(right => {
+                        const div = document.createElement('div');
+                        div.className = 'right-item';
+                        div.innerHTML = `<i class="fas fa-check-circle"></i><div><strong>${right}</strong> ProtecciÃ³n Federal Activa.</div>`;
+                        rightsList.appendChild(div);
+                    });
+
+                    document.getElementById('portal-content').style.display = 'block';
+                    window.currentCaseId = id;
+                    window.currentCaseName = data.name;
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            }, 800);
+        }
+
+        function acceptProtocol() {
+            const text = `Hola Dr. Francisco Hernandez, soy ${window.currentCaseName}. He revisado mi portal seguro y ACEPTO los tÃ©rminos de representaciÃ³n para mi caso ${window.currentCaseId}. Estoy listo/a para el trÃ¡mite administrativo.`;
+            window.location.href = `https://wa.me/18053080769?text=${encodeURIComponent(text)}`;
+        }
+
+        init();
+    </script>
+</body>
+</html>
