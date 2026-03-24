@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ASISTENTE DLU - DR. HERNANDEZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #0B1F4D; --accent: #fbbf24; --bg: #f3f4f6; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        .app-bar { background: var(--primary); color: white; padding: 15px; text-align: center; border-bottom: 3px solid var(--accent); position: sticky; top: 0; z-index: 100; }
+        .container { padding: 15px; }
+        
+        .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card h2 { margin-top: 0; font-size: 1.1rem; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        .script-btn { display: block; background: #e0f2fe; border: 1px solid #bae6fd; padding: 12px; border-radius: 8px; margin-bottom: 10px; text-decoration: none; color: #0369a1; font-weight: 700; font-size: 0.9rem; position: relative; }
+        .script-btn i { float: right; margin-top: 3px; }
+        .script-btn:active { background: #bae6fd; }
+
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-size: 0.8rem; font-weight: bold; color: #64748b; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; box-sizing: border-box; }
+        
+        .btn-main { background: #16a34a; color: white; padding: 15px; border: none; border-radius: 8px; width: 100%; font-weight: 900; font-size: 1rem; cursor: pointer; }
+        .btn-main:active { background: #15803d; }
+
+        #copyToast { visibility: hidden; min-width: 200px; background-color: #333; color: #fff; text-align: center; border-radius: 10px; padding: 16px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; transform: translateX(-50%); }
+        #copyToast.show { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+    </style>
+</head>
+<body>
+    <div class="app-bar">
+        <div style="font-weight: 900; font-size: 1rem; letter-spacing: 1px;">DLU - ASISTENTE LEGAL</div>
+        <div style="font-size: 0.7rem; opacity: 0.8;">LIC. ELENA VALENZUELA</div>
+    </div>
+
+    <div class="container">
+        <div class="card" style="background: #fff; border-left: 5px solid #16a34a;">
+            <h2 style="color: #166534;">📖 MANUAL DE ENTRENAMIENTO</h2>
+            <p style="font-size: 0.85rem; line-height: 1.5; color: #475569;">
+                <strong>1. Escucha:</strong> Deja que el cliente cuente su historia. Buscan desahogarse.<br>
+                <strong>2. Proyecta Valor:</strong> Menciona siempre que el Dr. Hernandez ha ganado casos de hasta $50,000.<br>
+                <strong>3. El Gancho:</strong> Ofrece la bolsa de empleo si estÃ¡n desempleados.<br>
+                <strong>4. El Cierre:</strong> Tu objetivo es que acepten el Protocolo de ProtecciÃ³n.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>GUIONES "COPIAR Y PEGAR" 💬</h2>
+            <div class="script-btn" onclick="copyToClipboard('bienvenida')">Bienvenida Familiar <i class="fas fa-copy"></i></div>
+            <div class="script-btn" onclick="copyToClipboard('propinas')">Caso: Robo de Propinas <i class="fas fa-copy"></i></div>
+            <div class="script-btn" onclick="copyToClipboard('overtime')">Caso: Robo de Overtime <i class="fas fa-copy"></i></div>
+            <div class="script-btn" onclick="copyToClipboard('undocumented')">Miedo / No Papeles <i class="fas fa-copy"></i></div>
+            <div class="script-btn" onclick="copyToClipboard('closing')">Cierre: Enviar Portal <i class="fas fa-copy"></i></div>
+        </div>
+
+        <div class="card">
+            <h2>REGISTRO RÁPIDO DE CLIENTE 📋</h2>
+            <div class="form-group">
+                <label>Nombre del Cliente</label>
+                <input type="text" id="clientName" placeholder="E.g. Juan Perez">
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="clientState">
+                    <option value="GA">Georgia</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IL">Illinois</option>
+                    <option value="FL">Florida</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <button class="btn-main" onclick="registerLead()">REGISTRAR EN SISTEMA</button>
+        </div>
+
+        <div class="card">
+            <h2>RECURSOS VIP 💻</h2>
+            <a href="calculadora.html" class="script-btn" style="background:#fef3c7; color:#92400e; border-color:#fde68a;">Abrir Calculadora <i class="fas fa-external-link-alt"></i></a>
+            <a href="index.html#trabajos" class="script-btn" style="background:#f0fdf4; color:#166534; border-color:#bbf7d0;">Bolsa de Empleo <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+
+    <div id="copyToast">¡Texto copiado al portapapeles!</div>
+
+    <script>
+        const scripts = {
+            'bienvenida': "Hola, es un gusto saludarle. En Defensa Laboral USA lo tratamos como familia. El Dr. Francisco Hernandez estÃ¡ revisando su caso ahora mismo. CuÃ©nteme, Â¿desde cuÃ¡ndo estÃ¡ teniendo problemas en su trabajo?",
+            'propinas': "Es indignante lo que me cuenta. Por ley federal, el dueÃ±o NO puede tocar sus propinas. Podemos recuperar ese dinero multiplicado por tres como penalizaciÃ³n. Â¿Tiene fotos de los cheques o algÃºn cuaderno donde anote lo que recibe?",
+            'overtime': "Si trabaja mÃ¡s de 40 horas y no le pagan tiempo y medio, es un robo federal de salarios. El Dr. Hernandez ha logrado compensaciones de hasta $50,000 en casos como el suyo. Â¿Puede enviarme una foto de su Ãºltimo cheque?",
+            'undocumented': "No se preocupe por su estatus migratorio. Las leyes laborales de EE.UU. protegen a todos los trabajadores por igual. De hecho, denunciar estos abusos blinda su situaciÃ³n actual porque usted estÃ¡ ayudando a que se respete la ley federal.",
+            'closing': "Excelente. Hemos activado su Protocolo de ProtecciÃ³n Federal. El Dr. Hernandez ya cargÃ³ su proyecciÃ³n económica. Entre aquÃ­ para revisar sus derechos y aceptar la representaciÃ³n: https://abogados-rose.vercel.app/portal.html?id=NUEVO"
+        };
+
+        function copyToClipboard(key) {
+            const text = scripts[key];
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById("copyToast");
+                toast.className = "show";
+                setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+            });
+        }
+
+        function registerLead() {
+            const name = document.getElementById('clientName').value;
+            const state = document.getElementById('clientState').value;
+            if(name) {
+                alert(`¡Lead ${name} registrado con éxito! Informando al Dr. Hernandez en el Centro de Comando.`);
+                // Simulación de envío
+            } else {
+                alert('Por favor ingrese el nombre.');
+            }
+        }
+    </script>
+</body>
+</html>
