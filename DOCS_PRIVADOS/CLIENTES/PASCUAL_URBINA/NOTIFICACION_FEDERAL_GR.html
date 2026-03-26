@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTIFICACIÓN DE DEMANDA - GABRIEL ROTELA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000;
+            --danger: #b91c1c;
+            --bg: #fff;
+        }
+        body { font-family: 'Roboto', sans-serif; background: #eee; margin: 0; padding: 40px; color: #1e293b; }
+        .letter { 
+            background: white; 
+            width: 8.5in; 
+            min-height: 11in; 
+            margin: auto; 
+            padding: 80px; 
+            box-sizing: border-box; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border-top: 15px solid var(--danger);
+            position: relative;
+        }
+        
+        .header { text-align: left; margin-bottom: 50px; border-bottom: 3px solid #000; padding-bottom: 20px; }
+        .logo-box h1 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #000; letter-spacing: -1px; }
+        .logo-box span { color: var(--danger); font-size: 0.9rem; font-weight: 900; }
+        
+        .address-block { margin-bottom: 40px; font-size: 0.9rem; line-height: 1.5; }
+        .subject { font-family: 'Montserrat', sans-serif; font-weight: 900; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 1.1rem; }
+
+        .urgent-tag { background: var(--danger); color: white; padding: 5px 15px; font-weight: 800; font-size: 0.8rem; border-radius: 4px; display: inline-block; margin-bottom: 20px; }
+
+        p { font-size: 1rem; line-height: 1.6; text-align: justify; margin-bottom: 20px; }
+        
+        .evidence-box { 
+            background: #fef2f2; 
+            border: 1px dashed var(--danger); 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 30px 0;
+        }
+        .evidence-box h4 { margin: 0 0 10px 0; color: var(--danger); font-family: 'Montserrat'; text-transform: uppercase; }
+        .evidence-box ul { margin: 0; padding-left: 20px; font-size: 0.9rem; }
+        .evidence-box li { margin-bottom: 8px; font-weight: 700; color: #4b5563; }
+
+        .demand-footer { margin-top: 60px; font-size: 0.9rem; font-style: italic; color: #64748b; }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .letter { box-shadow: none; border: none; margin: 0; width: 100%; height: 100%; }
+            .no-print { display: none; }
+        }
+        .btn-print { background: var(--danger); color: white; padding: 12px 30px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; display: block; margin: 0 auto 20px; font-family: 'Montserrat'; }
+    </style>
+</head>
+<body>
+    <button class="btn-print no-print" onclick="window.print()"><i class="fas fa-print"></i> IMPRIMIR NOTIFICACIÓN DE DEMANDA</button>
+    
+    <div class="letter">
+        <div class="header">
+            <div class="logo-box">
+                <h1>DEFENSA LABORAL <span>USA</span></h1>
+                <span>Lawyers Collective & Advocacy</span>
+            </div>
+            <div style="text-align: right; font-size: 0.8rem; margin-top: -30px;">
+                FECHA: 23 de Marzo, 2026<br>
+                REF: DLU-FLA-8214-2026-FEDERAL
+            </div>
+        </div>
+
+        <div class="address-block">
+            <strong>DIRIGIDO A:</strong><br>
+            GABRIEL ROTELA / PROPIETARIO<br>
+            GR CONSTRUCTION SERVICE<br>
+            FLORIDA, UNITED STATES
+        </div>
+
+        <div class="urgent-tag">AVISO DE INTENCIÓN DE DEMANDA - ACCIÓN FEDERAL INMEDIATA</div>
+        
+        <div class="subject">REFERENCIA: ROBO DE SALARIOS, EMISIÓN DE CHEQUES SIN FONDOS Y VIOLACIONES FLSA (HOSPITAL LAKESIDE)</div>
+
+        <p>
+            Por la presente, la firma comercial **DEFENSA LABORAL USA** notifica a usted y a su empresa, **GR CONSTRUCTION SERVICE**, del inicio formal de una investigación por violaciones graves a la ley federal de normas laborales equitativas (**FLSA**).
+        </p>
+
+        <p>
+            Nuestro cliente, **PASCUAL DANILO URBINA TÉLLEZ**, ha presentado evidencias contundentes de un patrón de abuso laboral sistemático que involucra la falta de pago de salarios devengados por un periodo superior a los 18 meses, así como la emisión maliciosa de documentos de pago sin cobertura de fondos.
+        </p>
+
+        <div class="evidence-box">
+            <h4>RESUMEN DE EVIDENCIAS EN NUESTRO PODER:</h4>
+            <ul>
+                <li>Copia de Cheque devuelto por falta de fondos (NSF) por valor de **$5,727.18**.</li>
+                <li>Copia de Cheque cancelado bajo el concepto "50% Hospital Bell Glade" por valor de **$8,500.00** a nombre de Carlos Fidel Torres Ortega (Evidencia de patrón delictivo).</li>
+                <li>Registros de horas trabajadas para el personal: Silvia M. Ramirez, Rangel G. Hernandez, Jose D. Ramirez y Martinez H. Rodrigo.</li>
+                <li>Testimonios de **clasificación errónea de trabajador** (Misclassification fraud) como "subcontratista" para evadir cargos federales.</li>
+            </ul>
+        </div>
+
+        <p>
+            Le informamos que el valor total reclamado, incluyendo salarios atrasados, daños liquidados, penalidades federales por cheques devueltos y honorarios legales, se estima en **$285,000.00 USD**. 
+        </p>
+
+        <p>
+            Usted tiene un plazo de **48 HORAS** a partir de la recepción de esta notificación para contactar a nuestro departamento de finanzas y establecer un **Acuerdo de Resolución Inmediata**. 
+        </p>
+
+        <p>
+            De no recibir respuesta, procederemos con la radicación formal ante el **Departamento de Trabajo de los EE.UU. (DOL/WHD)** y la oficina del **IRS** por evasión de impuestos laborales, lo cual podría resultar en el embargo de sus proyectos actuales en el Hospital Lakeside y otras locaciones comerciales.
+        </p>
+
+        <div style="margin-top: 50px;">
+            Atentamente,<br><br><br>
+            <strong>Departamento Legal & Litigación Federal</strong><br>
+            Defensa Laboral USA & Associates
+        </div>
+
+        <div class="demand-footer">
+            "Proteger al trabajador es proteger el futuro del país."<br>
+            Copia archivada para radicación federal ante DOL.
+        </div>
+    </div>
+</body>
+</html>

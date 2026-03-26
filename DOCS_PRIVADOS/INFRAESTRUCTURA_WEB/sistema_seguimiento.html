@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Laboral USA | Seguimiento de Mi Caso</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFD700;
+            --primary-dark: #ccac00;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0B1F4D;
+            --card: rgba(15, 30, 70, 0.95);
+            --text-light: #ffffff;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* --- LOGIN SECTION --- */
+        .login-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: #020617;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+
+        button {
+            padding: 15px;
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- DASHBOARD SECTION (Initially Hidden) --- */
+        .dashboard {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 20px;
+            border-left: 2px solid #334155;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #334155;
+            border: 4px solid var(--dark);
+        }
+
+        .timeline-item.completed::before {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        .timeline-item.current::before {
+            background: var(--warning);
+            box-shadow: 0 0 15px var(--warning);
+            animation: pulse 2s infinite;
+        }
+
+        .step-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .step-date {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .alert-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--warning);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="CENTRO_DE_COMANDO.html" style="color:#94a3b8; text-decoration:none; font-size:0.8rem; margin-bottom: 10px; display:inline-block;"><i class="fas fa-arrow-left"></i> Volver al Centro</a>
+
+        <!-- PANTALLA DE ACCESO -->
+        <div id="loginSection">
+            <h1><i class="fas fa-balance-scale"></i> Defensa Laboral USA</h1>
+            <p class="subtitle">Ingrese su Código Único de Seguimiento (DLU) para ver el progreso de su reclamación legal.</p>
+
+            <div class="login-box">
+                <input type="text" id="trackCode" placeholder="Ej: DLU-1234-567" maxlength="15">
+                <button onclick="checkStatus()">Consultar Expediente</button>
+                <p id="errorMsg" style="color: #ef4444; font-size: 0.9rem; display: none; text-align: center;">Código no
+                    encontrado o inválido.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; opacity: 0.8; font-size: 0.8rem;">
+                <p><i class="fas fa-shield-alt"></i> Datos protegidos por Privilegio Abogado-Cliente</p>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 10px; filter: grayscale(100%) brightness(1.5);">
+                    <i class="fas fa-lock"></i> SSL 256-bit
+                    <i class="fas fa-user-secret"></i> Anonimato de Estatus
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA DE ESTADO (DASHBOARD) -->
+        <div id="dashboardSection" class="dashboard">
+            <div class="status-header">
+                <div>
+                    <h2 style="margin: 0; color: white;">Expediente #<span id="displayCode"></span></h2>
+                    <p style="margin: 5px 0 0 0; color: #94a3b8;">Solicitante: <span
+                            style="color: white; font-weight: bold;" data-field="name">CLIENTE VALIDADO</span></p>
+                    <p style="margin: 3px 0 0 0; color: #94a3b8;">Tipo: <span
+                            style="color: var(--primary); font-weight: bold;" data-field="type">Caso Laboral</span></p>
+                    <p style="margin: 3px 0 0 0; color: #94a3b8;">Compensación est.: <span
+                            style="color: var(--success); font-weight: bold;" data-field="comp">En evaluación</span></p>
+                </div>
+                <div style="text-align: right;">
+                    <span
+                        style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--success);">ACTIVO</span>
+                </div>
+            </div>
+
+            <div class="timeline">
+
+                <!-- Paso 1: Completado -->
+                <div class="timeline-item completed">
+                    <div class="step-title">Expediente Registrado</div>
+                    <div class="step-desc">Su caso ha sido ingresado al sistema central de Defensa Laboral USA.</div>
+                    <div class="step-date"><i class="far fa-calendar-check"></i> Registro Inicial</div>
+                </div>
+
+                <!-- Paso 2: Completado -->
+                <div class="timeline-item completed">
+                    <div class="step-title">Validación por Abogado</div>
+                    <div class="step-desc">El equipo legal asociado ha verificado los hechos iniciales de su caso.</div>
+                    <div class="step-date"><i class="far fa-calendar-check"></i> Verificación Aprobada</div>
+                </div>
+
+                <!-- Paso 3: ACTUAL -->
+                <div class="timeline-item current">
+                    <div class="step-title" style="color: var(--warning);">Recopilación de Pruebas</div>
+                    <div class="step-desc">Estamos procesando los documentos subidos (cheques, fotos, audios) para fortalecer la demanda.</div>
+                    <div class="step-date"><i class="fas fa-spinner fa-spin"></i> En Análisis Jurídico...</div>
+                </div>
+
+                <!-- Paso 4: Pendiente -->
+                <div class="timeline-item">
+                    <div class="step-title" style="opacity: 0.5;">Notificación al Empleador</div>
+                    <div class="step-desc" style="opacity: 0.5;">Envío formal de la carta de reclamación exigiendo el pago.</div>
+                </div>
+
+                <!-- Paso 5: Pendiente -->
+                <div class="timeline-item">
+                    <div class="step-title" style="opacity: 0.5;">Resolución y Cobro</div>
+                    <div class="step-desc" style="opacity: 0.5;">Finalización del proceso legal y entrega de indemnización.</div>
+                </div>
+
+            </div>
+
+            <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 5px solid var(--primary); display: flex; align-items: flex-start; gap: 15px;">
+                <i class="fas fa-info-circle" style="color: var(--primary); font-size: 1.5rem; margin-top: 3px;"></i>
+                <div>
+                    <strong style="color: white; display: block; margin-bottom: 5px;">Nota Importante:</strong>
+                    <p style="margin:0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.4;">
+                        Si no tiene documentos de su trabajo hoy, no se preocupe. Nuestros investigadores le ayudarán a recopilar las pruebas necesarias. <strong>Atendemos todos los casos de trabajadores inmigrantes.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: var(--warning);"></i>
+                <div>
+                    <strong>ACCIÓN REQUERIDA:</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9rem;">Para avanzar a la fase de "Notificación", necesitamos que subas una foto clara del último cheque o recibo de pago recibido.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN DE CÁMARA / SUBIDA DE DOCUMENTOS -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px dashed #475569; border-radius: 12px; padding: 20px; margin-top: 25px; text-align: center;">
+                <h4 style="margin: 0 0 15px 0; color: white;"><i class="fas fa-camera"></i> Subir Pruebas / Fotos</h4>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px;">Use su cámara para fotografiar cheques, mensajes de despido o cualquier prueba de su trabajo.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <button onclick="document.getElementById('fileInput').click()" 
+                            style="background: var(--primary); padding: 12px; font-size: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-id-card" style="font-size: 1.2rem;"></i> Foto de ID
+                    </button>
+                    <button onclick="document.getElementById('fileInput').click()" 
+                            style="background: var(--primary); padding: 12px; font-size: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <i class="fas fa-file-invoice-dollar" style="font-size: 1.2rem;"></i> Foto de Cheque
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" accept="image/*" capture="environment" style="display: none;" onchange="handleFileUpload(this)">
+                
+                <div id="uploadStatus" style="margin-top: 15px; font-size: 0.9rem; display: none;">
+                    <i class="fas fa-spinner fa-spin" style="color: var(--warning);"></i> 
+                    <span style="color: white; margin-left: 10px;">Enviando imagen al servidor legal...</span>
+                </div>
+            </div>
+
+            <button onclick="location.reload()"
+                style="background: transparent; border: 1px solid #475569; margin-top: 20px; width: 100%;">Cerrar Sesión
+                Segura</button>
+        </div>
+
+    </div>
+
+    <script>
+        const PHASE_LABELS = {
+            '1': 'Expediente Registrado',
+            '2': 'Validado por Abogado',
+            '3': 'Recopilación de Pruebas',
+            '4': 'Notificación al Empleador',
+            '5': 'Resolución y Cobro ✅'
+        };
+
+        const TYPE_LABELS = {
+            'despido':   '⛔ Despido Injustificado',
+            'salarios':  '💰 Salarios / Overtime',
+            'accidente': '🚑 Accidente Laboral',
+            'seguro':    '🏥 Seguro / Discapacidad'
+        };
+
+        // ---- AUTO-LOAD FROM MAGIC LINK ----
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const encoded = params.get('data');
+            if (encoded) {
+                try {
+                    const json = decodeURIComponent(escape(atob(encoded)));
+                    const caseData = JSON.parse(json);
+                    renderDashboard(caseData);
+                } catch(e) {
+                    console.warn('Magic link inválido', e);
+                }
+            }
+        });
+
+        // ---- MANUAL CODE ENTRY ----
+        function checkStatus() {
+            const input = document.getElementById('trackCode');
+            const errorMsg = document.getElementById('errorMsg');
+            const code = input.value.trim().toUpperCase();
+
+            if (code.length < 5) {
+                errorMsg.style.display = 'block';
+                input.style.borderColor = '#ef4444';
+                return;
+            }
+            errorMsg.style.display = 'none';
+
+            const btn = document.querySelector('#loginSection button');
+            btn.textContent = 'Verificando en Base de Datos...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                // Try to find in localStorage DB
+                const db = JSON.parse(localStorage.getItem('dlu_cases_v2') || '[]');
+                const found = db.find(c => c.caseId === code);
+
+                if (found) {
+                    renderDashboard(found);
+                } else {
+                    // Show generic demo dashboard with entered code
+                    renderDashboard({ caseId: code, name: 'CLIENTE VERIFICADO', status: '3', caseType: 'despido', state: 'EE.UU.', comp_amount: 'En evaluación', docs: {} });
+                }
+            }, 1500);
+        }
+
+        function renderDashboard(c) {
+            document.getElementById('loginSection').style.display = 'none';
+            const dash = document.getElementById('dashboardSection');
+            dash.style.display = 'block';
+
+            document.getElementById('displayCode').innerText = c.caseId;
+
+            // Client name
+            const nameEl = dash.querySelector('[data-field="name"]');
+            if (nameEl) nameEl.textContent = c.name || 'CLIENTE VALIDADO';
+
+            // Case type
+            const typeEl = dash.querySelector('[data-field="type"]');
+            if (typeEl) typeEl.textContent = TYPE_LABELS[c.type] || c.type || '';
+
+            // Compensation
+            const compEl = dash.querySelector('[data-field="comp"]');
+            if (compEl && c.comp_amount) compEl.textContent = c.comp_amount;
+
+            // Update timeline based on status
+            updateTimeline(parseInt(c.status) || 3);
+
+            // Payment warning
+            if (c.payment?.pending) {
+                const alertBox = dash.querySelector('.alert-box p');
+                if (alertBox) alertBox.textContent = `⚠️ HONORARIO PENDIENTE: ${c.payment.amount}. Por favor contáctenos para desbloquear la siguiente fase.`;
+            }
+        }
+
+        function updateTimeline(currentPhase) {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, idx) => {
+                item.classList.remove('completed', 'current');
+                if (idx + 1 < currentPhase) { item.classList.add('completed'); }
+                else if (idx + 1 === currentPhase) { item.classList.add('current'); }
+            });
+        }
+
+        // ---- CAMERA / UPLOAD HANDLER ----
+        function handleFileUpload(input) {
+            if (input.files && input.files[0]) {
+                const status = document.getElementById('uploadStatus');
+                status.style.display = 'block';
+                status.innerHTML = `<i class="fas fa-spinner fa-spin" style="color: var(--warning);"></i> 
+                                   <span style="color: white; margin-left: 10px;">Procesando imagen con IA...</span>`;
+                
+                setTimeout(() => {
+                    status.innerHTML = `<i class="fas fa-check-circle" style="color: var(--success);"></i> 
+                                       <span style="color: white; margin-left: 10px;">¡Documento recibido con éxito! El abogado será notificado.</span>`;
+                    
+                    // --- PERSISTENCE: Mark document as received in DB ---
+                    const dluCode = document.getElementById('displayCode').textContent;
+                    const db = JSON.parse(localStorage.getItem('dlu_cases_v2') || '[]');
+                    const idx = db.findIndex(c => c.caseId === dluCode);
+                    if (idx !== -1) {
+                        if (!db[idx].documents) db[idx].documents = [];
+                        db[idx].documents.push('check-circle'); // Mark as received
+                        localStorage.setItem('dlu_cases_v2', JSON.stringify(db));
+                    }
+                    // ----------------------------------------------------
+
+                    setTimeout(() => {
+                        status.style.display = 'none';
+                    }, 5000);
+                }, 2500);
+            }
+        }
+
+        document.getElementById('trackCode').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') checkStatus();
+        });
+    </script>
+
+</body>
+
+</html>

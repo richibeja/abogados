@@ -1,0 +1,769 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN - Defensa Laboral USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0B1F4D;
+            --accent: #FFD700;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg: #f0f4ff;
+            --card: #ffffff;
+            --text: #0B1F4D;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 20px;
+            color: var(--text);
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(11,31,77,0.3);
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-bar h1 span { color: var(--accent); }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            border-left: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .stat-card i { font-size: 2rem; color: var(--accent); }
+        .stat-card .num { font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .stat-card .label { font-size: 0.8rem; color: #64748b; }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            margin: 0 0 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            font-size: 1rem;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+
+        .form-group { margin-bottom: 15px; }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+            background: #f8faff;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+        }
+
+        .input-group { display: flex; gap: 8px; }
+        .input-group input { flex: 1; }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-accent { background: var(--accent); color: var(--primary); }
+        .btn-green { background: var(--success); }
+        .btn-red { background: var(--danger); }
+        .btn-sm { padding: 5px 10px; font-size: 0.75rem; }
+
+        .doc-list { display: flex; flex-direction: column; gap: 8px; }
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8faff;
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .doc-item label { margin: 0; font-weight: 500; }
+        .doc-item input[type="checkbox"] { width: auto; accent-color: var(--accent); }
+
+        .payment-box {
+            background: #fff7ed;
+            padding: 15px;
+            border: 1.5px solid #fdba74;
+            border-radius: 8px;
+        }
+        .payment-box label { color: #c2410c; }
+
+        /* TABLE */
+        .client-list table { width: 100%; border-collapse: collapse; }
+        .client-list th, .client-list td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.88rem;
+        }
+        .client-list th {
+            background: #f8faff;
+            color: #64748b;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .client-list tr:hover { background: #f8faff; }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .badge-green { background: rgba(16,185,129,0.15); color: #059669; }
+        .badge-yellow { background: rgba(245,158,11,0.15); color: #d97706; }
+        .badge-blue { background: rgba(59,130,246,0.15); color: #2563eb; }
+        .badge-red { background: rgba(239,68,68,0.15); color: #dc2626; }
+
+        .type-badge {
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .type-despido { background: #fee2e2; color: #b91c1c; }
+        .type-salarios { background: #fef9c3; color: #854d0e; }
+        .type-accidente { background: #e0f2fe; color: #075985; }
+        .type-seguro { background: #f3e8ff; color: #7e22ce; }
+
+        .actions-cell { display: flex; gap: 5px; flex-wrap: wrap; }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .search-bar input { max-width: 300px; }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(11,31,77,0.6);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            animation: slideUp 0.3s ease;
+        }
+        .modal h3 { margin: 0 0 15px 0; color: var(--primary); font-family: 'Montserrat', sans-serif; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Admin Fixes */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .top-bar { padding: 10px 15px; flex-direction: column; gap: 10px; text-align: center; }
+            .top-bar h1 { font-size: 1.1rem; }
+            
+            .stats-bar { 
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px; 
+            }
+            .stat-card { padding: 10px; gap: 10px; }
+            .stat-card i { font-size: 1.4rem; }
+            .stat-card .num { font-size: 1.4rem; }
+            .stat-card .label { font-size: 0.7rem; }
+
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-top: 10px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+            }
+            
+            table { font-size: 0.8rem; min-width: 600px; }
+            
+            .btn { font-size: 0.75rem; padding: 8px 12px; }
+            .btn-accent i { margin-right: 5px; }
+        }
+
+        .link-box {
+            background: #f0f4ff;
+            border: 1.5px solid var(--accent);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            word-break: break-all;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <h1><i class="fas fa-gavel"></i> Defensa Laboral <span>USA</span></h1>
+            <div style="display:flex; gap:10px;">
+                <a href="../CENTRO_DE_COMANDO.html" class="btn btn-sm" style="display:flex; align-items:center; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-home"></i> MenÃº</a>
+                <button class="btn btn-accent" onclick="generateCode()"><i class="fas fa-plus"></i> Nuevo Caso</button>
+                <button class="btn btn-red btn-sm" onclick="clearData()"><i class="fas fa-trash"></i> Purgar BD</button>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-bar" id="statsBar">
+            <div class="stat-card">
+                <i class="fas fa-folder-open"></i>
+                <div><div class="num" id="statTotal">0</div><div class="label">Casos Totales</div></div>
+            </div>
+            <div class="stat-card" style="border-left-color: var(--warning);">
+                <i class="fas fa-hourglass-half" style="color:var(--warning);"></i>
+                <div><div class="num" id="statActive">0</div><div class="label">En Proceso</div></div>
+            </div>
+            <div class="stat-card" style="border-left-color: var(--success);">
+                <i class="fas fa-check-circle" style="color:var(--success);"></i>
+                <div><div class="num" id="statClosed">0</div><div class="label">Resueltos</div></div>
+            </div>
+            <div class="stat-card" style="border-left-color: var(--danger);">
+                <i class="fas fa-exclamation-triangle" style="color:var(--danger);"></i>
+                <div><div class="num" id="statPending">0</div><div class="label">AcciÃ³n Requerida</div></div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO NUEVO CASO -->
+        <div class="card">
+            <h3>ðŸ“‚ Registrar / Actualizar Expediente</h3>
+            <form id="caseForm">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Nombre Completo del Cliente</label>
+                        <input type="text" id="name" placeholder="Ej: MarÃ­a GarcÃ­a" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CÃ³digo de Caso (DLU)</label>
+                        <div class="input-group">
+                            <input type="text" id="code" placeholder="DLU-XXXX-XXXX" style="font-weight:700;color:var(--primary);" required>
+                            <button type="button" class="btn btn-accent" onclick="editCase(document.getElementById('code').value)" title="Cargar Datos del Caso"><i class="fas fa-search"></i> Buscar</button>
+                            <button type="button" class="btn btn-secondary" onclick="generateCode()" title="Generar Nuevo"><i class="fas fa-magic"></i> Nuevo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="form-group">
+                        <label>Tipo de Caso</label>
+                        <select id="caseType">
+                            <option value="despido">â›” Despido Injustificado</option>
+                            <option value="salarios">ðŸ’° Salarios Robados / Overtime</option>
+                            <option value="accidente">ðŸš‘ Accidente Laboral (Workers' Comp)</option>
+                            <option value="seguro">ðŸ¥ Seguro / Discapacidad (SSDI)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado del Proceso</label>
+                        <select id="status">
+                            <option value="1">Fase 1 â€“ Caso Registrado</option>
+                            <option value="2">Fase 2 â€“ Validado por Abogado</option>
+                            <option value="3" selected>Fase 3 â€“ Recopilando Pruebas âš ï¸</option>
+                            <option value="4">Fase 4 â€“ NotificaciÃ³n al Empleador</option>
+                            <option value="5">Fase 5 â€“ Resuelto âœ… Cobrado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado / Ciudad</label>
+                        <select id="state">
+                            <option>California</option>
+                            <option>Texas</option>
+                            <option>Florida</option>
+                            <option>New York</option>
+                            <option>Illinois</option>
+                            <option>Georgia</option>
+                            <option>Arizona</option>
+                            <option>North Carolina</option>
+                            <option>New Jersey</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>TelÃ©fono / WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>CompensaciÃ³n Estimada</label>
+                        <input type="text" id="comp_amount" placeholder="Ej: $8,000 â€“ $24,000 USD">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Notas del Caso (Solo visible internamente)</label>
+                    <textarea id="notes" rows="2" placeholder="Ej: Cliente tiene testigos, jefe amenazÃ³ por mensaje de WhatsApp..."></textarea>
+                </div>
+
+                <!-- DOCUMENTOS -->
+                <div class="form-group">
+                    <label>âœ… Documentos Recibidos del Cliente:</label>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <input type="checkbox" id="doc_id"> <label for="doc_id">IdentificaciÃ³n (Pasaporte / MatrÃ­cula)</label>
+                        </div>
+                        <div class="doc-item">
+                            <input type="checkbox" id="doc_cheques"> <label for="doc_cheques">Cheques / Talones de Pago (Pay Stubs)</label>
+                        </div>
+                        <div class="doc-item">
+                            <input type="checkbox" id="doc_contrato"> <label for="doc_contrato">Contrato de Trabajo</label>
+                        </div>
+                        <div class="doc-item">
+                            <input type="checkbox" id="doc_carta"> <label for="doc_carta">Carta o Mensaje de Despido</label>
+                        </div>
+                        <div class="doc-item">
+                            <input type="checkbox" id="doc_medical"> <label for="doc_medical">Reporte MÃ©dico / Accidente</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGO -->
+                <div class="payment-box form-group">
+                    <label><i class="fas fa-dollar-sign"></i> Control de Honorarios</label>
+                    <div class="grid-2" style="margin-top:10px;">
+                        <div>
+                            <input type="checkbox" id="payment_pending">
+                            <label for="payment_pending" style="display:inline; color:#c2410c;">Â¿Pago pendiente del cliente?</label>
+                        </div>
+                        <div>
+                            <input type="text" id="payment_amount" placeholder="Monto (Ej: $150 USD) Honorario inicial" disabled style="background:#f1f5f9;">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-green" style="width:100%; padding: 14px; font-size: 1rem;">
+                    <i class="fas fa-save"></i> GUARDAR EXPEDIENTE Y GENERAR LINK DE SEGUIMIENTO
+                </button>
+            </form>
+        </div>
+
+        <!-- LISTA DE CASOS -->
+        <div class="card client-list">
+            <div class="search-bar">
+                <h3 style="margin:0; border:none; padding:0; flex:1;">ðŸ“‹ Expedientes Activos</h3>
+                <input type="text" id="searchInput" placeholder="ðŸ” Buscar por nombre o cÃ³digo..." oninput="filterTable()">
+                <button class="btn btn-sm" onclick="exportCSV()"><i class="fas fa-file-csv"></i> Exportar</button>
+            </div>
+            <div class="table-responsive">
+                <table id="clientTable">
+                    <thead>
+                        <tr>
+                            <th>CÃ³digo DLU</th>
+                            <th>Cliente</th>
+                            <th>Contacto</th>
+                            <th>Edad</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Fase</th>
+                            <th>Archivo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL LINK -->
+    <div class="modal-overlay" id="linkModal">
+        <div class="modal">
+            <h3><i class="fas fa-link"></i> Link de Seguimiento Generado</h3>
+            <p style="font-size:0.9rem; color:#64748b;">Copia este link y envÃ­aselo al cliente por WhatsApp. Ellos verÃ¡n el progreso de su caso en tiempo real.</p>
+            <div class="link-box" id="generatedLink">â€“</div>
+            <div style="display:flex; gap:10px; margin-top:15px;">
+                <button class="btn btn-accent" style="flex:1;" onclick="copyLink()"><i class="fas fa-copy"></i> Copiar Link</button>
+                <button class="btn" style="background:#25D366; flex:1;" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+                <button class="btn" style="background:#64748b;" onclick="closeModal()">Cerrar</button>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- JOB REQUESTS SECTION (NEW) -->
+    <div class="card" style="margin-top: 40px; background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        <h2 style="margin-top: 0; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--primary);">
+            <i class="fas fa-briefcase"></i> Solicitudes de BÃºsqueda de Empleo
+        </h2>
+        <div id="jobList" style="margin-top: 15px;">
+            <!-- Filled by JS -->
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // DB LOCAL (localStorage)  â€” simula backend real
+        // =============================================
+        const DB_KEY = 'dlu_cases_v2';
+        let currentLink = '';
+
+        function getDB() { return JSON.parse(localStorage.getItem(DB_KEY) || '[]'); }
+        function saveDB(db) { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
+
+        // =============================================
+        // GENERAR CÃ“DIGO DLU
+        // =============================================
+        function generateCode() {
+            const year = new Date().getFullYear();
+            const random = Math.floor(Math.random() * 9000) + 1000;
+            document.getElementById('code').value = `DLU-${year}-${random}`;
+        }
+
+        // =============================================
+        // FORMULARIO â€” GUARDAR CASO
+        // =============================================
+        document.getElementById('payment_pending').addEventListener('change', function () {
+            const amt = document.getElementById('payment_amount');
+            amt.disabled = !this.checked;
+            if (this.checked) amt.focus(); else amt.value = '';
+        });
+
+        document.getElementById('caseForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const caseData = {
+                caseId: document.getElementById('code').value.trim().toUpperCase(),
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                type: document.getElementById('caseType').value,
+                state: document.getElementById('state').value,
+                status: document.getElementById('status').value,
+                compensation: document.getElementById('comp_amount').value.trim(),
+                notes: document.getElementById('notes').value.trim(),
+                payment: {
+                    pending: document.getElementById('payment_pending').checked,
+                    amount: document.getElementById('payment_amount').value
+                },
+                docs: {
+                    id: document.getElementById('doc_id').checked,
+                    cheques: document.getElementById('doc_cheques').checked,
+                    contrato: document.getElementById('doc_contrato').checked,
+                    carta: document.getElementById('doc_carta').checked,
+                    medical: document.getElementById('doc_medical').checked
+                },
+                date: new Date().toLocaleDateString('es-US', { day:'2-digit', month:'short', year:'numeric' })
+            };
+
+            let db = getDB();
+            const idx = db.findIndex(c => c.caseId === caseData.caseId);
+            if (idx >= 0) { db[idx] = caseData; } else { db.push(caseData); }
+            saveDB(db);
+
+            loadClients();
+            showMagicLink(caseData);
+            e.target.reset();
+            generateCode();
+        });
+
+        // =============================================
+        // LINK DE SEGUIMIENTO (magic link)
+        // =============================================
+        function buildLink(caseData) {
+            const json = JSON.stringify(caseData);
+            const encoded = btoa(unescape(encodeURIComponent(json)));
+            const base = window.location.href.replace('admin.html', '').replace(/\/$/, '');
+            return `${window.location.origin}${window.location.pathname.replace('admin.html', '')}../sistema_seguimiento.html?data=${encoded}`;
+        }
+
+        function showMagicLink(caseData) {
+            const link = buildLink(caseData);
+            currentLink = link;
+            document.getElementById('generatedLink').textContent = link;
+            document.getElementById('linkModal').classList.add('active');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(currentLink).then(() => {
+                const btn = event.target.closest('button');
+                btn.innerHTML = '<i class="fas fa-check"></i> Â¡Copiado!';
+                btn.style.background = 'var(--success)';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiar Link';
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        function shareWhatsApp() {
+            const msg = encodeURIComponent(`Hola, aquÃ­ puede ver el progreso de su reclamaciÃ³n en Defensa Laboral USA:\n\n${currentLink}`);
+            window.open(`https://wa.me/?text=${msg}`, '_blank');
+        }
+
+        function closeModal() {
+            document.getElementById('linkModal').classList.remove('active');
+        }
+
+        // =============================================
+        // TABLA DE CASOS
+        // =============================================
+        const PHASES = {
+            '1': ['Caso Registrado', 'badge-blue'],
+            '2': ['Validado âœ“', 'badge-green'],
+            '3': ['Pruebas âš ï¸', 'badge-yellow'],
+            '4': ['Notificado ðŸ“¨', 'badge-blue'],
+            '5': ['Resuelto ðŸ’°', 'badge-green']
+        };
+
+        const TYPE_MAP = {
+            'despido':   ['â›” Despido', 'type-despido'],
+            'salarios':  ['ðŸ’° Salarios', 'type-salarios'],
+            'accidente': ['ðŸš‘ Accidente', 'type-accidente'],
+            'seguro':    ['ðŸ¥ Seguro', 'type-seguro']
+        };
+
+        function loadClients() {
+            const db = getDB();
+            const tbody = document.querySelector('#clientTable tbody');
+            tbody.innerHTML = '';
+
+            if (db.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:30px; color:#94a3b8;">No hay expedientes registrados aÃºn.</td></tr>';
+                updateStats(db);
+                return;
+            }
+
+            const query = (document.getElementById('searchInput')?.value || '').toLowerCase();
+            const filtered = db.filter(c =>
+                c.name.toLowerCase().includes(query) ||
+                c.id.toLowerCase().includes(query)
+            );
+
+            filtered.forEach(c => {
+                const [phaseTxt, phaseClass] = PHASES[c.status] || ['Desconocido', 'badge-blue'];
+                const [typeTxt, typeClass] = TYPE_MAP[c.type] || ['Otro', 'type-despido'];
+                const payWarn = c.payment?.pending ? `<i class="fas fa-exclamation-triangle" style="color:var(--danger); font-size:0.7rem;" title="Pago Pendiente"></i>` : '';
+                const hasFile = c.documents && c.documents.length > 0 ? '<i class="fas fa-paperclip" style="color:var(--primary);" title="Adjunto Disponible"></i>' : 'â€“';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-family:monospace; font-weight:700; color:var(--primary);">${c.caseId}</td>
+                    <td>
+                        <div style="font-weight:700;">${c.name}</div>
+                        <div style="font-size:0.75rem; color:#64748b;">${c.company || 'Empresa no especifi.'}</div>
+                    </td>
+                    <td>
+                        <div style="font-size:0.8rem;">${c.phone || '-'}</div>
+                        <div style="font-size:0.75rem; color:#64748b;">${c.email || ''}</div>
+                    </td>
+                    <td>${c.age || '-'}</td>
+                    <td><span class="type-badge ${typeClass}">${typeTxt}</span></td>
+                    <td>
+                        <span style="color:var(--success); font-weight:600;">${c.compensation || '$0'}</span>
+                        ${payWarn}
+                    </td>
+                    <td><span class="badge ${phaseClass}">${phaseTxt}</span></td>
+                    <td style="text-align:center;">${hasFile}</td>
+                    <td class="actions-cell">
+                        <button class="btn btn-sm btn-accent" onclick='showMagicLink(${JSON.stringify(c)})' title="Magyc Link"><i class="fas fa-link"></i></button>
+                        <button class="btn btn-sm" style="background:var(--warning);" onclick='editCase("${c.caseId}")'><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-red" onclick="deleteClient('${c.caseId}')"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            updateStats(db);
+        }
+
+        function updateStats(db) {
+            document.getElementById('statTotal').textContent = db.length;
+            document.getElementById('statActive').textContent = db.filter(c => c.status >= '2' && c.status <= '4').length;
+            document.getElementById('statClosed').textContent = db.filter(c => c.status === '5').length;
+            document.getElementById('statPending').textContent = db.filter(c => c.payment?.pending).length;
+        }
+
+        function filterTable() { loadClients(); }
+
+        function editCase(id) {
+            if (!id) { alert('Ingrese un cÃ³digo DLU primero.'); return; }
+            const db = getDB();
+            const c = db.find(c => c.caseId === id);
+            if (!c) { alert('No se encontrÃ³ ningÃºn expediente con ese cÃ³digo.'); return; }
+            document.getElementById('name').value = c.name;
+            document.getElementById('code').value = c.caseId;
+            document.getElementById('phone').value = c.phone || '';
+            document.getElementById('caseType').value = c.type;
+            document.getElementById('state').value = c.state;
+            document.getElementById('status').value = c.status;
+            document.getElementById('comp_amount').value = c.compensation || '';
+            document.getElementById('notes').value = c.notes || '';
+            document.getElementById('payment_pending').checked = c.payment?.pending || false;
+            document.getElementById('payment_amount').value = c.payment?.amount || '';
+            document.getElementById('payment_amount').disabled = !c.payment?.pending;
+            document.getElementById('doc_id').checked = c.docs?.id || false;
+            document.getElementById('doc_cheques').checked = c.docs?.cheques || false;
+            document.getElementById('doc_contrato').checked = c.docs?.contrato || false;
+            document.getElementById('doc_carta').checked = c.docs?.carta || false;
+            document.getElementById('doc_medical').checked = c.docs?.medical || false;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deleteClient(id) {
+            if (!confirm(`Â¿Eliminar expediente ${id}? Esta acciÃ³n no se puede deshacer.`)) return;
+            let db = getDB();
+            db = db.filter(c => c.caseId !== id);
+            saveDB(db);
+            loadClients();
+        }
+
+        function clearData() {
+            if (!confirm('âš ï¸ ADVERTENCIA: Esto eliminarÃ¡ TODOS los expedientes de la base de datos local. Â¿Continuar?')) return;
+            localStorage.removeItem(DB_KEY);
+            loadClients();
+        }
+
+        // =============================================
+        // EXPORTAR CSV
+        // =============================================
+        function exportCSV() {
+            const db = getDB();
+            if (db.length === 0) { alert('No hay datos para exportar.'); return; }
+            const headers = ['CÃ³digo', 'Nombre', 'TelÃ©fono', 'Email', 'Edad', 'Tipo', 'Estado', 'CompensaciÃ³n', 'Fase', 'Actualizado'];
+            const rows = db.map(c => [c.caseId, c.name, c.phone, c.email, c.age, c.type, c.state, c.compensation, c.status, c.date]);
+            const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `DefensaLaboral_Casos_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+        }
+
+        // =============================================
+        // RENDER JOB REQUESTS
+        // =============================================
+        function clearJobs() { if(!confirm("Limpiar lista de empleos?")) return; localStorage.removeItem("dlu_job_requests"); renderJobs(); } function renderJobs() {
+            const jobs = JSON.parse(localStorage.getItem('dlu_job_requests') || '[]');
+            const list = document.getElementById('jobList');
+            if (list) {
+                list.innerHTML = jobs.map(j => `
+                    <div style="background: white; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong style="display: block;">${j.name} (${j.state})</strong>
+                            <span style="font-size: 0.8rem; color: var(--text-muted); padding-bottom: 5px; display: block;">Busca: ${j.skill}</span>
+                            <span style="font-size: 0.7rem; color: #94a3b8;">Fecha: ${j.date}</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="https://wa.me/${j.phone.replace(/[^0-9]/g, '')}?text=📢%20¡Hola%20${encodeURIComponent(j.name)}!%20Nos%20comunicamos%20de%20Defensa%20Laboral%20USA.%20🛡️%0A%0AVimos%20tu%20registro%20para%20las%20Alertas%20de%20Empleo%20en%20${encodeURIComponent(j.state)}%20para%20el%20área%20de%20${encodeURIComponent(j.skill)}.%20Tenemos%20algunas%20vacantes%20vigentes...%20🚀" target="_blank" class="btn btn-sm" style="background: #25D366; color: white; display: flex; align-items: center; gap: 5px; text-decoration: none;">
+                                <i class="fab fa-whatsapp"></i> Contactar
+                            </a>
+                        </div>
+                    </div>
+                `).join('') || '<p style="text-align:center; color: #94a3b8;">No hay solicitudes de empleo pendientes.</p>';
+            }
+        }
+
+        // =============================================
+        // INIT
+        // =============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCode();
+            loadClients();
+            renderJobs();
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Vacantes Verificadas | Defensa Laboral USA</title>
+    <!-- Mismos estilos de autoridad que index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #020617;
+            --card: rgba(15, 23, 42, 0.8);
+            --text: #f8fafc;
+            --accent: #fbbf24;
+            --success: #10b981;
+            --blue: #3b82f6;
+            --border: rgba(51, 65, 85, 0.5);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .category-pill {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            border: 1px solid var(--blue);
+        }
+
+        .job-card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin: 15px;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .job-city {
+            font-size: 0.7rem;
+            color: var(--blue);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .job-company {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 5px 0;
+            color: white;
+        }
+
+        .job-salary {
+            font-size: 0.9rem;
+            color: var(--success);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .job-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-call {
+            background: var(--success);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-share {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .dlu-seal {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent);
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px dashed var(--accent);
+        }
+
+        .legal-float {
+            background: var(--bg);
+            border: 2px solid var(--accent);
+            padding: 20px;
+            margin: 30px 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .legal-float h4 {
+            color: var(--accent);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .legal-float p {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .btn-legal {
+            background: var(--blue);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 800;
+            width: 80%;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="images/logo_principal.png" alt="DLU Logo" style="height: 50px; margin-bottom: 15px;">
+        <h1>PORTAL DE VACANTES ðŸ›  </h1>
+        <p style="font-size: 0.8rem; color: #94a3b8; font-weight: 600; margin-top: 10px;">Buscador de Empleo Seguro y Protegido por DLU</p>
+    </div>
+
+    <div style="padding: 20px; text-align: center;">
+        <div class="category-pill">OFERTAS ACTIVAS HOY: 25 MARZO</div>
+        
+        <!-- Job 1 -->
+        <div class="job-card">
+            <div class="job-city">CALIFORNIA (Bakersfield / Los Angeles)</div>
+            <div class="job-company">General Laboral: ConstrucciÃ³n Pesada</div>
+            <div class="job-salary">PAGO: $20.00 - $28.00 / HORA</div>
+            <p class="job-desc">Se buscan trabajadores para limpieza de sitio, demoliciÃ³n bÃ¡sica y acarreo de materiales. Pago Semanal. OpciÃ³n de horas extra con Overtime.</p>
+            <a href="tel:6613251234" class="btn-call"><i class="fas fa-phone"></i> LLAMAR AHORA: (661) 325-1234</a>
+            <a href="javascript:void(0)" onclick="shareJob('ConstrucciÃ³n en CA', '$25/hr')" class="btn-share"><i class="fas fa-share-nodes"></i> COMPARTIR CON UN AMIGO</a>
+            <div class="dlu-seal">
+                <i class="fas fa-shield-halved"></i> Vacante Pre-Auditada por Defensa Laboral USA
+            </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card">
+            <div class="job-city">TEXAS (Houston / Dallas)</div>
+            <div class="job-company">Drywaller & Installer Helper</div>
+            <div class="job-salary">PAGO: $22.00 - $30.00 / HORA</div>
+            <p class="job-desc">Ayudante para instalaciÃ³n de hojas de yeso y acabados. Empresa con historial de pago seguro verificado por DLU.</p>
+            <a href="tel:7136224488" class="btn-call"><i class="fas fa-phone"></i> LLAMAR AHORA: (713) 622-4488</a>
+            <a href="javascript:void(0)" onclick="shareJob('Drywall en TX', '$28/hr')" class="btn-share"><i class="fas fa-share-nodes"></i> COMPARTIR CON UN AMIGO</a>
+            <div class="dlu-seal">
+                <i class="fas fa-shield-halved"></i> Vacante Pre-Auditada por Defensa Laboral USA
+            </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card">
+            <div class="job-city">FLORIDA (Miami / Orlando)</div>
+            <div class="job-company">Limpieza de Restaurantes / Hoteles</div>
+            <div class="job-salary">PAGO: $16.00 - $21.00 / HORA</div>
+            <p class="job-desc">Personal para Ã¡reas de cocina y mantenimiento. Se requiere disponibilidad de horario nocturno. Pago garantizado.</p>
+            <a href="tel:3054415566" class="btn-call"><i class="fas fa-phone"></i> LLAMAR AHORA: (305) 441-5566</a>
+            <a href="javascript:void(0)" onclick="shareJob('Limpieza en FL', '$18/hr')" class="btn-share"><i class="fas fa-share-nodes"></i> COMPARTIR CON UN AMIGO</a>
+            <div class="dlu-seal">
+                <i class="fas fa-shield-halved"></i> Vacante Pre-Auditada por Defensa Laboral USA
+            </div>
+        </div>
+
+        <!-- Legal Hook Section -->
+        <div class="legal-float">
+            <h4>Â¿TE ESTÃ N ROBANDO EN TU TRABAJO ACTUAL? âš–ï¸  </h4>
+            <p>Muchos trabajadores no saben que tienen derecho a recuperar miles de dÃ³lares por pagos de Overtime no recibidos o accidentes ocultados por el patrÃ³n.</p>
+            <a href="calculadora.html" class="btn-legal">CALCULAR MI INDEMNIZACIÃ“N GRATIS</a>
+            <p style="font-size: 0.65rem; margin-top: 15px; opacity: 0.7;">Protegido por el Sello de Autoridad de Defensa Laboral USA.</p>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; color: #64748b; font-size: 0.7rem; padding: 20px;">
+        Â© 2026 Defensa Laboral USA - Portal de Empoderamiento al Trabajador.<br>
+        Las vacantes son publicadas por terceros. DLU audita el historial de cumplimiento legal de las empresas mencionadas.
+    </footer>
+
+    <script>
+        function shareJob(cargo, pago) {
+            const text = `ðŸ“¢ Â¡Mira este trabajo! Me lo recomendó Defensa Laboral USA - ðŸ›¡ï¸ \n\nðŸ’¼ Puesto: ${cargo}\nðŸ’° Pago Est: ${pago}\n\nðŸ‘‰ Mira los detalles y llama directamente aquí: https://abogados-rose.vercel.app/portal_empleos.html\n\n(DLU también nos ayuda a recuperar dinero si el patrón nos roba salarios o nos despiden injustamente. ¡Pásalo!)`;
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/?text=${encoded}`, '_blank');
+        }
+    </script>
+</body>
+</html>
