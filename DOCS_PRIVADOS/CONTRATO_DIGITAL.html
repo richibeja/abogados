@@ -312,53 +312,61 @@
                 
                 <div class="meta-info">
                     <div class="info-item">
-                        <label>Cliente</label>
-                        <span id="client-name">[CARGANDO NOMBRE...]</span>
+                        <label>Cliente / Reclamante</label>
+                        <span id="client-name">[NOMBRE DEL CLIENTE]</span>
                     </div>
                     <div class="info-item">
-                        <label>Fecha de Emisión</label>
-                        <span id="contract-date">26 de Marzo, 2026</span>
+                        <label>Estado / Jurisdicción</label>
+                        <span id="client-state">CALIFORNIA</span>
                     </div>
                     <div class="info-item">
-                        <label>Tipo de Reclamación</label>
-                        <span>Robo de Salarios / Horas Extra</span>
+                        <label>Empresa Contraparte</label>
+                        <span id="company-name">[EMPRESA]</span>
                     </div>
                     <div class="info-item">
-                        <label>ID de Caso</label>
-                        <span>DLU-2026-FT-9912</span>
+                        <label>ID de Caso Federal</label>
+                        <span id="case-id">DLU-2026-FT-9912</span>
                     </div>
+                </div>
+
+                <div class="compensation-banner" style="background: #1e3a8a; color: white; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; border: 1px solid var(--primary);">
+                    <div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">Estimación de Reclamación Federal</div>
+                        <div style="font-size: 0.65rem; opacity: 0.7;">Basado en violaciones FLSA, OSHA y Wage Theft Act</div>
+                    </div>
+                    <div id="est-value" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">$12,500.00</div>
                 </div>
 
                 <div class="clauses">
                     <div class="clause">
-                        <h3>1. OBJETO DEL ACUERDO</h3>
-                        <p>El cliente contrata a DEFENSA LABORAL USA para la prestación de servicios legales relacionados con la recuperación de salarios no pagados, indemnizaciones por despido o cualquier otra violación a las leyes laborales federales de los Estados Unidos.</p>
+                        <h3>1. OBJETO DEL ACUERDO Y REPRESENTACIÓN</h3>
+                        <p>Por medio de la presente, el cliente autoriza a **DEFENSA LABORAL USA** y sus abogados aliados para actuar como sus representantes oficiales ante el Departamento de Trabajo de EE.UU. (DOL) y cualquier otra entidad federal o estatal pertinente para la recuperación de salarios, indemnizaciones y beneficios legales.</p>
                     </div>
 
                     <div class="clause">
-                        <h3>2. HONORARIOS POR CONTINGENCIA</h3>
-                        <p>Nuestra firma opera bajo un modelo de "Si no ganamos, no cobramos". El cliente acepta pagar un honorario equivalente al 33.3% de cualquier suma recuperada antes de presentar una demanda formal, o el 40% si el caso requiere litigación en corte.</p>
+                        <h3>2. HONORARIOS Y COSTOS DE APERTURA</h3>
+                        <p>Nuestra firma opera bajo un modelo de contingencia del 33% sobre el éxito. Sin embargo, para la radicación oficial y apertura de expediente administrativo, el cliente acepta cubrir un pago único de <strong id="fee-value">$150.00 USD</strong> por concepto de gestión técnica y asignación de código federal.</p>
                     </div>
 
                     <div class="clause">
-                        <h3>3. OBLIGACIONES DEL CLIENTE</h3>
-                        <p>El cliente se compromete a proporcionar información veraz, pruebas documentales (paystubs, mensajes, fotos) y a colaborar plenamente durante el proceso de investigación y reclamación.</p>
+                        <h3>3. AUTORIZACIÓN DE EVIDENCIA</h3>
+                        <p>El Cliente autoriza el uso de pruebas documentales, fotográficas y testimoniales para sustentar los cargos de Despido Injustificado, Robo de Salarios o Negligencia en la Seguridad en el lugar de trabajo. Esta información será tratada con estricta confidencialidad bajo privilegio abogado-cliente.</p>
                     </div>
 
                     <div class="clause">
-                        <h3>4. CONSENTIMIENTO DE FIRMA DIGITAL</h3>
-                        <p>Al firmar este documento de manera electrónica, el Cliente reconoce que su firma digital tiene la misma validez legal que una firma manuscrita, conforme a lo establecido en la Ley Electronic Signatures in Global and National Commerce Act (E-SIGN Act).</p>
+                        <h3>4. VALIDEZ DE FIRMA DIGITAL (E-SIGN ACT)</h3>
+                        <p>Al firmar este documento de manera electrónica, el Cliente reconoce que su firma digital tiene la misma fuerza legal que una firma manuscrita, conforme a la Ley Federal de Firmas Electrónicas (E-SIGN Act), permitiendo el inicio inmediato de las gestiones ante las autoridades laborales.</p>
                     </div>
 
                     <div class="clause">
-                        <h3>5. CONFIDENCIALIDAD</h3>
-                        <p>Toda la información compartida entre el Cliente y Defensa Laboral USA está protegida por el privilegio abogado-cliente y será tratada con los más altos estándares de seguridad y privacidad.</p>
+                        <h3>5. OBLIGACIONES DEL RECLAMANTE</h3>
+                        <p>El cliente se compromete a proporcionar información veraz y a colaborar plenamente durante el proceso. Cualquier falsedad en los datos proporcionados podría invalidar la representación legal aquí establecida.</p>
                     </div>
                 </div>
 
                 <div class="signature-section">
-                    <label class="signature-label">Firme aquí con su dedo o mouse</label>
-                    <div class="signature-pad-container">
+                    <label class="signature-label">Firme aquí (Firma del Cliente)</label>
+                    <div class="signature-pad-container" style="background: #fff; border: 2px solid var(--primary);">
                         <canvas id="signature-pad"></canvas>
                     </div>
                     <div class="signature-actions">
@@ -369,14 +377,14 @@
                 </div>
 
                 <button class="btn-submit" id="submit-btn" disabled>
-                    FIRMAR Y ENVIAR ACUERDO <i class="fas fa-file-contract"></i>
+                    ACEPTAR Y RADICAR CASO <i class="fas fa-check-double"></i>
                 </button>
             </main>
 
             <div class="security-badges">
                 <div class="badge"><i class="fas fa-shield-alt"></i> Seguridad SSL 256-Bit</div>
-                <div class="badge"><i class="fas fa-fingerprint"></i> Autenticación Biométrica</div>
-                <div class="badge"><i class="fas fa-check-circle"></i> Legalmente Vinculante</div>
+                <div class="badge"><i class="fas fa-stamp"></i> Validación Notarial</div>
+                <div class="badge"><i class="fas fa-check-circle"></i> E-SIGN Compatible</div>
             </div>
             
             <p style="text-align: center; font-size: 0.75rem; color: #4b5563; margin-top: 3rem; padding-bottom: 2rem;">
@@ -387,10 +395,21 @@
 
     <!-- Success Overlay -->
     <div id="success-overlay" class="success-overlay">
+        <div class="header" style="position: absolute; top: 20px;">
+                <div class="logo-box">
+                    <img src="../images/logo_principal.png" alt="Logo" style="height: 30px;">
+                    <span>DEFENSA LABORAL USA</span>
+                </div>
+        </div>
         <i class="fas fa-check-circle"></i>
-        <h1 style="color: white; font-size: 2.5rem;">¡CONTRATO FIRMADO!</h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 500px;">El acuerdo ha sido procesado y enviado a nuestra oficina legal. En breve recibirá una copia en su correo y WhatsApp.</p>
-        <button class="btn-submit" style="max-width: 300px; margin-top: 3rem;" onclick="location.reload()">VOLVER AL INICIO</button>
+        <h1 style="color: white; font-size: 2.5rem;">¡CASO RADICADO!</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 500px;">El acuerdo de representación ha sido procesado exitosamente. Un oficial de seguimiento le contactará en breve.</p>
+        <div style="display: flex; gap: 15px; margin-top: 3rem;">
+            <button class="btn-submit" style="width: auto; padding: 1rem 2rem;" onclick="location.reload()">VOLVER</button>
+            <a href="https://wa.me/18053080769?text=He%20firmado%20mi%20contrato%20digital" class="btn-submit" style="width: auto; padding: 1rem 2rem; background: #25d366; text-decoration: none; color: white;">
+                <i class="fab fa-whatsapp"></i> WHATSAPP
+            </a>
+        </div>
     </div>
 
     <script>
@@ -400,22 +419,38 @@
         const submitBtn = document.getElementById('submit-btn');
         const clearBtn = document.getElementById('clear-btn');
         const successOverlay = document.getElementById('success-overlay');
+        
+        // Elementos Dinámicos
         const clientNameSpan = document.getElementById('client-name');
+        const clientStateSpan = document.getElementById('client-state');
+        const companyNameSpan = document.getElementById('company-name');
+        const caseIdSpan = document.getElementById('case-id');
+        const estValueSpan = document.getElementById('est-value');
+        const feeValueSpan = document.getElementById('fee-value');
 
         let isDrawing = false;
         let hasSigned = false;
 
         // URL Parameters for dynamic data
         const urlParams = new URLSearchParams(window.location.search);
-        const clientName = urlParams.get('nombre') || 'Francisco González Arias';
-        clientNameSpan.textContent = clientName;
+        
+        clientNameSpan.textContent = urlParams.get('nombre') || 'Nombre Apellido';
+        clientStateSpan.textContent = urlParams.get('estado') || 'IL / NY / CA';
+        companyNameSpan.textContent = urlParams.get('empresa') || 'Nombre de Empresa';
+        caseIdSpan.textContent = urlParams.get('id') || 'DLU-' + Math.floor(1000 + Math.random() * 9000);
+        estValueSpan.textContent = urlParams.get('estimacion') || '$2,500.00';
+        
+        const pago = urlParams.get('pago');
+        if (pago) {
+            feeValueSpan.textContent = '$' + pago + '.00 USD';
+        }
 
         function resizeCanvas() {
             const ratio = Math.max(window.devicePixelRatio || 1, 1);
             canvas.width = canvas.offsetWidth * ratio;
             canvas.height = canvas.offsetHeight * ratio;
             ctx.scale(ratio, ratio);
-            ctx.lineWidth = 2.5;
+            ctx.lineWidth = 3;
             ctx.lineCap = 'round';
             ctx.strokeStyle = '#0B1F4D'; // Navy blue ink
         }
@@ -472,13 +507,10 @@
         });
 
         submitBtn.addEventListener('click', () => {
-            // Here you would typically send the canvas dataURL to a server
-            const signatureImage = canvas.toDataURL();
-            console.log("Contrato firmado por:", clientName);
-            
-            // Show Success
+            console.log("Caso radicado exitosamente");
             successOverlay.style.display = 'flex';
         });
     </script>
+
 </body>
 </html>
