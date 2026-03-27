@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUENTA DE COBRO | DEFENSA LABORAL USA</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0B1F4D; /* Navy Blue */
+            --accent: #B8860B; /* Gold */
+            --bg: #f8fafc;
+        }
+
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg); margin: 0; padding: 40px; color: #1e293b; display: flex; flex-direction: column; align-items: center; }
+
+        .invoice-container { background: white; width: 8.5in; padding: 60px; box-shadow: 0 0 40px rgba(0,0,0,0.1); border-top: 20px solid var(--primary); }
+
+        .header { display: flex; justify-content: space-between; border-bottom: 2px solid #e2e8f0; padding-bottom: 30px; margin-bottom: 40px; }
+        .firm-brand { display: flex; align-items: center; gap: 15px; }
+        .firm-name { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+
+        .invoice-meta { text-align: right; }
+        .invoice-meta h2 { font-family: 'Montserrat'; font-size: 1.5rem; color: var(--primary); margin: 0; text-transform: uppercase; }
+        .invoice-meta p { color: #64748b; font-size: 0.8rem; font-weight: 700; }
+
+        .client-section { margin-bottom: 40px; }
+        .client-section h3 { font-family: 'Montserrat'; font-size: 0.9rem; margin-bottom: 10px; color: #64748b; text-transform: uppercase; }
+        .client-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); }
+
+        .table-invoice { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .table-invoice th { background: #f1f5f9; text-align: left; padding: 15px; font-family: 'Montserrat'; font-size: 0.85rem; color: var(--primary); border-bottom: 1px solid #e2e8f0; }
+        .table-invoice td { padding: 15px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+
+        .total-box { text-align: right; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .total-amount { font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-top: 5px; }
+
+        .payment-info { background: #fff7ed; border: 1px solid #fdba74; padding: 25px; border-radius: 12px; margin-top: 40px; }
+        .payment-info h4 { font-family: 'Montserrat'; font-size: 1rem; color: #c2410c; margin-bottom: 15px; text-transform: uppercase; }
+        .payment-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; border-bottom: 1px dashed #fdba74; padding-bottom: 5px; }
+
+        .footer { margin-top: 60px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 0.75rem; color: #94a3b8; font-weight: bold; }
+
+        @media print { .no-print { display: none; } body { padding: 0; background: white; } .invoice-container { box-shadow: none; border: none; width: 100%; padding: 40px; } }
+    </style>
+</head>
+<body>
+
+    <div class="no-print" style="margin-bottom: 20px;">
+        <button onclick="window.print()" style="background: var(--primary); color: white; padding: 12px 30px; border: none; border-radius: 6px; font-weight: 800; cursor: pointer;">DESCARGAR FACTURA (PDF)</button>
+    </div>
+
+    <div class="invoice-container">
+        <header class="header">
+            <div class="firm-brand">
+                <i class="fas fa-gavel" style="color: var(--primary); font-size: 2rem;"></i>
+                <div class="firm-name">Defensa Laboral USA</div>
+            </div>
+            <div class="invoice-meta">
+                <h2>Cuenta de Cobro</h2>
+                <p>Nº FACTURA: DLU-2026-DR-500</p>
+                <p>FECHA: 27 de Marzo, 2026</p>
+            </div>
+        </header>
+
+        <section class="client-section">
+            <h3>Facturar a:</h3>
+            <div class="client-name">Dennys Alberto Rosendo</div>
+            <div style="font-size: 0.9rem; color: #64748b;">RE: Reclamación Federal GSA Auto Truck Repair</div>
+        </section>
+
+        <table class="table-invoice">
+            <thead>
+                <tr>
+                    <th>CONCEPTO LEGAL</th>
+                    <th style="text-align: right;">VALOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Servicios de Apertura Administrativa:</strong><br>
+                        Radicación de expediente federal ante el DOL/USCIS y asignación de código DLU de seguimiento.
+                    </td>
+                    <td style="text-align: right; font-weight: 800;">$350.00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Gestión Técnica de Evidencia:</strong><br>
+                        Auditoría y traducción de informes médicos (CVD/Stroke) y preparación de testimonio de testigos.
+                    </td>
+                    <td style="text-align: right; font-weight: 800;">$150.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-box">
+            <h4 style="margin: 0; color: #64748b; font-size: 0.8rem; text-transform: uppercase;">Total a Pagar:</h4>
+            <div class="total-amount">$500.00 USD</div>
+        </div>
+
+        <div class="payment-info">
+            <h4><i class="fas fa-university"></i> Métodos de Pago Autorizados</h4>
+            <div class="payment-item"><span>Titular:</span> <strong>RICHARD BEJARANO ARAGON</strong></div>
+            <div class="payment-item"><span>Banco / App:</span> <strong>WISE / COLUMN BANK</strong></div>
+            <div class="payment-item"><span>Routing (Número de Ruta):</span> <strong>084009519</strong></div>
+            <div class="payment-item"><span>Número de Cuenta:</span> <strong>584051311222996</strong></div>
+            <p style="font-size: 0.75rem; color: #7c2d12; margin-top: 15px; font-weight: 700;">*Nota: Favor de enviar captura del comprobante por WhatsApp al terminar el depósito para liberar su radicación.</p>
+        </div>
+
+        <footer class="footer">
+            Defensa Laboral USA | 820 State St, Santa Barbara, CA 93101 | (805) 308-0769<br>
+            "Juntos protegemos sus derechos en Estados Unidos"
+        </footer>
+    </div>
+
+</body>
+</html>
