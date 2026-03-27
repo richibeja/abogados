@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERTIFICADO DE AUDITORÍA LEGAL - SECUNDINO LÓPEZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #b91c1c; /* Danger Red for Audit/Alert */
+            --dark: #0B1F4D;
+            --accent: #fbbf24;
+            --text-dark: #1e293b;
+        }
+
+        body { font-family: 'Roboto', sans-serif; background-color: #f1f5f9; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+
+        .document {
+            background-color: white;
+            width: 8.5in;
+            height: 11in;
+            padding: 60px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; }
+        .firm-brand { display: flex; align-items: center; gap: 15px; }
+        .firm-name { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--dark); text-transform: uppercase; }
+
+        .alert-banner { background: var(--primary); color: white; text-align: center; padding: 15px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-radius: 5px; }
+
+        .client-data { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .data-item label { display: block; font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase; }
+        .data-item span { font-size: 1rem; font-weight: 700; color: var(--dark); }
+
+        .findings h3 { font-family: 'Montserrat'; font-size: 1.1rem; color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; }
+        .finding-item { margin-bottom: 20px; padding-left: 20px; border-left: 3px solid var(--primary); }
+        .finding-item strong { color: var(--primary); display: block; margin-bottom: 5px; }
+
+        .solution-box { background: var(--dark); color: white; padding: 25px; border-radius: 12px; margin-top: 30px; position: relative; }
+        .solution-box h4 { color: var(--accent); font-family: 'Montserrat'; margin-bottom: 10px; text-transform: uppercase; }
+        .solution-box p { font-size: 0.9rem; line-height: 1.5; }
+
+        .footer-sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: auto; padding-top: 40px; }
+        .sig-box { text-align: center; }
+        .sig-line { border-top: 1px solid #333; margin-top: 40px; padding-top: 5px; font-size: 0.8rem; font-weight: 700; }
+
+        @media print { .no-print { display: none; } body { padding: 0; background: white; } .document { box-shadow: none; border: none; margin: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="no-print">
+        <button onclick="window.print()" style="background: var(--primary); color: white; padding: 12px 25px; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; margin-bottom: 20px;">DESCARGAR AUDITORÍA (PDF)</button>
+    </div>
+
+    <div class="document">
+        <header class="header">
+            <div class="firm-brand">
+                <div style="background: var(--dark); color: var(--accent); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 5px; font-weight: 900;">DLU</div>
+                <div class="firm-name">Defensa Laboral USA</div>
+            </div>
+            <div style="text-align: right; font-size: 0.7rem; font-weight: bold; color: var(--primary);">ESTADO: ALERTA DE FRAUDE FEDERAL<br>AUDIT ID: DLU-SEC-4832</div>
+        </header>
+
+        <div class="alert-banner">
+            <i class="fas fa-exclamation-triangle"></i> Notificación de Riesgo Legal
+        </div>
+
+        <main>
+            <p style="margin-bottom: 20px;">Tras la denuncia inicial registrada por el Sr. **Secundino López Sarat**, nuestro equipo de auditoría legal ha verificado las irregularidades en su proceso de permiso de trabajo tramitado anteriormente.</p>
+
+            <div class="client-data">
+                <div class="data-item"><label>Cliente</label><span>Secundino López Sarat</span></div>
+                <div class="data-item"><label>Nacionalidad</label><span>Guatemalteca</span></div>
+                <div class="data-item"><label>Teléfono</label><span>(239) 483-2652</span></div>
+                <div class="data-item"><label>Valor del Fraude</label><span style="color: var(--primary);">$12,000.00 USD</span></div>
+            </div>
+
+            <div class="findings">
+                <h3>Hallazgos Técnicos de Auditoría</h3>
+                <div class="finding-item">
+                    <strong>1. Ausencia de Recibos Oficiales I-797 (USCIS)</strong>
+                    <p style="font-size: 0.9rem;">No existe registro oficial de radicación ante el Servicio de Ciudadanía e Inmigración. El pago de $12,000 no corresponde a ninguna tasa oficial federal conocida por este trámite.</p>
+                </div>
+                <div class="finding-item">
+                    <strong>2. Reporte de Mala Praxis Legal</strong>
+                    <p style="font-size: 0.9rem;">El individuo identificado como "David Chavez" ha sido señalado por cobros excesivos sin entrega de número de caso oficial, lo cual constituye una violación al código civil y federal de servicios migratorios.</p>
+                </div>
+            </div>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-shield-alt"></i> Protocolo de Rescate DLU</h4>
+                <p>Nuestra firma activará el **Blindaje Federal contra Fraude**. Esto incluye:</p>
+                <ul style="font-size: 0.85rem; margin-top: 10px; margin-left: 20px;">
+                    <li>Investigación de paradero de fondos y reporte a la FTC.</li>
+                    <li>Radicación CORRECTA del permiso de trabajo bajo prioridad federal.</li>
+                    <li>Notificación al Departamento de Trabajo para evitar que este fraude afecte su récord migratorio.</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="footer-sigs">
+            <div class="sig-box">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: -30px;">Elena Valenzuela</div>
+                <div class="sig-line">Lic. Elena Valenzuela<br>Especialista en Auditoría Federal</div>
+            </div>
+            <div class="sig-box">
+                <div style="border: 2px solid #cc0000; color: #cc0000; padding: 5px; font-weight: 900; display: inline-block; transform: rotate(-5deg);">CASO REVISADO<br>POR ELENA</div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
