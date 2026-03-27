@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORRADOR DE DEMANDA FEDERAL - CHAVEZ FRAUD CASE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #5b21b6; /* Purple for litigation */
+            --dark: #0B1F4D;
+            --accent: #fbbf24;
+            --bg: #f3f4f6;
+        }
+
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg); margin: 0; padding: 40px; color: #1e293b; display: flex; flex-direction: column; align-items: center; }
+
+        .legal-doc {
+            background: white;
+            width: 8.5in;
+            min-height: 11in;
+            padding: 80px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .court-header { text-align: center; border-bottom: 2px solid var(--dark); padding-bottom: 20px; margin-bottom: 40px; }
+        .court-header h1 { font-family: 'Playfair Display'; font-size: 1.2rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+
+        .case-caption { display: flex; justify-content: space-between; margin-bottom: 40px; border: 1px solid #e2e8f0; padding: 20px; }
+        .party { flex: 1; font-weight: 700; font-size: 1.1rem; }
+        .case-meta { border-left: 2px solid var(--dark); padding-left: 20px; font-weight: 700; font-family: 'Montserrat'; }
+
+        .doc-title { text-align: center; font-family: 'Montserrat'; font-size: 1.3rem; font-weight: 900; margin-bottom: 40px; text-decoration: underline; }
+
+        .complaint-section { margin-bottom: 30px; }
+        .complaint-section h3 { font-family: 'Montserrat'; font-size: 0.9rem; color: var(--dark); text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+
+        .stolen-amount { background: #fee2e2; border: 2px dashed #dc2626; padding: 15px; margin: 20px 0; text-align: center; border-radius: 8px; }
+        .stolen-amount span { display: block; font-size: 0.8rem; color: #991b1b; font-weight: 800; text-transform: uppercase; }
+        .stolen-amount strong { font-size: 2rem; color: #b91c1c; }
+
+        .signature-line { margin-top: 60px; border-top: 1px solid #334155; width: 300px; padding-top: 5px; font-size: 0.8rem; font-weight: bold; }
+
+        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 8rem; color: rgba(0,0,0,0.03); font-family: 'Montserrat'; font-weight: 900; pointer-events: none; }
+
+        @media print { .no-print { display: none; } body { padding: 0; background: white; } .legal-doc { box-shadow: none; border: none; padding: 50px; } }
+    </style>
+</head>
+<body>
+
+    <div class="no-print" style="margin-bottom: 20px;">
+        <button onclick="window.print()" style="background: var(--dark); color: white; padding: 12px 30px; border: none; border-radius: 6px; font-weight: 800; cursor: pointer;">DESCARGAR DEMANDA PDF</button>
+    </div>
+
+    <div class="legal-doc">
+        <div class="watermark">BORRADOR</div>
+
+        <header class="court-header">
+            <h1>UNITED STATES DISTRICT COURT<br>FOR THE DISTRICT OF MINNESOTA</h1>
+        </header>
+
+        <div class="case-caption">
+            <div class="party">
+                SECUNDINO LÓPEZ SARAT,<br>
+                Demandante (Plaintiff),<br><br>
+                vs.<br><br>
+                DAVID CHAVEZ & ASSOC.,<br>
+                Demandado (Defendant).
+            </div>
+            <div class="case-meta">
+                CIVIL ACTION NO: 2026-CV-SL-4832<br>
+                MOTIVO: FRAUDE AL CONSUMIDOR Y MALA PRAXIS LEGAL
+            </div>
+        </div>
+
+        <div class="doc-title">DEMANDA CIVIL POR DAÑOS Y PERJUICIOS (CIVIL COMPLAINT)</div>
+
+        <main>
+            <section class="complaint-section">
+                <h3>I. JURISDICCIÓN Y ANTECEDENTES</h3>
+                <p>Por medio de la presente, el Demandante asistido por **Defensa Laboral USA** y el **Dr. Francisco Hernández**, interpone demanda formal contra el Abogado David Chavez por concepto de enriquecimiento ilícito y fraude profesional.</p>
+            </section>
+
+            <section class="complaint-section">
+                <h3>II. LOS HECHOS DEL FRAUDE</h3>
+                <p>1. El Demandado cobró al Sr. López la suma total de fondos para la gestión de un Permiso de Trabajo Federal (EAD).</p>
+                <p>2. El Demandado omitió intencionalmente el depósito de las tasas federales al Tesoro de los Estados Unidos, resultando en el congelamiento administrativo del expediente del Demandante.</p>
+            </section>
+
+            <div class="stolen-amount">
+                <span>Total de Fondos a Recuperar (Causa Principal):</span>
+                <strong>$12,000.00 USD</strong>
+            </div>
+
+            <section class="complaint-section">
+                <h3>III. ACCIÓN DE RESCATE</h3>
+                <p>Debido a la inacción maliciosa del Demandado, Defensa Laboral USA ha tenido que intervenir de emergencia con un bono de rescate de **$1,850.00 USD** para salvaguardar el estatus legal del Demandante.</p>
+            </section>
+
+            <section class="complaint-section">
+                <h3>IV. PETICIONES FINALES</h3>
+                <p>Se solicita al Honorable Juez la orden de restitución inmediata de los $12,000 extraídos fraudulentamente, más daños punitivos por negligencia profesional.</p>
+            </section>
+        </main>
+
+        <div style="margin-top: 80px; display: flex; justify-content: space-between;">
+            <div class="signature-line">SELLO DE OFICINA CENTRAL DLU</div>
+            <div class="signature-line">DR. FRANCISCO HERNÁNDEZ<br>Director de Litigio</div>
+        </div>
+    </div>
+
+</body>
+</html>
