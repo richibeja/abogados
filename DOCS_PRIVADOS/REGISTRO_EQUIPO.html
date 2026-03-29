@@ -402,9 +402,9 @@
                 id: 'DLU-' + Math.floor(1000 + Math.random() * 9000)
             };            console.log("Datos capturados:", data);
 
-            // SIMULACIÓN DE ENVÍO A WEBHOOK (Richard's Central System)
+            // SIMULACIÓN DE ENVÍO A WEBHOOK (DLU'S Central System)
             // Aquí se conectaría con Formspree / SheetsDB / N8N
-            const webhookUrl = "https://formspree.io/f/mqakppke"; // Richard's lead line
+            const webhookUrl = "https://formspree.io/f/mqakppke"; // DLU lead line
 
             fetch(webhookUrl, {
                 method: 'POST',

@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="Nk14dnzempk4mLbI6VsiV_zA5fy1VE1aDSGY85CdaFE" />
-    <!-- SEO Primario -->
-    <title>Defensa Laboral USA | Abogados Laboralistas en California y Todo EE.UU.</title>
-    <meta name="description" content="Â¿Despido injustificado o accidente laboral? Defendemos a inmigrantes en California, Texas, Florida y Nueva York. Consulta gratuita. Justicia sin importar su estatus.">
-    <meta name="keywords" content="abogado laboral usa, despido injustificado california, accidente de trabajo texas, indemnizacion laboral florida, defensa inmigrantes usa, leyes laborales eeuu">
+    <title>Defensa Laboral USA | Justicia para el Inmigrante</title>
     
-    <!-- Geo-Etiquetado (Credibilidad USA) -->
-    <meta name="geo.region" content="US-CA" />
-    <meta name="geo.placename" content="Santa Barbara" />
-    <meta name="geo.position" content="34.4208;-119.6982" />
     <meta name="ICBM" content="34.4208, -119.6982" />
 
     <!-- Open Graph / Redes Sociales (Facebook/WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abogados-rose.vercel.app/">
     <meta property="og:title" content="Defensa Laboral USA | Justicia para el Inmigrante">
-    <meta property="og:description" content="Recuperamos tu indemnizaciÃ³n y protegemos tus derechos laborales en EE.UU. Consulta 24/7.">
+    <meta property="og:description" content="Recuperamos tu indemnización y protegemos tus derechos laborales en EE.UU. Consulta 24/7.">
     <meta property="og:image" content="https://defensalaboralusa.com/og-image.png">
 
     <!-- Twitter -->
@@ -29,7 +20,7 @@
     <meta property="twitter:description" content="Abogados especializados en defensa del trabajador inmigrante en USA.">
     <meta property="twitter:image" content="https://defensalaboralusa.com/og-image.png">
 
-    <!-- Meta Pixel (Para bajar el costo por LPV) -->
+    <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -39,7 +30,7 @@
     s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(n,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '746330423266559'); // <--- ID ACTIVADO: latinas
+    fbq('init', '746330423266559');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -49,15 +40,11 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0B1F4D">
 
-    <!-- Pre-conectar fuentes (Velocidad) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -72,11 +59,10 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proceso">CÃ³mo Funciona</a></li>
-                <li><a href="#equipo">Nuestro Equipo</a></li>
-                <li><a href="notificaciones.html">Rastrear Mi Caso</a></li>
-                <li><a href="#contacto" class="btn-primary">Consultar Mi Caso</a></li>
-                <li class="mobile-menu-btn"><i class="fas fa-bars"></i></li>
+                <li><a href="#proceso" id="nav-process">Proceso</a></li>
+                <li><a href="#equipo" id="nav-team">Equipo</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleLanguage()" class="lang-btn"><i class="fas fa-globe"></i> EN / ES</a></li>
+                <li><a href="#contacto" class="btn-primary">Consultar</a></li>
             </ul>
         </div>
     </nav>
@@ -93,24 +79,24 @@
         <div class="container hero-content" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; text-align: left; max-width: 1200px;">
             <div class="hero-text-side" style="flex: 1; min-width: 300px; padding-top: 2rem;">
         
-            <h1 class="fade-in">CALCULA CUÃNTO DINERO ESTÃS PERDIENDO</h1>
-            <h2 class="fade-in delay-1" style="color: var(--primary); font-size: 1.8rem; margin-top: -10px; text-transform: uppercase;">Â¿Te accidentaste o te despidieron injustamente?</h2>
-            <p class="fade-in delay-2">Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnizaciÃ³n, salarios perdidos y gastos mÃ©dicos.</p>
+            <h1 class="fade-in hero-h1">CALCULA CUÁNTO DINERO ESTÁS PERDIENDO</h1>
+            <h2 class="fade-in delay-1 hero-h2" style="color: var(--primary); font-size: 1.8rem; margin-top: -10px; text-transform: uppercase;">¿Te accidentaste o te despidieron injustamente?</h2>
+            <p class="fade-in delay-2">Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnización, salarios perdidos y gastos médicos.</p>
             <div class="hero-buttons fade-in delay-3">
                 <a href="https://wa.me/18053080769?text=Hola,%20vengo%20de%20la%20web%20y%20necesito%20ayuda%20con%20mi%20caso" class="btn-primary large pulse-button"><i class="fab fa-whatsapp"></i> CONSULTA GRATIS AHORA</a>
-                <a href="#servicios" class="btn-secondary">VER CASOS DE Ã‰XITO</a>
+                <a href="#servicios" class="btn-secondary">VER CASOS DE ÉXITO</a>
             </div>
             
             <!-- Urgency Counter (CRO Boost) -->
             <div style="margin-top: 2rem; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(251, 191, 36, 0.3);">
                 <span class="pulse-dot"></span>
-                <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">âš ï¸ ÃšLTIMOS <strong style="color: var(--primary);">4 CUPOS</strong> PARA ESTA SEMANA (CALIFORNIA OESTE)</span>
+                <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">¡Atención! Últimos 4 cupos.</span>
             </div>
         
             </div>
             <div class="hero-calc-side" style="flex: 1; min-width: 300px; z-index: 10; display: flex; justify-content: center; padding-top: 1rem;">
                 <div class="calculator-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; width: 100%; max-width: 400px; margin: 0 auto; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px);">
-                <h3 style="color: var(--primary); font-size: 1.2rem; margin-top: 0; text-align: center;">Â¿CuÃ¡nto Dinero EstÃ¡s Perdiendo?</h3>
+                <h3 style="color: var(--primary); font-size: 1.2rem; margin-top: 0; text-align: center;">¿Cuanto dinero estás perdiendo?</h3>
 <form id="calcForm" onsubmit="calculateCompensation(event)">
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label>Sueldo por Hora (USD)</label>
@@ -121,11 +107,11 @@
                         <input type="number" id="hoursPerWeek" placeholder="Ej: 40" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
                     </div>
                     <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Tiempo Trabajado (AÃ±os)</label>
+                        <label>Tiempo Trabajado (Años)</label>
                         <input type="number" id="yearsWorked" placeholder="Ej: 2" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
                     </div>
                     <div class="form-group" style="margin-bottom: 2rem;">
-                        <label>Tipo de ReclamaciÃ³n</label>
+                        <label>Tipo de Reclamación</label>
                         <select id="claimType" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
                             <option value="dismissal">Despido Injustificado</option>
                             <option value="unpaid">Salarios / Horas Extra No Pagadas</option>
@@ -133,7 +119,7 @@
                         </select>
                     </div>
                     <button type="submit" class="btn-primary pulse-button" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-calculator"></i> CALCULAR INDEMNIZACIÃ“N MÃXIMA
+                        <i class="fas fa-calculator"></i> ¿Estuviste en un accidente? ¿Te despidieron?
                     </button>
                     <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; text-align: center;">
                         <i class="fas fa-certificate" style="color: var(--primary);"></i> 
@@ -142,15 +128,15 @@
                 </form>
 
                 <div id="calcResult" style="margin-top: 2rem; display: none; text-align: center; background: rgba(255,215,0,0.1); padding: 2rem; border-radius: 15px; border: 1px solid var(--primary); animation: fadeIn 0.5s ease;">
-                    <h4 style="margin:0; font-size: 0.9rem; letter-spacing: 1px;">POTENCIAL DE COMPENSACIÃ“N</h4>
+                    <h4 style="margin:0; font-size: 0.9rem; letter-spacing: 1px;">POTENCIAL DE COMPENSACIÓN</h4>
                     <div style="font-size: 2.8rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0;">
                         $<span id="minAmount">0</span> - $<span id="maxAmount">0</span>*
                     </div>
                     <p id="potentialMsg" style="font-weight: 700; color: #10b981; margin-bottom: 1rem;"></p>
                     <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">
-                        *Esta es una estimaciÃ³n base optimista. Un abogado especializado podrÃ­a aumentar esta cifra significativamente tras evaluar su situaciÃ³n completa.
+                        *Esta es una estimación base optimista. Un abogado especializado podría aumentar esta cifra significativamente tras evaluar su situación completa.
                     </p>
-                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnizaciÃ³n y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
+                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnización y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
                 </div>
             </div>
             </div>
@@ -168,7 +154,7 @@
             <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $12,500 para empleada en Miami (Despido Injustificado)</span>
             <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $8,200 por Horas Extra no pagadas en Los Angeles</span>
             <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $30,000 para trabajador de limpieza en Chicago</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $55,000 por caÃ­da en construcciÃ³n en Dallas</span>
+            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $55,000 por caída en construcción en Dallas</span>
         </div>
     </div>
     <style>
@@ -196,7 +182,7 @@
             </div>
             <div class="stat-item fade-up delay-2">
                 <h3>24/7</h3>
-                <p>AtenciÃ³n al Cliente</p>
+                <p>Atención al Cliente</p>
             </div>
         </div>
     </section>
@@ -222,7 +208,7 @@
                     </div>
                     <div class="card-content">
                         <h3>Despido Injustificado</h3>
-                        <p>Â¿Te sacaron sin causa? Reclamamos tu indemnizaciÃ³n y salarios caÃ­dos.</p>
+                        <p>¿Te sacaron sin causa? Reclamamos tu indemnización y salarios caídos.</p>
                         <button onclick="openModal('despido')" class="btn-text">Consultar Caso <i
                                 class="fas fa-arrow-right"></i></button>
                     </div>
@@ -252,7 +238,7 @@
                     </div>
                     <div class="card-content">
                         <h3>Accidentes de Trabajo</h3>
-                        <p>Gestionamos tu compensaciÃ³n (Workers' Comp) y gastos mÃ©dicos.</p>
+                        <p>Gestionamos tu compensación (Workers' Comp) y gastos médicos.</p>
                         <button onclick="openModal('accidentes')" class="btn-text">Ver Beneficios <i
                                 class="fas fa-arrow-right"></i></button>
                     </div>
@@ -283,10 +269,10 @@
                     </div>
                     <div class="card-content">
                         <h3 style="color:#2563eb;">Beneficios Federales & Seguro USA</h3>
-                        <p>Gestionamos tu aplicaciÃ³n a programas de ayuda (SSDI/SSI) con nuestros contactos directos.
+                        <p>Gestionamos tu aplicación a programas de ayuda (SSDI/SSI) con nuestros contactos directos.
                         </p>
                         <button
-                            onclick="window.open('https://wa.me/18053080769?text=Hola,%20busco%20informaciÃ³n%20sobre%20Beneficios%20Federales/Seguro%20en%20USA', '_blank')"
+                            onclick="window.open('https://wa.me/18053080769?text=Hola,%20busco%20información%20sobre%20Beneficios%20Federales/Seguro%20en%20USA', '_blank')"
                             class="btn-text">Ver si Aplico Ahora <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </article>
@@ -297,7 +283,7 @@
     <!-- Why Us -->
     <section id="proceso" class="features">
         <div class="container">
-            <h2 class="section-title">Â¿Por QuÃ© Elegirnos?</h2>
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
             <div class="features-grid">
                 <div class="feature-item fade-up">
                     <div class="icon-box"><i class="fas fa-user-shield"></i></div>
@@ -312,7 +298,7 @@
                 <div class="feature-item fade-up delay-2">
                     <div class="icon-box"><i class="fas fa-hand-holding-dollar"></i></div>
                     <h3>Proceso Transparente</h3>
-                    <p>Honorarios de apertura accesibles para garantizar una investigaciÃ³n legal exhaustiva desde el primer dÃ­a.</p>
+                    <p>Honorarios de apertura accesibles para garantizar una investigación legal exhaustiva desde el primer día.</p>
                 </div>
             </div>
         </div>
@@ -321,43 +307,43 @@
     <!-- Success Stories (Families) -->
     <section class="success-stories">
         <div class="container">
-            <h2 class="section-title">Familias que Cumplieron su SueÃ±o</h2>
+            <h2 class="section-title">Familias que Cumplieron su Sueño</h2>
             <p class="section-subtitle">Ellos confiaron en nosotros y hoy disfrutan de una nueva vida.</p>
 
             <div class="stories-grid">
                 <!-- Family 1 -->
                 <div class="story-card fade-up">
                     <div class="story-img" style="background: url('success_story_pedro.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video prÃ³ximamente del caso real.')"></i>
+                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
                         <h4>Pedro M.</h4>
                         <p class="location"><i class="fas fa-flag-usa"></i> Los Angeles, California</p>
-                        <p>"Me despidieron tras 5 aÃ±os sin pagarme lo justo. Defensa Laboral USA recuperÃ³ mi indemnizaciÃ³n en 3 meses. Â¡Son los mejores!"</p>
+                        <p>"Me despidieron tras 5 años sin pagarme lo justo. Defensa Laboral USA recuperó mi indemnización en 3 meses. ¡Son los mejores!"</p>
                     </div>
                 </div>
 
                 <!-- Family 2 -->
                 <div class="story-card fade-up delay-1">
                     <div class="story-img" style="background: url('success_story_lucia.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video prÃ³ximamente del caso real.')"></i>
+                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
-                        <h4>LucÃ­a R.</h4>
+                        <h4>Lucía R.</h4>
                         <p class="location"><i class="fas fa-flag-usa"></i> Miami, Florida</p>
-                        <p>"SufrÃ­ una caÃ­da en la construcciÃ³n y mi jefe no querÃ­a pagar el hospital. Ellos gestionaron mi Workers' Comp con Ã©xito."</p>
+                        <p>"Sufrí una caída en la construcción y mi jefe no quería pagar el hospital. Ellos gestionaron mi Workers' Comp con éxito."</p>
                     </div>
                 </div>
 
                 <!-- Family 3 -->
                 <div class="story-card fade-up delay-2">
                     <div class="story-img" style="background: url('success_story_jose.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video prÃ³ximamente del caso real.')"></i>
+                        <i class="fas fa-play-circle" style="font-size: 4rem; color: white; opacity: 0.8; cursor: pointer;" onclick="alert('Video próximamente del caso real.')"></i>
                     </div>
                     <div class="story-text">
-                        <h4>JosÃ© T.</h4>
+                        <h4>José T.</h4>
                         <p class="location"><i class="fas fa-flag-usa"></i> Houston, Texas</p>
-                        <p>"Me debÃ­an miles en horas extra. El proceso fue transparente y siempre supe el estado de mi caso con mi cÃ³digo Ãºnico."</p>
+                        <p>"Me debían miles en horas extra. El proceso fue transparente y siempre supe el estado de mi caso con mi código único."</p>
                     </div>
                 </div>
 
@@ -365,7 +351,7 @@
         </div>
     </section>
 
-    <!-- SECCIÃ“N DE SUBSIDIOS Y BENEFICIOS FEDERALES (NEW) -->
+    <!-- SECCIÓN DE SUBSIDIOS Y BENEFICIOS FEDERALES (NEW) -->
     <section id="subsidios" class="section" style="background-color: var(--bg-dark); color: white; padding: 6rem 0; position: relative; overflow: hidden;">
         <!-- Background Gradient -->
         <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%); pointer-events: none;"></div>
@@ -373,7 +359,7 @@
         <div class="container" style="position: relative; z-index: 1;">
             <div style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title" style="color: var(--primary);">Subsidios y Beneficios Federales</h2>
-                <p style="color: #94a3b8; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">No deje que su dinero se quede en el Gobierno. Como trabajador en EE.UU., usted tiene derecho a reclamar diversos apoyos econÃ³micos.</p>
+                <p style="color: #94a3b8; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">No deje que su dinero se quede en el Gobierno. Como trabajador en EE.UU., usted tiene derecho a reclamar diversos apoyos económicos.</p>
             </div>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -383,7 +369,7 @@
                         <i class="fas fa-file-invoice-dollar" style="font-size: 2rem; color: var(--primary);"></i>
                     </div>
                     <h3 style="color: white; margin-bottom: 1rem;">Reembolsos del IRS</h3>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Recupere sus impuestos (Income Tax) y acceda a crÃ©ditos fiscales por sus hijos aunque no tenga SSN. El **ITIN** le otorga este derecho legal.</p>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Recupere sus impuestos (Income Tax) y acceda a créditos fiscales por sus hijos aunque no tenga SSN. El **ITIN** le otorga este derecho legal.</p>
                     <a href="https://www.irs.gov/es" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> Visitar IRS Oficial</a>
                 </div>
 
@@ -393,7 +379,7 @@
                         <i class="fas fa-landmark" style="font-size: 2rem; color: var(--primary);"></i>
                     </div>
                     <h3 style="color: white; margin-bottom: 1rem;">Ayuda Ciudadana (Benefits.gov)</h3>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Descubra mÃ¡s de 1,200 programas de asistencia federal para salud, vivienda y sustento familiar. No deje que el miedo le impida prosperar.</p>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Descubra más de 1,200 programas de asistencia federal para salud, vivienda y sustento familiar. No deje que el miedo le impida prosperar.</p>
                     <a href="https://www.benefits.gov/es" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> Ver Beneficios Federales</a>
                 </div>
 
@@ -403,45 +389,77 @@
                         <i class="fas fa-id-card" style="font-size: 2rem; color: var(--primary);"></i>
                     </div>
                     <h3 style="color: white; margin-bottom: 1rem;">SSA (Seguridad Social)</h3>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Reclamos por incapacidad, retiro o beneficios suplementarios. El sistema estÃ¡ diseÃ±ado para proteger a quien trabaja en esta naciÃ³n.</p>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Reclamos por incapacidad, retiro o beneficios suplementarios. El sistema está diseñado para proteger a quien trabaja en esta nación.</p>
                     <a href="https://www.ssa.gov/es" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> Social Security Admin</a>
                 </div>
             </div>
 
             <div style="margin-top: 4rem; text-align: center; padding: 2rem; background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--primary); border-radius: 15px;">
-                <p style="color: #fff; font-size: 1.2rem; margin-bottom: 1rem;"><strong>Â¿No sabe por dÃ³nde empezar?</strong></p>
-                <p style="color: #94a3b8; margin-bottom: 2rem;">Nosotros somos especialistas en el sistema federal de Estados Unidos. Le ayudamos a radicar su caso ante cualquiera de estos burÃ³s con garantÃ­a de confidencialidad y sin que su estatus migratorio sea un impedimento.</p>
+                <p style="color: #fff; font-size: 1.2rem; margin-bottom: 1rem;"><strong>¿No sabe por dónde empezar?</strong></p>
+                <p style="color: #94a3b8; margin-bottom: 2rem;">Nosotros somos especialistas en el sistema federal de Estados Unidos. Le ayudamos a radicar su caso ante cualquiera de estos burós con garantía de confidencialidad y sin que su estatus migratorio sea un impedimento.</p>
                 <a href="#contacto" class="btn-primary" style="display: inline-block;">INICIAR MI RECLAMO FEDERAL HOY <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÃ“N DE RESULTADOS FEDERALES -->
+    <!-- SECCIÓN DE RESULTADOS FEDERALES -->
     <section id="resultados" class="section" style="background-color: #f1f5f9; padding: 4rem 0;">
         <div class="container">
             <h2 class="section-title">Resultados Federales Recientes</h2>
             <p style="text-align: center; margin-bottom: 40px; color: #475569;">Transparencia total: Resoluciones oficiales obtenidas para nuestra comunidad.</p>
             
-            <div class="success-stories-grid">
+            <div class="success-stories-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                 <!-- Resultado 1 -->
-                <div class="story-card" style="border-top: 5px solid #16a34a; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div class="story-card" style="border-top: 5px solid #16a34a; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
                     <div style="font-size: 0.8rem; color: #16a34a; font-weight: bold; margin-bottom: 10px;">
-                        <i class="fas fa-check-circle"></i> RESOLUCIÃ“N CERRADA (CALIFORNIA)
+                        <i class="fas fa-check-circle"></i> RESOLUCIÓN CERRADA (CALIFORNIA)
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">$42,500.00 <span style="font-size: 0.9rem; color: #64748b;">Recuperados</span></h3>
                     <p><strong>Caso:</strong> Despido Injustificado & Robo de Salarios.</p>
-                    <p style="font-size: 0.9rem; color: #475569;">Logramos un acuerdo federal tras demostrar que la empresa no pagÃ³ el tiempo extra trabajado durante 14 meses.</p>
+                    <p style="font-size: 0.9rem; color: #475569;">Logramos un acuerdo federal tras demostrar que la empresa no pagó el tiempo extra trabajado durante 14 meses.</p>
                 </div>
 
                 <!-- Resultado 2 -->
-                <div class="story-card" style="border-top: 5px solid #0B1F4D; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div class="story-card" style="border-top: 5px solid #0B1F4D; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
                     <div style="font-size: 0.8rem; color: #0B1F4D; font-weight: bold; margin-bottom: 10px;">
                         <i class="fas fa-hospital-user"></i> BENEFICIOS ACTIVADOS (TEXAS)
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">MÃ‰DICO TOTAL + $18,200</h3>
-                    <p><strong>Caso:</strong> Accidente Laboral Grave & NegaciÃ³n de Seguro.</p>
-                    <p style="font-size: 0.9rem; color: #475569;">Tras la intervenciÃ³n de nuestros peritos, la aseguradora restaurÃ³ todos los beneficios de ley y compensaciÃ³n por secuelas.</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">MÉDICO TOTAL + $18,200</h3>
+                    <p><strong>Caso:</strong> Accidente Laboral Grave & Negación de Seguro.</p>
+                    <p style="font-size: 0.9rem; color: #475569;">Tras la intervención de nuestros peritos, la aseguradora restauró todos los beneficios de ley y compensación por secuelas.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NETWORK AUTHORITY SECTION (NEW) -->
+    <section id="autoridad" style="background: #0B1F4D; color: white; padding: 6rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 1rem; color: #FFD700;">Red Nacional de Autoridad</h2>
+            <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; margin: 0 auto 4rem;">Defensa Laboral USA no es solo una aplicación; es una red integrada de especialistas en cumplimiento federal y abogados aliados colegiados en todo Estados Unidos.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,215,0,0.2);">
+                    <i class="fas fa-gavel" style="font-size: 3rem; color: #FFD700; margin-bottom: 1.5rem;"></i>
+                    <h3>Abogados Certificados</h3>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;">Colaboramos con firmas legales de la State Bar en California, Texas, Florida y Georgia para garantizar éxito en litigios complejos.</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,215,0,0.2);">
+                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: #FFD700; margin-bottom: 1.5rem;"></i>
+                    <h3>Protección al Denunciante</h3>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;">Implementamos protocolos federales de protección contra represalias ante el Departamento de Trabajo (DOL).</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,215,0,0.2);">
+                    <i class="fas fa-university" style="font-size: 3rem; color: #FFD700; margin-bottom: 1.5rem;"></i>
+                    <h3>Auditoría Administrativa</h3>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;">Nuestra capacidad técnica de auditoría fuerza a las empresas a negociar antes de llegar a la corte federal.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 5rem; opacity: 0.6; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; filter: grayscale(1);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Seal_of_the_United_States_Department_of_Labor.svg" alt="DOL Logo" style="height: 60px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/IRS_seal.svg" alt="IRS Logo" style="height: 60px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/OSHA_logo.svg/1200px-OSHA_logo.svg.png" alt="OSHA Logo" style="height: 60px;">
             </div>
         </div>
     </section>
@@ -454,18 +472,18 @@
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿Por quÃ© se debe pagar un honorario de apertura?</span>
+                        <span>¿Por qué se debe pagar un honorario de apertura?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>El honorario de apertura solo se realiza una vez que nuestro equipo de abogados haya verificado que tu caso es viable para una reclamaciÃ³n federal exitosa. Este cubre los gastos administrativos finales y la activaciÃ³n de defensa oficial.</p>
+                        <p>El honorario de apertura solo se realiza una vez que nuestro equipo de abogados haya verificado que tu caso es viable para una reclamación federal exitosa. Este cubre los gastos administrativos finales y la activación de defensa oficial.</p>
                     </div>
                 </div>
                 <!-- Q2 -->
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿Necesito tener mi residencia en regla para reclamar?</span>
+                        <span>¿Necesito tener mi residencia en regla para reclamar?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
@@ -476,22 +494,22 @@
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿El proceso es legal y garantizado?</span>
+                        <span>¿El proceso es legal y garantizado?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>Totalmente. Trabajamos bajo la supervisiÃ³n de abogados colegiados en la California State Bar. Te asignamos un cÃ³digo de seguimiento Ãºnico (DLU) para que verifiques el progreso oficial de tu expediente.</p>
+                        <p>Totalmente. Trabajamos bajo la supervisión de abogados colegiados en la California State Bar. Te asignamos un código de seguimiento único (DLU) para que verifiques el progreso oficial de tu expediente.</p>
                     </div>
                 </div>
                 <!-- FAQ Pagos (New) -->
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿CÃ³mo realizo el pago de apertura de forma segura?</span>
+                        <span>¿Cómo realizo el pago de apertura de forma segura?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>Por seguridad, no publicamos datos bancarios. Una vez evaluado su caso, le enviaremos por WhatsApp nuestra <strong>CertificaciÃ³n Bancaria Oficial</strong> a nombre de Defensa Laboral USA para su total tranquilidad antes de realizar cualquier depÃ³sito.</p>
+                        <p>Por seguridad, no publicamos datos bancarios. Una vez evaluado su caso, le enviaremos por WhatsApp nuestra <strong>Certificación Bancaria Oficial</strong> a nombre de Defensa Laboral USA para su total tranquilidad antes de realizar cualquier depósito.</p>
                     </div>
                 </div>
             </div>
@@ -503,8 +521,8 @@
         <div class="container">
             <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Oportunidades en Todos los
                 Sectores</h2>
-            <p style="color: var(--primary); font-weight: bold; margin-bottom: 1.5rem;">Â¡Plazas en ConstrucciÃ³n, Campo,
-                LogÃ­stica y HotelerÃ­a!</p>
+            <p style="color: var(--primary); font-weight: bold; margin-bottom: 1.5rem;">¡Plazas en Construcción, Campo,
+                Logística y Hotelería!</p>
             <p
                 style="color: var(--text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
                 No necesitas "convenios" falsos. Nosotros te conectamos directamente con las vacantes oficiales del
@@ -519,7 +537,7 @@
                         <i class="fa-brands fa-canadian-maple-leaf"
                             style="font-size: 2rem; color: #ef4444; margin-bottom: 1rem;"></i>
                         <h4 style="margin-bottom: 0.5rem;">Job Bank General</h4>
-                        <p style="font-size: 0.8rem; color: #94a3b8;">CanadÃ¡ - Obrero/Campo</p>
+                        <p style="font-size: 0.8rem; color: #94a3b8;">Canadá - Obrero/Campo</p>
                     </div>
                 </a>
 
@@ -529,8 +547,8 @@
                     <div
                         style="background: #1e293b; padding: 1.5rem; border-radius: 10px; border: 1px solid var(--glass-border); width: 220px; transition: transform 0.3s;">
                         <i class="fas fa-sun" style="font-size: 2rem; color: #f59e0b; margin-bottom: 1rem;"></i>
-                        <h4 style="margin-bottom: 0.5rem;">EmplÃ©ate (Todo)</h4>
-                        <p style="font-size: 0.8rem; color: #94a3b8;">EspaÃ±a - Turismo/Obra</p>
+                        <h4 style="margin-bottom: 0.5rem;">Empléate (Todo)</h4>
+                        <p style="font-size: 0.8rem; color: #94a3b8;">España - Turismo/Obra</p>
                     </div>
                 </a>
 
@@ -541,7 +559,7 @@
                         style="background: #1e293b; padding: 1.5rem; border-radius: 10px; border: 1px solid var(--glass-border); width: 220px; transition: transform 0.3s;">
                         <i class="fas fa-landmark" style="font-size: 2rem; color: #ef4444; margin-bottom: 1rem;"></i>
                         <h4 style="margin-bottom: 0.5rem;">Oferty Pracy</h4>
-                        <p style="font-size: 0.8rem; color: #94a3b8;">Polonia - FÃ¡bricas/Campo</p>
+                        <p style="font-size: 0.8rem; color: #94a3b8;">Polonia - Fábricas/Campo</p>
                     </div>
                 </a>
 
@@ -567,7 +585,7 @@
                 </a>
             </div>
             <p style="margin-top: 2rem; font-size: 0.9rem; color: #94a3b8;">
-                <i class="fas fa-info-circle"></i> Gestionamos tu visa segÃºn tu perfil y experiencia laboral.
+                <i class="fas fa-info-circle"></i> Gestionamos tu visa según tu perfil y experiencia laboral.
             </p>
         </div>
     </section>
@@ -576,8 +594,8 @@
     <section id="empleo" style="padding: 6rem 0; background: #f1f5f9; color: #1e293b;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 class="section-title" style="color: #0B1F4D; margin-bottom: 1rem;">Â¿Buscas Empleo? Nosotros te Ayudamos</h2>
-                <p style="color: #475569; max-width: 600px; margin: 0 auto; font-weight: 600;">Si te quedaste sin trabajo o buscas mejores oportunidades en tu zona, dÃ©janos tu perfil. Te enviaremos vacantes verificadas en tu estado.</p>
+                <h2 class="section-title" style="color: #0B1F4D; margin-bottom: 1rem;">¿Buscas Empleo? Nosotros te Ayudamos</h2>
+                <p style="color: #475569; max-width: 600px; margin: 0 auto; font-weight: 600;">Si te quedaste sin trabajo o buscas mejores oportunidades en tu zona, déjanos tu perfil. Te enviaremos vacantes verificadas en tu estado.</p>
             </div>
             
             <div style="max-width: 600px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid #cbd5e1;">
@@ -641,7 +659,7 @@
                     <p style="color: #475569;">Inscripción completada. Te contactaremos pronto por WhatsApp para confirmar tus alertas.</p>
                 </div>
                     <h3 style="color: #0B1F4D; margin-bottom: 0.5rem;">Solicitud Recibida</h3>
-                    <p style="color: #475569;">Te contactaremos pronto por WhatsApp con vacantes disponibles en tu Ã¡rea.</p>
+                    <p style="color: #475569;">Te contactaremos pronto por WhatsApp con vacantes disponibles en tu área.</p>
                     <button onclick="location.reload()" class="btn-primary" style="margin-top: 1.5rem;">Nueva Solicitud</button>
                 </div>
             </div>
@@ -655,11 +673,11 @@
                 <!-- Resultado 1 -->
                 <div class="story-card" style="border-top: 5px solid #16a34a; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                     <div style="font-size: 0.8rem; color: #16a34a; font-weight: bold; margin-bottom: 10px;">
-                        <i class="fas fa-check-circle"></i> RESOLUCIÃ“N CERRADA (CALIFORNIA)
+                        <i class="fas fa-check-circle"></i> RESOLUCIÓN CERRADA (CALIFORNIA)
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">$42,500.00 <span style="font-size: 0.9rem; color: #64748b;">Recuperados</span></h3>
                     <p><strong>Caso:</strong> Despido Injustificado & Robo de Salarios.</p>
-                    <p style="font-size: 0.9rem; color: #475569;">Logramos un acuerdo federal tras demostrar que la empresa no pagÃ³ el tiempo extra trabajado durante 14 meses.</p>
+                    <p style="font-size: 0.9rem; color: #475569;">Logramos un acuerdo federal tras demostrar que la empresa no pagó el tiempo extra trabajado durante 14 meses.</p>
                 </div>
 
                 <!-- Resultado 2 -->
@@ -667,9 +685,9 @@
                     <div style="font-size: 0.8rem; color: #0B1F4D; font-weight: bold; margin-bottom: 10px;">
                         <i class="fas fa-hospital-user"></i> BENEFICIOS ACTIVADOS (TEXAS)
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">MÃ‰DICO TOTAL + $18,200</h3>
-                    <p><strong>Caso:</strong> Accidente Laboral Grave & NegaciÃ³n de Seguro.</p>
-                    <p style="font-size: 0.9rem; color: #475569;">Tras la intervenciÃ³n de nuestros peritos, la aseguradora restaurÃ³ todos los beneficios de ley y compensaciÃ³n por secuelas.</p>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">MÉDICO TOTAL + $18,200</h3>
+                    <p><strong>Caso:</strong> Accidente Laboral Grave & Negación de Seguro.</p>
+                    <p style="font-size: 0.9rem; color: #475569;">Tras la intervención de nuestros peritos, la aseguradora restauró todos los beneficios de ley y compensación por secuelas.</p>
                 </div>
             </div>
         </div>
@@ -683,18 +701,18 @@
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿Por quÃ© se debe pagar un honorario de apertura?</span>
+                        <span>¿Por qué se debe pagar un honorario de apertura?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>El honorario de apertura solo se realiza una vez que nuestro equipo de abogados haya verificado que tu caso es viable para una reclamaciÃ³n federal exitosa. Este cubre los gastos administrativos finales y la activaciÃ³n de defensa oficial.</p>
+                        <p>El honorario de apertura solo se realiza una vez que nuestro equipo de abogados haya verificado que tu caso es viable para una reclamación federal exitosa. Este cubre los gastos administrativos finales y la activación de defensa oficial.</p>
                     </div>
                 </div>
                 <!-- Q2 -->
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿Necesito tener mi residencia en regla para reclamar?</span>
+                        <span>¿Necesito tener mi residencia en regla para reclamar?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
@@ -705,22 +723,22 @@
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿El proceso es legal y garantizado?</span>
+                        <span>¿El proceso es legal y garantizado?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>Totalmente. Trabajamos bajo la supervisiÃ³n de abogados colegiados en la California State Bar. Te asignamos un cÃ³digo de seguimiento Ãºnico (DLU) para que verifiques el progreso oficial de tu expediente.</p>
+                        <p>Totalmente. Trabajamos bajo la supervisión de abogados colegiados en la California State Bar. Te asignamos un código de seguimiento único (DLU) para que verifiques el progreso oficial de tu expediente.</p>
                     </div>
                 </div>
                 <!-- FAQ Pagos (New) -->
                 <div class="faq-item" style="border-bottom: 1px solid var(--glass-border); padding: 1.5rem 0;">
                     <div class="faq-question"
                         style="display: flex; justify-content: space-between; cursor: pointer; font-weight: 600;">
-                        <span>Â¿CÃ³mo realizo el pago de apertura de forma segura?</span>
+                        <span>¿Cómo realizo el pago de apertura de forma segura?</span>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
-                        <p>Por seguridad, no publicamos datos bancarios. Una vez evaluado su caso, le enviaremos por WhatsApp nuestra <strong>CertificaciÃ³n Bancaria Oficial</strong> a nombre de Defensa Laboral USA para su total tranquilidad antes de realizar cualquier depÃ³sito.</p>
+                        <p>Por seguridad, no publicamos datos bancarios. Una vez evaluado su caso, le enviaremos por WhatsApp nuestra <strong>Certificación Bancaria Oficial</strong> a nombre de Defensa Laboral USA para su total tranquilidad antes de realizar cualquier depósito.</p>
                     </div>
                 </div>
             </div>
@@ -736,7 +754,7 @@
         <div class="container contact-container">
             <div class="contact-info fade-in">
                 <h2>Inicia tu Proceso Hoy</h2>
-                <p>Completa el formulario para una consulta profesional. Tu evaluaciÃ³n es **totalmente gratuita** hasta que verifiquemos que tu caso es viable.</p>
+                <p>Completa el formulario para una consulta profesional. Tu evaluación es **totalmente gratuita** hasta que verifiquemos que tu caso es viable.</p>
                 <ul class="contact-list">
                     <li><a href="https://wa.me/18053080769" target="_blank"
                             style="display:flex; align-items:center; gap:10px; color: #cbd5e1; text-decoration: none;"><i class="fab fa-whatsapp"></i> +1 (805) 308-0769</a></li>
@@ -747,7 +765,7 @@
                     <li><a href="https://www.facebook.com/defensalaboralusa/" target="_blank"
                             style="display:flex; align-items:center; gap:10px; color: #cbd5e1; text-decoration: none;"><i class="fab fa-facebook"></i> Defensa Laboral USA - Oficial</a></li>
                     <li style="margin-top: 20px;">
-                        <a href="https://wa.me/18036500639?text=Hola,%20solicito%20informaciÃ³n%20de%20pago%20y%20certificaciÃ³n%20bancaria%20para%20mi%20caso" 
+                        <a href="https://wa.me/18036500639?text=Hola,%20solicito%20información%20de%20pago%20y%20certificación%20bancaria%20para%20mi%20caso" 
                            class="btn-secondary" style="display: inline-block; padding: 10px 20px; font-size: 0.85rem;">
                            <i class="fas fa-university"></i> SOLICITAR DATOS DE PAGO
                         </a>
@@ -767,7 +785,7 @@
                         <input type="number" id="age" name="age" placeholder="Tu edad" min="18" max="75" required>
                     </div>
                     <div class="form-group">
-                        <label for="claim_type">Â¿QuÃ© te sucediÃ³?</label>
+                        <label for="claim_type">¿Qué te sucedió?</label>
                         <select id="claim_type" name="claim_type" required>
                             <option value="Despido">Despido Injustificado</option>
                             <option value="Salarios">No me pagaron completo</option>
@@ -782,17 +800,17 @@
                 <div class="form-step" id="step2">
                     <div class="form-group" style="text-align: center;">
                         <label><i class="fas fa-camera"></i> Subir Foto de Prueba (Opcional)</label>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Tome una foto a su Ãºltimo cheque o mensaje de despido.</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Tome una foto a su último cheque o mensaje de despido.</p>
                         
                         <div style="border: 2px dashed var(--glass-border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.3s;" onclick="document.getElementById('formPhoto').click()" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--glass-border)'">
                             <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: var(--primary);"></i>
                             <p id="photoStatus" style="font-size: 0.85rem; margin-top: 10px;">Clic para tomar foto o elegir archivo</p>
                         </div>
-                        <input type="file" id="formPhoto" name="photo" accept="image/*" capture="environment" style="display: none;" onchange="document.getElementById('photoStatus').innerText = 'âœ… Imagen lista: ' + this.files[0].name; document.getElementById('photoStatus').style.color='#10b981';">
+                        <input type="file" id="formPhoto" name="photo" accept="image/*" capture="environment" style="display: none;" onchange="document.getElementById('photoStatus').innerText = '✅ Imagen lista: ' + this.files[0].name; document.getElementById('photoStatus').style.color='#10b981';">
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn-secondary-outline prev-step"
-                            onclick="prevStep(2)">AtrÃ¡s</button>
+                            onclick="prevStep(2)">Atrás</button>
                         <button type="button" class="btn-primary next-step" onclick="nextStep(2)">Siguiente <i
                                 class="fas fa-arrow-right"></i></button>
                     </div>
@@ -801,14 +819,14 @@
                 <div class="form-step" id="step3">
                     <div class="form-group">
                         <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="name" placeholder="Ej. Juan PÃ©rez" required>
+                        <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">TelÃ©fono / WhatsApp</label>
+                        <label for="phone">Teléfono / WhatsApp</label>
                         <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Correo ElectrÃ³nico (Opcional)</label>
+                        <label for="email">Correo Electrónico (Opcional)</label>
                         <input type="email" id="email" name="email" placeholder="tu@correo.com">
                     </div>
                     <div class="form-group">
@@ -817,7 +835,7 @@
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn-secondary-outline prev-step"
-                            onclick="prevStep(3)">AtrÃ¡s</button>
+                            onclick="prevStep(3)">Atrás</button>
                         <button type="submit" class="btn-primary">Enviar Solicitud <i
                                 class="fas fa-paper-plane"></i></button>
                     </div>
@@ -826,7 +844,7 @@
         </div>
     </section>
 
-    <!-- SECCIÃ“N DE EQUIPO LEGAL -->
+    <!-- SECCIÓN DE EQUIPO LEGAL -->
     <section id="equipo" class="legal-team" style="padding: 6rem 0; background: var(--bg-dark); position: relative; overflow: hidden;">
         <!-- Sello de Autoridad Flotante (Interactivo) -->
         <div class="authority-seal-container fade-in">
@@ -835,8 +853,8 @@
         </div>
 
         <div class="container">
-            <h2 class="section-title">Nuestro Equipo Legal Aliado</h2>
-            <p class="section-subtitle">Abogados con licencia vigente en Estados Unidos especializados en leyes laborales e inmigraciÃ³n.</p>
+            <h2 class="section-title">Nuestra Red de Alianzas Legales</h2>
+            <p class="section-subtitle">Como firma líder en <strong>Gestión de Reclamos</strong>, colaboramos con una red nacional de abogados litigantes con licencia vigente para asegurar el éxito de cada expediente federal.</p>
             
             <style>
                 .authority-seal-container { position: absolute; top: 40px; right: 40px; width: 150px; cursor: help; transition: 0.5s; z-index: 10; filter: grayscale(0.2) brightness(1.1); opacity: 0.8; }
@@ -860,7 +878,7 @@
                     <div class="lawyer-info">
                         <h4>Martin Gasparian</h4>
                         <div class="bar-tag">California Bar #255376</div>
-                        <p>Especialista en Derechos del Trabajador e InmigraciÃ³n en CA.</p>
+                        <p>Especialista en Derechos del Trabajador e Inmigración en CA.</p>
                         <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/255376" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
@@ -890,10 +908,10 @@
                         </div>
                     </div>
                     <div class="lawyer-info active-lawyer">
-                        <div class="online-status"><span class="pulse-dot"></span> EN LÃNEA</div>
+                        <div class="online-status"><span class="pulse-dot"></span> EN LÍNEA</div>
                         <h4>Hovanes Margarian</h4>
                         <div class="bar-tag">California Bar #246359</div>
-                        <p>Defensor lÃ­der en derechos de trabajadores en el Sur de CA.</p>
+                        <p>Defensor líder en derechos de trabajadores en el Sur de CA.</p>
                         <a href="https://apps.calbar.ca.gov/attorney/Licensee/Detail/246359" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
@@ -925,21 +943,21 @@
                     <div class="lawyer-info">
                         <h4>Cyrus D. Mehta</h4>
                         <div class="bar-tag">New York Bar</div>
-                        <p>Especialista en InmigraciÃ³n y Defensa Laboral de NY.</p>
+                        <p>Especialista en Inmigración y Defensa Laboral de NY.</p>
                         <a href="https://iapps.courts.state.ny.us/attorneyshare/AttorneySearch" target="_blank" class="verify-link">Verificar Licencia <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
             
             <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 3rem;">
-                *Defensa Laboral USA colabora con abogados independientes licenciados en cada estado para garantizar la mejor representaciÃ³n legal.
+                *Defensa Laboral USA colabora con abogados independientes licenciados en cada estado para garantizar la mejor representación legal.
             </p>
         </div>
     </section>
 
     </section>
 
-    <!-- SECCIÃ“N BOLSA DE EMPLEO DLU -->
+    <!-- SECCIÓN BOLSA DE EMPLEO DLU -->
     <section id="trabajos" class="job-portal">
         <div class="container">
             <h2 class="section-title">Bolsa de Empleo DLU</h2>
@@ -997,7 +1015,7 @@
             </div>
 
             <div style="margin-top: 3rem; background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border);" class="fade-in">
-                <h4 style="color: #fbbf24; margin-bottom: 1.5rem; text-align: center; font-size: 1.2rem;">ACCESO RÃPIDO POR ESTADO (PRUEBAS REALES)</h4>
+                <h4 style="color: #fbbf24; margin-bottom: 1.5rem; text-align: center; font-size: 1.2rem;">ACCESO RÁPIDO POR ESTADO (PRUEBAS REALES)</h4>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
                     <a href="https://www.indeed.com/jobs?q=manual+labor&l=Florida" target="_blank" style="background: #1e293b; color: white; padding: 12px 20px; border-radius: 10px; text-decoration: none; display: flex; align-items: center; gap: 8px; border: 1px solid #334155; transition: 0.3s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='#334155'">
                         <i class="fas fa-sun" style="color: #fbbf24;"></i> Empleos en Florida (FL)
@@ -1015,16 +1033,16 @@
             </div>
 
             <div class="job-form-box fade-in">
-                <h3>RegÃ­strate para Recibir Ofertas Gratis</h3>
-                <p style="text-align: center; color: #475569; margin-bottom: 2rem;">Solo deje su nombre y telÃ©fono para enviarle vacantes en su Ã¡rea.</p>
+                <h3>Regístrate para Recibir Ofertas Gratis</h3>
+                <p style="text-align: center; color: #475569; margin-bottom: 2rem;">Solo deje su nombre y teléfono para enviarle vacantes en su área.</p>
                 <form id="job-lead-form" onsubmit="handleJobSubmit(event)">
                     <div class="job-input-group">
                         <div class="job-field">
                             <label>Nombre Completo</label>
-                            <input type="text" id="job-name" placeholder="Ej: Juan PÃ©rez" required>
+                            <input type="text" id="job-name" placeholder="Ej: Juan Pérez" required>
                         </div>
                         <div class="job-field">
-                            <label>WhatsApp / TelÃ©fono</label>
+                            <label>WhatsApp / Teléfono</label>
                             <input type="tel" id="job-phone" placeholder="Ej: (123) 456-7890" required>
                         </div>
                     </div>
@@ -1054,7 +1072,7 @@
             <div class="links-grid">
                 <a href="https://www.eeoc.gov/es" target="_blank"
                     class="official-link">
-                    <i class="fas fa-gavel"></i> EEOC (DiscriminaciÃ³n)
+                    <i class="fas fa-gavel"></i> EEOC (Discriminación)
                 </a>
                 <a href="https://www.dol.gov/agencies/whd" target="_blank" class="official-link">
                     <i class="fas fa-money-bill-wave"></i> Dept. de Trabajo (Salarios)
@@ -1063,7 +1081,7 @@
                     <i class="fas fa-hard-hat"></i> OSHA (Seguridad)
                 </a>
                 <a href="https://www.uscis.gov/es" target="_blank" class="official-link">
-                    <i class="fas fa-flag-usa"></i> USCIS (InmigraciÃ³n)
+                    <i class="fas fa-flag-usa"></i> USCIS (Inmigración)
                 </a>
             </div>
             <p class="disclaimer"><small>*Defensa Laboral USA es una consultora privada independiente. Estos enlaces son solo para fines informativos.</small></p>
@@ -1089,24 +1107,24 @@
             <button class="close-modal" onclick="closeModal(null, true)">&times;</button>
             <div class="modal-header header-canada">
                 <i class="fa-brands fa-canadian-maple-leaf"></i>
-                <h2>Oportunidades en CanadÃ¡</h2>
+                <h2>Oportunidades en Canadá</h2>
             </div>
             <div class="modal-body">
-                <h3>ðŸ‡¨ðŸ‡¦ Â¿Por quÃ© CanadÃ¡ busca inmigrantes?</h3>
+                <h3>🇨🇦 ¿Por qué Canadá busca inmigrantes?</h3>
                 <p>El gobierno tiene la meta de recibir 500,000 residentes anualmente.</p>
 
                 <div class="job-list">
-                    <h4>ðŸ› ï¸ Sectores con Alta Demanda ($25-$45 CAD/h):</h4>
+                    <h4>🏗️ Sectores con Alta Demanda ($25-$45 CAD/h):</h4>
                     <ul>
-                        <li><strong>ConstrucciÃ³n:</strong> Soldadores, Carpinteros, Electricistas.</li>
-                        <li><strong>Transporte:</strong> Camioneros y logÃ­stica.</li>
+                        <li><strong>Construcción:</strong> Soldadores, Carpinteros, Electricistas.</li>
+                        <li><strong>Transporte:</strong> Camioneros y logística.</li>
                         <li><strong>Salud:</strong> Enfermeros/as.</li>
-                        <li><strong>TecnologÃ­a:</strong> Desarrolladores e Ing. de Software.</li>
+                        <li><strong>Tecnología:</strong> Desarrolladores e Ing. de Software.</li>
                     </ul>
                 </div>
 
                 <div class="modal-cta-box">
-                    <p>Â¿Tienes experiencia en alguna de estas Ã¡reas?</p>
+                    <p>¿Tienes experiencia en alguna de estas áreas?</p>
                     <a href="#contacto" onclick="closeModal(null, true)" class="btn-primary">Verificar mi
                         Elegibilidad</a>
                 </div>
@@ -1118,17 +1136,17 @@
             <button class="close-modal" onclick="closeModal(null, true)">&times;</button>
             <div class="modal-header header-spain">
                 <i class="fas fa-sun"></i>
-                <h2>Vivir y Trabajar en EspaÃ±a</h2>
+                <h2>Vivir y Trabajar en España</h2>
             </div>
             <div class="modal-body">
-                <h3>ðŸ‡ªðŸ‡¸ Tu Puerta a Europa</h3>
-                <p>La vÃ­a mÃ¡s fÃ¡cil para la nacionalidad espaÃ±ola (2 aÃ±os de residencia).</p>
+                <h3>🇪🇸 Tu Puerta a Europa</h3>
+                <p>La vía más fácil para la nacionalidad española (2 años de residencia).</p>
 
                 <div class="job-list">
-                    <h4>ðŸŽ’ Programas Destacados:</h4>
+                    <h4>💼 Programas Destacados:</h4>
                     <ul>
                         <li><strong>Visa de Estudios:</strong> Estudia y trabaja legalmente (30h/semana).</li>
-                        <li><strong>Visa NÃ³mada Digital:</strong> Trabaja remoto desde EspaÃ±a.</li>
+                        <li><strong>Visa Nómada Digital:</strong> Trabaja remoto desde España.</li>
                         <li><strong>Residencia No Lucrativa:</strong> Para vivir sin trabajar localmente.</li>
                     </ul>
                 </div>
@@ -1147,14 +1165,14 @@
                 <h2>Trabajo en Polonia</h2>
             </div>
             <div class="modal-body">
-                <h3>ðŸ‡µðŸ‡± Permisos de Trabajo RÃ¡pidos</h3>
+                <h3>🇵🇱 Permisos de Trabajo Rápidos</h3>
                 <p>Proceso simplificado y alta demanda de mano de obra extranjera.</p>
 
                 <div class="job-list">
-                    <h4>ðŸ­ Perfiles (InglÃ©s BÃ¡sico ok):</h4>
+                    <h4>🏭 Perfiles (Inglés Básico ok):</h4>
                     <ul>
-                        <li><strong>FÃ¡bricas:</strong> Empaquetado y producciÃ³n.</li>
-                        <li><strong>Conductores:</strong> CategorÃ­a C+E.</li>
+                        <li><strong>Fábricas:</strong> Empaquetado y producción.</li>
+                        <li><strong>Conductores:</strong> Categoría C+E.</li>
                         <li><strong>Soldadores:</strong> TIG/MIG/MAG.</li>
                     </ul>
                 </div>
@@ -1173,12 +1191,12 @@
                 <h2>Estados Unidos</h2>
             </div>
             <div class="modal-body">
-                <h3>ðŸ‡ºðŸ‡¸ Visas Especiales</h3>
+                <h3>🇺🇸 Visas Especiales</h3>
                 <div class="job-list">
                     <ul>
                         <li><strong>EB-2 NIW:</strong> Residencia para profesionales (No requiere oferta).</li>
                         <li><strong>Visa E-2:</strong> Para inversionistas.</li>
-                        <li><strong>Turismo (B1/B2):</strong> AsesorÃ­a completa.</li>
+                        <li><strong>Turismo (B1/B2):</strong> Asesoría completa.</li>
                     </ul>
                 </div>
 
@@ -1189,7 +1207,7 @@
         </div>
     </div>
 
-    <!-- Horarios de AtenciÃ³n -->
+    <!-- Horarios de Atención -->
     <section id="horarios" class="section" style="background-color: var(--bg-dark); color: white; padding: 4rem 0;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
@@ -1201,20 +1219,20 @@
                             <span>8:00 AM - 6:00 PM (PST)</span>
                         </li>
                         <li style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--glass-border);">
-                            <span>SÃ¡bados</span>
+                            <span>Sábados</span>
                             <span>9:00 AM - 2:00 PM (PST)</span>
                         </li>
                         <li style="display: flex; justify-content: space-between; padding: 0.8rem 0; color: var(--text-muted);">
                             <span>Domingos</span>
-                            <span>Cerrado (AtenciÃ³n vÃ­a Formulario)</span>
+                            <span>Cerrado (Atención vía Formulario)</span>
                         </li>
                     </ul>
                 </div>
                 <div style="background: var(--glass-bg); padding: 2.5rem; border-radius: 15px; border: 1px solid var(--glass-border); text-align: center;">
                     <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fas fa-headset"></i></div>
-                    <h3>AtenciÃ³n Ininterrumpida 24/7</h3>
+                    <h3>Atención Ininterrumpida 24/7</h3>
                     <p style="color: var(--text-muted); margin: 1rem 0;">
-                        Si nos contacta fuera de horario, nuestro sistema registrarÃ¡ su caso de inmediato. Un asesor senior revisarÃ¡ su informaciÃ³n y le contactarÃ¡ en la primera hora del siguiente dÃ­a hÃ¡bil.
+                        Si nos contacta fuera de horario, nuestro sistema registrará su caso de inmediato. Un asesor senior revisará su información y le contactará en la primera hora del siguiente día hábil.
                     </p>
                     <a href="#contacto" class="btn-primary" style="margin-top: 1.5rem;">Iniciar Consulta Ahora</a>
                 </div>
@@ -1228,16 +1246,16 @@
             <p>&copy; 2026 Defensa Laboral USA. Todos los derechos reservados.</p>
             <div style="margin: 1.5rem 0; display: flex; justify-content: center; gap: 2rem;">
                 <a href="#" style="color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='#cbd5e1'">Aviso Legal</a>
-                <a href="#" style="color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='#cbd5e1'">PolÃ­tica de Privacidad</a>
+                <a href="#" style="color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='#cbd5e1'">Política de Privacidad</a>
             </div>
-            <p style="max-width: 700px; margin: 0 auto; opacity: 0.7; line-height: 1.6;">
-                <strong>Descargo de Responsabilidad:</strong> Defensa Laboral USA es una agencia privada de consultorÃ­a legal y no estÃ¡ afiliada con ningÃºn gobierno. El cÃ³digo DLU es un nÃºmero de referencia para el seguimiento interno de casos con nuestros abogados asociados.
+            <p style="max-width: 800px; margin: 0 auto; opacity: 0.8; line-height: 1.6;">
+                <strong>Aviso de Operación:</strong> Defensa Laboral USA opera como una firma de <strong>Gestión Técnica, Auditoría de Reclamos y Asistencia Laboral</strong>. No somos un bufete de abogados tradicional; somos su puente hacia la justicia federal mediante alianzas estratégicas con litigantes especializados en cada jurisdicción. El código DLU garantiza el seguimiento y la mediación profesional de su caso ante las autoridades correspondientes.
             </p>
         </div>
     </footer>
 
     <!-- ===================================================
-         V3: SISTEMA UNIFICADO DE ASISTENCIA Y CONVERSIÃ“N
+         V3: SISTEMA UNIFICADO DE ASISTENCIA Y CONVERSIÓN
          Hovanes (Izquierda) | WhatsApp (Derecha)
          =================================================== -->
 
@@ -1272,7 +1290,7 @@
             <div style="padding: 1rem; border-top: 1px solid #e2e8f0; background: white;">
                 <form onsubmit="handleV3Submit(event)" style="display: flex; gap: 8px; align-items: center;">
                     <button type="button" id="v3-mic-btn" onclick="startV3Dictation()" style="background: #f1f5f9; color: #0B1F4D; border: 1px solid #cbd5e1; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i id="v3-mic-icon" class="fas fa-microphone"></i></button>
-                    <input type="text" id="v3-chat-input" placeholder="Escriba su problema aquÃ­..." required style="flex: 1; border: 2px solid #e2e8f0; border-radius: 20px; padding: 0.7rem 1rem; outline: none;">
+                    <input type="text" id="v3-chat-input" placeholder="Escriba su problema aquí..." required style="flex: 1; border: 2px solid #e2e8f0; border-radius: 20px; padding: 0.7rem 1rem; outline: none;">
                     <button type="submit" style="background: #0B1F4D; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
@@ -1281,7 +1299,7 @@
         
         <!-- Texto explicativo junto a la burbuja para mayor visibilidad -->
         <div id="v3-bot-tooltip" onclick="toggleTammyV3()" style="position: absolute; left: 100%; margin-left: 15px; top: 15px; background: white; padding: 10px 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-size: 0.85rem; font-weight: bold; color: #0B1F4D; display: flex; align-items: center; gap: 8px; cursor: pointer; white-space: nowrap; animation: v3-slide 0.5s ease-out; border: 2px solid #fbbf24; background: #fbbf24;;">
-            Â¡Consulta Gratis! Click aquÃ­ <i class="fas fa-hand-pointer" style="margin-left: 5px; color: #0B1F4D; animation: v3-shake 1s infinite;"></i>
+            ¡Consulta Gratis! Click aquí <i class="fas fa-hand-pointer" style="margin-left: 5px; color: #0B1F4D; animation: v3-shake 1s infinite;"></i>
         </div>
         <div id="v3-main-bubble" onclick="toggleTammyV3()" style="width: 70px; height: 70px; border-radius: 50%; background: #0B1F4D; border: 3px solid #fbbf24; box-shadow: 0 10px 30px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative;">
             <div style="width: 60px; height: 60px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden;">
@@ -1301,19 +1319,12 @@
 
     <script>
         const v3Knowledge = {
-            'atiend': "SÃ­, nosotros le atendemos directamente. Somos una firma legal de California con abogados en todo el paÃ­s. Su consulta de hoy no tiene costo.",
-            'ayuda': "SÃ­, estamos aquÃ­ para ayudarle con procesos contra despidos injustos, falta de pago o accidentes laborales. Â¿En quÃ© estado se encuentra?",
-            'hola': "Â¡Hola! Bienvenido. Soy la Lic. Elena Valenzuela. Con gusto analizo su situaciÃ³n laboral sin costo. Â¿QuÃ© ocurriÃ³ en su trabajo?",
-            'buenos dias': "Â¡Buenos dÃ­as! Soy la Lic. Elena Valenzuela. Estoy listo para revisar su caso laboral de manera gratuita. Â¿En quÃ© le puedo servir hoy?",
-            'buenas tardes': "Â¡Buenas tardes! Soy la Lic. Elena Valenzuela. Mi equipo y yo estamos listos para defender sus derechos laborales. CuÃ©nteme su problema.",
+            'atiend': "Sí, nosotros le atendemos directamente. Somos una firma legal de California con abogados en todo el país. Su consulta de hoy no tiene costo.",
+            'ayuda': "Sí, estamos aquí para ayudarle con procesos contra despidos injustos, falta de pago o accidentes laborales. ¿En qué estado se encuentra?",
+            'hola': "¡Hola! Bienvenido. Soy la Lic. Elena Valenzuela. Con gusto analizo su situación laboral sin costo. ¿Qué ocurrió en su trabajo?",
+            'buenos dias': "¡Buenos días! Soy la Lic. Elena Valenzuela. Estoy listo para revisar su caso laboral de manera gratuita. ¿En qué le puedo servir hoy?",
+            'buenas tardes': "¡Buenas tardes! Soy la Lic. Elena Valenzuela. Mi equipo y yo estamos listos para defender sus derechos laborales. Cuénteme su problema.",
             'itin': "Si trabaja con ITIN y tiene hijos, protegemos su derecho a recuperar hasta $7,000 en reembolsos federales. No necesita Seguro Social para reclamar lo que es suyo.",
-            'accidente': "Un accidente laboral ignorado es una injusticia. Gestionamos su Workers' Comp y atenciÃ³n mÃ©dica completa sin importar su estatus migratorio.",
-            'despido': "El despido injustificado es ilegal. Reclamamos su indemnizaciÃ³n y salarios caÃ­dos bajo ley federal. Luchamos hasta el final por su familia.",
-            'papeles': "Nuestras leyes protegen al trabajador independientemente de su situaciÃ³n migratoria. Su informaciÃ³n con nosotros es 100% confidencial.",
-            'dlu': "Su cÃ³digo DLU es su nÃºmero Ãºnico de radicado federal. Es la prueba tÃ©cnica de que su defensa legal ha comenzado formalmente.",
-            'gratis': "Nuestra consulta es 100% gratuita y totalmente confidencial. Solo cobramos si usted gana su caso. Â¡No tiene nada que perder y mucho que ganar!",
-            'costo': "Nuestra consulta es 100% gratuita y confidencial. Solo cobramos si ganamos su caso. Â¡No tiene nada que perder!",
-            'pagar': "Usted no paga nada por la consulta. Nuestra asesorÃ­a legal es gratuita y si tomamos su caso, solo cobramos si lo ganamos.",
             'calcula': "AquÃ­ en nuestra plataforma tenemos una Calculadora de Salarios para estimar cuÃ¡nto dinero estÃ¡ perdiendo en horas extras o abusos. Â¡Le ayudamos a hacer cuentas!",
             'servicios': "Defendemos a trabajadores en casos de despido injusto, accidentes, falta de pago en horas extras y discriminaciÃ³n o reclamos de ITIN.",
             'empleo': "Si abusaron de usted en su empleo, ya sea con despidos o sin pagarle lo justo, nosotros lo representamos ante la ley federal.",
@@ -1472,7 +1483,45 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <script>
+        let currentLang = 'es';
+        const translations = {
+            'es': {
+                'nav-process': 'Proceso',
+                'nav-team': 'Equipo',
+                'hero-h1': 'CALCULA CUÁNTO DINERO ESTÁS PERDIENDO',
+                'hero-h2': '¿Te accidentaste o te despidieron injustamente?',
+                'hero-p': 'Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnización, salarios perdidos y gastos médicos.',
+                'btn-free': 'CONSULTA GRATIS AHORA',
+                'btn-cases': 'VER CASOS DE ÉXITO',
+                'section-alliance': 'Nuestra Red de Alianzas Legales',
+                'alliance-p': 'Como firma líder en Gestión de Reclamos, colaboramos con una red nacional de abogados litigantes con licencia vigente para asegurar el éxito de cada expediente federal.'
+            },
+            'en': {
+                'nav-process': 'Process',
+                'nav-team': 'Team',
+                'hero-h1': 'CALCULATE HOW MUCH MONEY YOU ARE LOSING',
+                'hero-h2': 'Injured or Wrongfully Terminated?',
+                'hero-p': 'We defend your rights regardless of your immigration status. We recover your compensation, lost wages, and medical expenses.',
+                'btn-free': 'FREE CONSULTATION NOW',
+                'btn-cases': 'SEE SUCCESS CASES',
+                'section-alliance': 'Our Legal Alliance Network',
+                'alliance-p': 'As a leading Claims Management firm, we collaborate with a national network of licensed trial attorneys to ensure the success of every federal file.'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.querySelectorAll('[id^="nav-"], [id^="hero-"], [id^="btn-"], [id^="section-"], [id^="alliance-"]').forEach(el => {
+                if (translations[currentLang][el.id]) {
+                    el.innerText = translations[currentLang][el.id];
+                }
+            });
+            // Update specific buttons/headers manually if needed
+            document.querySelector('.hero-h1').innerText = translations[currentLang]['hero-h1'];
+            document.getElementById('nav-process').innerText = translations[currentLang]['nav-process'];
+        }
+    </script>
     <script src="main.js"></script>
     <script src="add_video_hero.js"></script>
     
