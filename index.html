@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abogados-rose.vercel.app/">
     <meta property="og:title" content="Defensa Laboral USA | Justicia para el Inmigrante">
-    <meta property="og:description" content="Recuperamos tu indemnización y protegemos tus derechos laborales en EE.UU. Consulta 24/7.">
+    <meta property="og:description" content="Recuperamos tu indemnizaci&oacute;n y protegemos tus derechos laborales en EE.UU. Consulta 24/7.">
     <meta property="og:image" content="https://defensalaboralusa.com/og-image.png">
 
     <!-- Twitter -->
@@ -1479,9 +1479,9 @@
             i.value = '';
             a.scrollTop = a.scrollHeight;
 
-            let r = "Entiendo perfectamente su situaciÃ³n. Por favor hable conmigo por WhatsApp para empezar una consulta gratuita y estudiar su caso. Recuerde que esto no tiene costo.";
+            let r = "Entiendo perfectamente su situaci&oacute;n. Por favor hable conmigo por WhatsApp para empezar una consulta gratuita y estudiar su caso. Recuerde que esto no tiene costo.";
             const l = uv.toLowerCase();
-            for (let k in v3Knowledge) { if (l.includes(k)) { r = "Â¡Excelente pregunta! " + v3Knowledge[k]; break; } }
+            for (let k in v3Knowledge) { if (l.includes(k)) { r = "&iexcl;Excelente pregunta! " + v3Knowledge[k]; break; } }
 
             setTimeout(() => {
                 v3AppendBot(r);
@@ -1499,7 +1499,7 @@
         function v3SpeakNow(t) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                const u = new SpeechSynthesisUtterance(t.replace('DLU', 'D L U').replace('$', 'dÃ³lares '));
+                const u = new SpeechSynthesisUtterance(t.replace('DLU', 'D L U').replace('$', 'd&oacute;lares '));
                 u.lang = 'es-US';
                 u.rate = 1.0;
                 window.speechSynthesis.speak(u);
@@ -1527,7 +1527,7 @@
                 n.style.display = 'flex';
                 b.style.animation = "v3-shake 0.8s ease-in-out infinite";
                 if ('speechSynthesis' in window) {
-                    const wel = new SpeechSynthesisUtterance("Â¡Hola! Soy la Licenciada Elena Valenzuela. Â¿Le han negado sus derechos laborales hoy? Hablemos.");
+                    const wel = new SpeechSynthesisUtterance("&iexcl;Hola! Soy la Licenciada Elena Valenzuela. &iquest;Le han negado sus derechos laborales hoy? Hablemos.");
                     wel.lang = 'es-US';
                     window.speechSynthesis.speak(wel);
                 }
@@ -1613,7 +1613,7 @@
             <!-- Chat / Interaction Area -->
             <div class="ai-chat-area" id="aiChat">
                 <div class="ai-msg bot" id="aiWelcomeMsg">
-                    Hola. Soy el <strong>Abogado Virtual</strong> de Defensa Laboral USA. Â¿Te despidieron o sufriste un accidente?
+                    Hola. Soy el <strong>Abogado Virtual</strong> de Defensa Laboral USA. &iquest;Te despidieron o sufriste un accidente?
                 </div>
             </div>
 
@@ -1639,25 +1639,25 @@
         let currentLang = 'es';
         const translations = {
             'es': {
-                'nav-process': 'Proceso',
-                'nav-team': 'Equipo',
-                'hero-h1': 'CALCULA CUÁNTO DINERO ESTÁS PERDIENDO',
-                'hero-h2': '¿Te accidentaste o te despidieron injustamente?',
-                'hero-p': 'Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnización, salarios perdidos y gastos médicos.',
-                'btn-free': 'CONSULTA GRATIS AHORA',
-                'btn-cases': 'VER CASOS DE ÉXITO',
-                'section-alliance': 'Nuestra Red de Alianzas Legales',
-                'alliance-p': 'Como firma líder en Gestión de Reclamos, colaboramos con una red nacional de abogados litigantes con licencia vigente para asegurar el éxito de cada expediente federal.'
+                'nav-process': 'PROCESO',
+                'nav-team': 'EQUIPO',
+                'hero-h1': 'AUDITOR&Iacute;A LABORAL FEDERAL: RECUPERE SU DINERO',
+                'hero-h2': '&iquest;FUISTE DESPEDIDO O TE ACCIDENTASTE?',
+                'hero-p': 'Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnizaci&oacute;n, salarios perdidos y gastos m&eacute;dicos.',
+                'btn-free': 'CONSULTA GRATUITA AHORA',
+                'btn-cases': 'VER CASOS DE &Eacute;XITO',
+                'section-alliance': 'NUESTRA RED DE ALIANZAS LEGALES',
+                'alliance-p': 'Como firma l&iacute;der en Gesti&oacute;n de Reclamos, colaboramos con una red nacional de abogados litigantes con licencia vigente para asegurar el &eacute;xito de cada expediente federal.'
             },
             'en': {
-                'nav-process': 'Process',
-                'nav-team': 'Team',
-                'hero-h1': 'CALCULATE HOW MUCH MONEY YOU ARE LOSING',
-                'hero-h2': 'Injured or Wrongfully Terminated?',
+                'nav-process': 'PROCESS',
+                'nav-team': 'TEAM',
+                'hero-h1': 'FEDERAL LABOR AUDIT: RECOVER YOUR MONEY',
+                'hero-h2': 'WRONGFULLY TERMINATED OR INJURED?',
                 'hero-p': 'We defend your rights regardless of your immigration status. We recover your compensation, lost wages, and medical expenses.',
                 'btn-free': 'FREE CONSULTATION NOW',
                 'btn-cases': 'SEE SUCCESS CASES',
-                'section-alliance': 'Our Legal Alliance Network',
+                'section-alliance': 'OUR LEGAL ALLIANCE NETWORK',
                 'alliance-p': 'As a leading Claims Management firm, we collaborate with a national network of licensed trial attorneys to ensure the success of every federal file.'
             }
         };
