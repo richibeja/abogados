@@ -1,8 +1,17 @@
-# DOCS_PRIVADOS/
+# 🛑 ESCUDO DE PRIVACIDAD - DEFENSA LABORAL USA
+# Estas carpetas NUNCA se subirán al internet:
 
-node_modules/
-.env
-.vercel/
+clientes/
+DOCS_PRIVADOS/
+abogados/
 *.log
-
-.vercel
+.vercel/
+*.png
+*.jpg
+*.jpeg
+*.webp
+!images/
+!imagenes/
+!lawyer_*.png
+!success_story_*.png
+!fb_cover_*.png
