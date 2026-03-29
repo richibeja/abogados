@@ -3,129 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTAL DEL CLIENTE - DEFENSA LABORAL USA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>SISTEMA DE AUDITOR&Iacute;A LABORAL - DEFENSA LABORAL USA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #0B1F4D; --accent: #fbbf24; --text: #1e293b; --bg: #f8fafc; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); margin: 0; padding: 0; color: var(--text); }
-        .header { background: var(--primary); color: white; padding: 30px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
-        .firm-name { font-family: 'Playfair Display'; font-size: 1.5rem; letter-spacing: 1px; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        
-        .client-info { background: #f1f5f9; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
-        .client-info h2 { margin: 0 0 10px 0; color: var(--primary); font-family: 'Montserrat'; font-size: 1.2rem; }
-        
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
-        .stat-card { background: #fffbeb; padding: 15px; border-radius: 10px; border: 1px solid #fde68a; text-align: center; }
-        .stat-label { font-size: 0.75rem; color: #92400e; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
-        .stat-value { font-size: 1.3rem; color: var(--primary); font-weight: 900; font-family: 'Montserrat'; }
+        :root {
+            --bg-dark: #020617;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-emerald: #10b981;
+            --accent-gold: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
 
-        .rights-box { margin-bottom: 30px; }
-        .right-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #e2e8f0; }
-        .right-item i { color: #16a34a; font-size: 1.2rem; margin-top: 3px; }
-        .right-item strong { display: block; color: var(--primary); }
-
-        .contract-preview { background: #fafafa; border: 1px solid #e5e7eb; padding: 25px; border-radius: 10px; margin-bottom: 30px; font-size: 0.9rem; line-height: 1.6; max-height: 300px; overflow-y: auto; }
-
-        .btn-action { display: block; width: 100%; background: #16a34a; color: white; text-align: center; padding: 20px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3); border: none; cursor: pointer; }
-        .btn-action:hover { transform: translateY(-3px); background: #15803d; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .footer { text-align: center; font-size: 0.8rem; color: #94a3b8; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
-        #error-message { display: none; text-align: center; padding: 50px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, #020617 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-federal {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-emerald);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .client-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+        }
+
+        .client-name h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-tag {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            text-align: left;
+            transition: 0.3s transform;
+        }
+
+        .stat-box:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Montserrat';
+        }
+
+        .audit-list {
+            margin-bottom: 3rem;
+        }
+
+        .audit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.01);
+            border-bottom: 1px solid var(--glass-border);
+            transition: 0.3s;
+        }
+
+        .audit-item:hover { background: rgba(16, 185, 129, 0.05); }
+
+        .audit-item i {
+            color: var(--accent-emerald);
+            font-size: 1.2rem;
+        }
+
+        .contract-section {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px dashed var(--glass-border);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .btn-activate {
+            display: block;
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--accent-emerald);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-family: 'Montserrat';
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-activate:hover {
+            transform: scale(1.02);
+            background: #059669;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-dark);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+        .pulse {
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--glass-border);
+            border-top-color: var(--accent-emerald);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error-state {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
     </style>
 </head>
 <body>
-    <div id="loader" style="text-align: center; padding: 100px;">
-        <i class="fas fa-circle-notch fa-spin fa-3x" style="color: var(--primary);"></i>
-        <p>Cargando su expediente seguro...</p>
+
+    <div id="loader">
+        <div class="pulse"></div>
+        <p style="margin-top: 1.5rem; letter-spacing: 2px; font-weight: 800; color: var(--text-secondary);">CIFRADO ACTIVO</p>
     </div>
 
-    <div id="portal-content" style="display: none;">
-        <div class="header">
-            <div class="firm-name">DEFENSA LABORAL USA</div>
-            <div style="font-size: 0.75rem; opacity: 0.8; font-weight: 700; letter-spacing: 1px;">DR. FRANCISCO HERNÁNDEZ - DIVISIÓN FEDERAL</div>
-        </div>
-
-        <div class="container">
-            <div class="client-info">
-                <h2 id="client-name">---</h2>
-                <div id="case-id" style="font-weight: 700; color: #64748b; font-size: 0.9rem;">EXPEDIENTE: ---</div>
+    <div id="app" style="display: none;">
+        <header class="header">
+            <div class="logo-text">DEFENSA LABORAL USA</div>
+            <div class="badge-federal">
+                <i class="fas fa-shield-halved"></i> AUDITOR&Iacute;A FEDERAL NIVEL 4 ACTIVADA
             </div>
+        </header>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">RECLAMACIÓN ESTIMADA</div>
-                    <div class="stat-value" id="case-amount">$0.00</div>
+        <main class="main-container">
+            <div class="glass-card">
+                <div class="client-header">
+                    <div class="client-name">
+                        <h1 id="client-name-display">---</h1>
+                        <span class="case-tag" id="case-id-display">C&Oacute;DIGO: ---</span>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary); display: block; margin-bottom: 5px;">ESTATUS GLOBAL</span>
+                        <span style="color: var(--accent-emerald); font-weight: 900; font-size: 0.9rem;">● CERTIFICADO</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">ESTATUS</div>
-                    <div class="stat-value" style="color: #16a34a;">ACTIVO</div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">RECLAMACI&Oacute;N ESTIMADA</span>
+                        <div class="stat-value" id="amount-display">$0.00</div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">NIVEL DE FRAUDE DETECTADO</span>
+                        <div class="stat-value" style="color: #ef4444;" id="risk-display">74%</div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">AMPLIFICADOR LEGAL</span>
+                        <div class="stat-value" style="color: var(--accent-gold);">x3.0</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="rights-box">
-                <h3 style="font-family: 'Montserrat'; font-size: 1rem; color: var(--primary); margin-bottom: 15px;">DERECHOS PROTEGIDOS BAJO AUDITORÍA:</h3>
-                <div id="rights-list">
-                    <!-- Dynamic List -->
+                <h3 style="font-family: 'Montserrat'; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: uppercase;">Protocolos de Protecci&oacute;n Activa</h3>
+                <div class="audit-list" id="rights-container">
+                    <!-- Dynamic Items -->
                 </div>
-            </div>
 
-            <h3 style="font-family: 'Montserrat'; font-size: 1rem; color: var(--primary);">CONTRATO DE REPRESENTACIÓN</h3>
-            <div class="contract-preview">
-                <p>Por la presente, autorizo al equipo legal de <strong>Defensa Laboral USA</strong>, dirigido por el <strong>Dr. Francisco Hernández</strong>, para actuar en mi representaciÃ³n oficial ante las autoridades laborales federales y estatales.</p>
-                <p>Este mandato incluye la facultad de auditar registros de nómina, interponer quejas por discriminación y ambiente laboral hostil, y negociar indemnizaciones por robo de salarios y horas extra no pagadas.</p>
-                <p>Me comprometo a proporcionar toda la evidencia necesaria y confirmo que los datos presentados son verídicos.</p>
-            </div>
+                <div class="contract-section">
+                    <p><strong>Mandato de Representaci&oacute;n T&eacute;cnica:</strong> Autorizo a la divisi&oacute;n federal de Defensa Laboral USA, bajo la supervisi&oacute;n del Dr. Francisco Hern&aacute;ndez, para ejecutar auditor&iacute;as t&eacute;cnicas de n&oacute;mina, inspecciones de seguridad OSHA y reclamos por discriminaci&oacute;n ante agencias estatales y federales. Este protocolo blinda mi identidad y activa la protecci&oacute;n contra represalias de forma inmediata.</p>
+                </div>
 
-            <button onclick="acceptProtocol()" class="btn-action">✍️ ACEPTAR Y ACTIVAR BLINDAJE</button>
-
-            <div class="footer">
-                ESTE ES UN PORTAL PRIVADO Y SEGURO. SU INFORMACIÓN ESTÁ PROTEGIDA POR EL SECRETO PROFESIONAL.<br>
-                © 2026 DEFENSA LABORAL USA - HQ SANTA BARBARA.
+                <button onclick="acceptProtocol()" class="btn-activate">✍️ ACTIVAR PROTOCOLO Y FIRMAR</button>
+                
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.75rem; color: var(--text-secondary);">
+                    CONECTADO A LA RED NACIONAL DE AUTORIDAD LABORAL. SESI&Oacute;N ENCRIPTADA.
+                </p>
             </div>
-        </div>
+        </main>
     </div>
 
-    <div id="error-message">
-        <i class="fas fa-exclamation-triangle fa-3x" style="color: #ef4444; margin-bottom: 20px;"></i>
-        <h2>Caso No Encontrado</h2>
-        <p>Por favor verifique el código enviado por su asesor o contacte a soporte.</p>
-        <a href="index.html" style="color: var(--primary); font-weight: 700;">Volver al inicio</a>
+    <div id="error-message" class="error-state" style="display: none;">
+        <i class="fas fa-fingerprint fa-4x" style="color: #ef4444; margin-bottom: 1.5rem;"></i>
+        <h2 style="font-family: 'Montserrat'; margin-bottom: 1rem;">ACCESO DENEGADO</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">El c&oacute;digo de expediente no es v&aacute;lido o ha expirado por seguridad.</p>
+        <a href="index.html" style="color: var(--accent-emerald); text-decoration: none; font-weight: 800;">REINTENTAR ACCESO</a>
     </div>
 
     <script>
         const clientData = {
-            'DLU-ERD-0324': {
-                name: 'Elisa Rangel DomÃ­nguez',
-                amount: '$45,000.00',
-                rights: [
-                    'DiscriminaciÃ³n por Edad (Reemplazo Juvenil)',
-                    'Acoso Sexual y Hostigamiento Laboral',
-                    'Sabotaje de Métrica de ProducciÃ³n',
-                    'RecuperaciÃ³n de 6 aÃ±os de AntigÃ¼edad'
-                ]
-            },
-            'DLU-BGM-0324': {
-                name: 'Balbina Anali Gomez Mendoza',
-                amount: '$50,000.00',
-                rights: [
-                    'DiscriminaciÃ³n por Origen Nacional (EEOC)',
-                    'Robo de Salarios y Propinas Retenidas',
-                    'Incumplimiento de Horas Extra (OT)',
-                    'Falta de Entrega de Talones de Pago (OCGA)'
-                ]
-            },
             'DLU-JAS-0328': {
                 name: 'Jose Antonio Serrano',
-                amount: '$40,000 - $55,000',
-                rights: [
-                    'Master Greenkeeper (15 Años de Seniority)',
-                    'Hostilidad Laboral y Trato Humillante',
-                    'Discriminación por Edad (59 Años)',
-                    'Lesión Laboral: Desgarro de Cordón en Codo',
-                    'Asistencia Médica No Reportada por la Empresa',
-                    'Robo de Propinas de Miembros (Tipping Pool)'
+                amount: '$55,000.00',
+                risk: '89%',
+                points: [
+                    'Seniority: 15 A&ntilde;os de Historial Auditado',
+                    'Accidente: Lesi&oacute;n en Codo (Desgarro de Cord&oacute;n)',
+                    'Fraude: Robo de Propinas (Tipping Pool)',
+                    'Violaci&oacute;n: Ambiento Laboral Hostil y Edad',
+                    'Protecci&oacute;n: Blindaje contra Represalias Activo'
+                ]
+            },
+            'DLU-ERD-0324': {
+                name: 'Elisa Rangel Dom&iacute;nguez',
+                amount: '$45,000.00',
+                risk: '72%',
+                points: [
+                    'Discriminaci&oacute;n por Edad Confirmada',
+                    'Acoso y Hostigamiento Sistem&aacute;tico',
+                    'Sabotaje de M&eacute;tricas de Producci&oacute;n',
+                    'Recuperaci&oacute;n de 6 A&ntilde;os de Salarios'
+                ]
+            },
+            'DLU-PUL-8214': {
+                name: 'Pascual Urbina L&oacute;pez',
+                amount: '$285,000.00',
+                risk: '94%',
+                points: [
+                    'Fraude Criminal: Cheques sin Fondos (NSF)',
+                    'Robo de Salarios: Horas Extra No Pagadas',
+                    'Incumplimiento: Violaci&oacute;n FLSA Federal',
+                    'Alerta: Patr&oacute;n con Antecedentes de Fraude'
                 ]
             }
         };
@@ -135,33 +335,35 @@
             const id = urlParams.get('id');
 
             setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
                 
                 if (id && clientData[id]) {
                     const data = clientData[id];
-                    document.getElementById('case-id').innerText = `EXPEDIENTE: ${id}`;
-                    document.getElementById('client-name').innerText = data.name;
-                    document.getElementById('case-amount').innerText = data.amount;
+                    document.getElementById('client-name-display').innerText = data.name;
+                    document.getElementById('case-id-display').innerText = `EXPEDIENTE: ${id}`;
+                    document.getElementById('amount-display').innerText = data.amount;
+                    document.getElementById('risk-display').innerText = data.risk;
                     
-                    const rightsList = document.getElementById('rights-list');
-                    data.rights.forEach(right => {
+                    const container = document.getElementById('rights-container');
+                    data.points.forEach(point => {
                         const div = document.createElement('div');
-                        div.className = 'right-item';
-                        div.innerHTML = `<i class="fas fa-check-circle"></i><div><strong>${right}</strong> ProtecciÃ³n Federal Activa.</div>`;
-                        rightsList.appendChild(div);
+                        div.className = 'audit-item';
+                        div.innerHTML = `<i class="fas fa-check-shield"></i><div>${point}</div>`;
+                        container.appendChild(div);
                     });
 
-                    document.getElementById('portal-content').style.display = 'block';
-                    window.currentCaseId = id;
-                    window.currentCaseName = data.name;
+                    document.getElementById('app').style.display = 'block';
+                    window.caseId = id;
+                    window.userName = data.name;
                 } else {
                     document.getElementById('error-message').style.display = 'block';
                 }
-            }, 800);
+            }, 1200);
         }
 
         function acceptProtocol() {
-            const text = `Hola Dr. Francisco Hernandez, soy ${window.currentCaseName}. He revisado mi portal seguro y ACEPTO los tÃ©rminos de representaciÃ³n para mi caso ${window.currentCaseId}. Estoy listo/a para el trÃ¡mite administrativo.`;
+            const text = `Hola Dr. Francisco Hernandez, soy ${window.userName}. He verificado mi Sistema de Auditoria y ACEPTO los terminos de blindaje para mi caso ${window.caseId}. Proceda con la reclamacion oficial.`;
             window.location.href = `https://wa.me/18053080769?text=${encodeURIComponent(text)}`;
         }
 

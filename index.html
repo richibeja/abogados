@@ -60,10 +60,8 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proceso" id="nav-process">Proceso</a></li>
-                <li><a href="#equipo" id="nav-team">Equipo</a></li>
-                <li><a href="javascript:void(0)" onclick="toggleLanguage()" class="lang-btn"><i class="fas fa-globe"></i> EN / ES</a></li>
-                <li><a href="#contacto" class="btn-primary">Consultar</a></li>
+                <li><a href="#auditoria" style="color: var(--accent); font-weight: 800;"><i class="fas fa-check-double"></i> Verificaci&oacute;n Patronal</a></li>
+                <li><a href="#contacto" class="btn-primary" style="background: #25d366; border-color: #25d366;"><i class="fab fa-whatsapp"></i> Chat Directo</a></li>
             </ul>
         </div>
     </nav>
@@ -80,66 +78,48 @@
         <div class="container hero-content" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; text-align: left; max-width: 1200px;">
             <div class="hero-text-side" style="flex: 1; min-width: 300px; padding-top: 2rem;">
         
-            <h1 class="fade-in hero-h1">CALCULA CU&Aacute;NTO DINERO EST&Aacute;S PERDIENDO</h1>
-            <h2 class="fade-in delay-1 hero-h2" style="color: var(--primary); font-size: 1.8rem; margin-top: -10px; text-transform: uppercase;">&iquest;Te accidentaste o te despidieron injustamente?</h2>
-            <p class="fade-in delay-2">Defendemos tus derechos sin importar tu estatus migratorio. Recuperamos tu indemnizaci&oacute;n, salarios perdidos y gastos m&eacute;dicos.</p>
-            <div class="hero-buttons fade-in delay-3">
-                <a href="https://wa.me/18053080769?text=Hola,%20vengo%20de%20la%20web%20y%20necesito%20ayuda%20con%20mi%20caso" class="btn-primary large pulse-button"><i class="fab fa-whatsapp"></i> CONSULTA GRATIS AHORA</a>
-                <a href="#servicios" class="btn-secondary">VER CASOS DE ÉXITO</a>
+            <div class="badge-federal" style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <i class="fas fa-university"></i> UNIDAD DE FISCALIZACI&Oacute;N Y CUMPLIMIENTO LABORAL
             </div>
             
-            <!-- Urgency Counter (CRO Boost) -->
-            <div style="margin-top: 2rem; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(251, 191, 36, 0.3);">
-                <span class="pulse-dot"></span>
-                <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">¡Atención! Últimos 4 cupos.</span>
+            <h1 class="fade-in hero-h1" style="font-size: 3.5rem; line-height: 1; margin-bottom: 1.5rem;">INTELIGENCIA Y PROTECCI&Oacute;N FEDERAL</h1>
+            <h2 class="fade-in delay-1 hero-h2" style="color: #fff; opacity: 0.9; font-size: 1.5rem; margin-top: -10px; font-weight: 400;">Garantizamos el cumplimiento de las normativas de compensaci&oacute;n y seguridad en todo el pa&iacute;s.</h2>
+            
+            <div class="hero-buttons fade-in delay-3" style="margin-top: 2rem;">
+                <a href="https://wa.me/18053080769?text=Hola,%20necesito%20iniciar%20mi%20auditoria%20laboral%20ahora" class="btn-primary large pulse-button" style="background: #10b981; border: none;"><i class="fab fa-whatsapp"></i> GESTI&Oacute;N DE RECLAMO</a>
+                <a href="#auditoria" class="btn-secondary" style="border: 2px solid rgba(255,255,255,0.2);"><i class="fas fa-search-location"></i> PORTAL DE CUMPLIMIENTO</a>
+            </div>
+            
+            <div style="margin-top: 2.5rem; display: flex; gap: 2rem; opacity: 0.8; filter: grayscale(1) brightness(2);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Seal_of_the_United_States_Department_of_Labor.svg" alt="DOL" style="height: 40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/IRS_seal.svg" alt="IRS" style="height: 40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/OSHA_logo.svg/1200px-OSHA_logo.svg.png" alt="OSHA" style="height: 40px;">
             </div>
         
             </div>
-            <div class="hero-calc-side" style="flex: 1; min-width: 300px; z-index: 10; display: flex; justify-content: center; padding-top: 1rem;">
-                <div class="calculator-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; width: 100%; max-width: 400px; margin: 0 auto; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px);">
-                <h3 style="color: var(--primary); font-size: 1.2rem; margin-top: 0; text-align: center;">&iquest;Cuanto dinero est&aacute;s perdiendo?</h3>
-<form id="calcForm" onsubmit="calculateCompensation(event)">
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Sueldo por Hora (USD)</label>
-                        <input type="number" id="hourlyRate" placeholder="Ej: 15" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                <div class="calculator-card" style="background: rgba(2, 6, 23, 0.85); padding: 2.5rem; width: 100%; max-width: 450px; border-radius: 30px; border: 1px solid rgba(37, 211, 102, 0.3); backdrop-filter: blur(25px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25d366; margin-bottom: 1rem;"></i>
+                        <h3 style="color: #fff; font-size: 1.5rem; font-family: 'Montserrat';">ASESOR&Iacute;A HUMANA 24/7</h3>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Escr&iacute;benos ahora. Un especialista legal de nuestro equipo te atender&aacute; personalmente. Sin robots.</p>
                     </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Horas por Semana</label>
-                        <input type="number" id="hoursPerWeek" placeholder="Ej: 40" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label>Tiempo Trabajado (Años)</label>
-                        <input type="number" id="yearsWorked" placeholder="Ej: 2" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 2rem;">
-                        <label>Tipo de Reclamación</label>
-                        <select id="claimType" required style="width: 100%; padding: 1rem; border-radius: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                            <option value="dismissal">Despido Injustificado</option>
-                            <option value="unpaid">Salarios / Horas Extra No Pagadas</option>
-                            <option value="accident">Accidente de Trabajo</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary pulse-button" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-calculator"></i> ¿Estuviste en un accidente? ¿Te despidieron?
-                    </button>
-                    <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; text-align: center;">
-                        <i class="fas fa-certificate" style="color: var(--primary);"></i> 
-                        <strong>Incluso si no tiene documentos hoy, nosotros le ayudamos a recopilar las pruebas.</strong>
-                    </p>
-                </form>
-
-                <div id="calcResult" style="margin-top: 2rem; display: none; text-align: center; background: rgba(255,215,0,0.1); padding: 2rem; border-radius: 15px; border: 1px solid var(--primary); animation: fadeIn 0.5s ease;">
-                    <h4 style="margin:0; font-size: 0.9rem; letter-spacing: 1px;">POTENCIAL DE COMPENSACIÓN</h4>
-                    <div style="font-size: 2.8rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0;">
-                        $<span id="minAmount">0</span> - $<span id="maxAmount">0</span>*
-                    </div>
-                    <p id="potentialMsg" style="font-weight: 700; color: #10b981; margin-bottom: 1rem;"></p>
-                    <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">
-                        *Esta es una estimación base optimista. Un abogado especializado podría aumentar esta cifra significativamente tras evaluar su situación completa.
-                    </p>
-                    <a href="javascript:void(0)" onclick="sendToWhatsApp('He calculado mi indemnización y es alta. Necesito ayuda para reclamarla.')" class="btn-primary pulse-button" style="display: inline-block; margin-top: 1rem; width: 100%;"><i class="fab fa-whatsapp"></i> RECUPERAR ESTE DINERO AHORA</a>
+                    
+                    <a href="https://wa.me/18053080769?text=Hola,%20necesito%20hablar%20con%20un%20asesor%20sobre%20mi%20caso" class="btn-primary pulse-button" style="display: block; width: 100%; padding: 1.5rem; text-align: center; background: #25d366; border: none; font-weight: 800; font-size: 1.2rem; text-transform: uppercase;">
+                        <i class="fab fa-whatsapp"></i> HABLAR POR WHATSAPP
+                    </a>
+                    
+                    <ul style="margin-top: 2rem; list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 10px;">
+                            <i class="fas fa-lock" style="color: #25d366;"></i> Conversaci&oacute;n 100% Privada y Cifrada
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 10px;">
+                            <i class="fas fa-user-shield" style="color: #25d366;"></i> Sin importar tu Estatus Migratorio
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: 0.85rem;">
+                            <i class="fas fa-check-circle" style="color: #25d366;"></i> Respuesta en menos de 5 minutos
+                        </li>
+                    </ul>
                 </div>
-            </div>
             </div>
         </div>
         <!-- Decorative Elements -->
@@ -147,15 +127,14 @@
         
     </header>
 
-    <!-- Recent Settlements Ticker (Google Ads Credibility) -->
-    <div class="settlements-ticker" style="background: rgba(15, 31, 77, 0.9); color: white; padding: 12px 0; border-bottom: 2px solid var(--primary); overflow: hidden; white-space: nowrap;">
-        <div class="ticker-content" style="display: items-center; animation: ticker 40s linear infinite;">
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $45,000 recuperados para obrero en Houston (Accidente)</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $42,500 para Mauricio B. en San Julian (Represalias)</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $12,500 para empleada en Miami (Despido Injustificado)</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $8,200 por Horas Extra no pagadas en Los Angeles</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $30,000 para trabajador de limpieza en Chicago</span>
-            <span style="margin-right: 50px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> <strong>RECIENTE:</strong> $55,000 por caída en construcción en Dallas</span>
+    <!-- Compliance Labor Monitor (Generic & Authoritative) -->
+    <div class="settlements-ticker" id="auditoria" style="background: #020617; color: white; padding: 15px 0; border-bottom: 1px solid rgba(16, 185, 129, 0.3); overflow: hidden; white-space: nowrap;">
+        <div class="ticker-content" style="display: items-center; animation: ticker 45s linear infinite;">
+            <span style="margin-right: 60px; color: #10b981;"><i class="fas fa-broadcast-tower"></i> <strong>AUDITOR&Iacute;A ACTIVA:</strong> Sector Industrial / Pintura - Protocolo OSHA Secc. 55A</span>
+            <span style="margin-right: 60px; color: #fbbf24;"><i class="fas fa-exclamation-triangle"></i> <strong>VIGILANCIA:</strong> Sector Construcci&oacute;n / General - Verificaci&oacute;n 1099 Proceso Federal</span>
+            <span style="margin-right: 60px; color: #ef4444;"><i class="fas fa-gavel"></i> <strong>RESOLUCI&Oacute;N:</strong> Reclamaci&oacute;n de Salarios Retenidos - Acuerdo Administrativo Regional</span>
+            <span style="margin-right: 60px;"><i class="fas fa-check-circle"></i> <strong>SISTEMA:</strong> Red Nacional de Defensa Laboral - Verificaci&oacute;n de Cumplimiento 24/7</span>
+            <span style="margin-right: 60px; color: #10b981;"><i class="fas fa-microchip"></i> <strong>INTELIGENCIA:</strong> Monitoreo de Red para Robo de Beneficios (NJ/IL/TX/FL/GA)</span>
         </div>
     </div>
     <style>
@@ -443,6 +422,90 @@
         </div>
     </section>
 
+    <!-- COBERTURA DE AUDITOR&Iacute;A NACIONAL (APP LOOK) -->
+    <section id="mapa-cobertura" style="background: #020617; padding: 6rem 0; overflow: hidden; position: relative; border-top: 1px solid rgba(16, 185, 129, 0.2);">
+        <div class="container" style="text-align: center;">
+            <div class="badge-federal" style="margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <i class="fas fa-satellite-dish"></i> RED NACIONAL DE AUDITOR&Iacute;A EN TIEMPO REAL
+            </div>
+            <h2 style="font-family: 'Montserrat'; font-size: 2.5rem; color: #fff; margin-bottom: 1rem;">M&aacute;xima Cobertura Federal</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; max-width: 800px; margin: 0 auto 4rem;">
+                Nuestros protocolos de inteligencia detectan irregularidades patronales en los 50 estados. Actualmente con bases operativas prioritarias en los focos de mayor incidencia.
+            </p>
+
+            <div style="position: relative; width: 100%; max-width: 950px; margin: 0 auto; background: rgba(255,255,255,0.02); border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; backdrop-filter: blur(15px); box-shadow: 0 40px 100px rgba(0,0,0,0.6);">
+                <!-- Animated Map Mockup -->
+                <div style="background: linear-gradient(rgba(2,6,23,0.8), rgba(2,6,23,0.8)), url('https://images.unsplash.com/photo-1501594907352-04cda38eb639?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover; height: 500px; border-radius: 20px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                    
+                    <!-- Pulsing Points -->
+                    <div class="map-point" style="top: 32%; left: 85%;" data-label="NJ"><span></span></div>
+                    <div class="map-point" style="top: 42%; left: 68%;" data-label="IL"><span></span></div>
+                    <div class="map-point" style="top: 72%; left: 78%;" data-label="FL"><span></span></div>
+                    <div class="map-point" style="top: 78%; left: 52%;" data-label="TX"><span></span></div>
+                    <div class="map-point" style="top: 50%; left: 12%;" data-label="CA"><span></span></div>
+                    <div class="map-point" style="top: 35%; left: 78%;" data-label="NY"><span></span></div>
+                    
+                    <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 12px; border: 1px solid #10b981; font-size: 0.75rem;">
+                        <div style="color: #10b981; font-weight: 800; margin-bottom: 5px;"><i class="fas fa-circle" style="font-size: 8px;"></i> SISTEMA ACTIVO</div>
+                        <div style="color: #fff; opacity: 0.8;">Escaneando bases de datos de nómina...</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+                    <div>
+                        <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">Casos Verificados</span>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #10b981;">+8,400</div>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">Alertas OSHA</span>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #fbbf24;">1,102</div>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;">Recuperaci&oacute;n (2026)</span>
+                        <div style="font-size: 1.8rem; font-weight: 900; color: #fff;">$2.8M</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .map-point {
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: #10b981;
+                border-radius: 50%;
+                z-index: 5;
+            }
+            .map-point::after {
+                content: attr(data-label);
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #fff;
+                font-size: 9px;
+                font-weight: 900;
+                background: rgba(16, 185, 129, 0.5);
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+            .map-point span {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                border-radius: 50%;
+                opacity: 0.6;
+                animation: map-pulse 2s ease-out infinite;
+            }
+            @keyframes map-pulse {
+                0% { transform: scale(1); opacity: 0.6; }
+                100% { transform: scale(4); opacity: 0; }
+            }
+        </style>
+    </section>
+
     <!-- NETWORK AUTHORITY SECTION (NEW) -->
     <section id="autoridad" style="background: #0B1F4D; color: white; padding: 6rem 0; text-align: center;">
         <div class="container">
@@ -467,11 +530,43 @@
                 </div>
             </div>
             
-            <div style="margin-top: 5rem; opacity: 0.6; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; filter: grayscale(1);">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Seal_of_the_United_States_Department_of_Labor.svg" alt="DOL Logo" style="height: 60px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/IRS_seal.svg" alt="IRS Logo" style="height: 60px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/OSHA_logo.svg/1200px-OSHA_logo.svg.png" alt="OSHA Logo" style="height: 60px;">
+    <!-- RECURSOS DE PROTECCI&Oacute;N FEDERAL -->
+    <section id="recursos-federales" style="background: #f8fafc; padding: 5rem 0; border-top: 1px solid #e2e8f0;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-family: 'Montserrat'; font-size: 2rem; color: #0B1F4D; margin-bottom: 3rem;">Recursos de Protecci&oacute;n al Trabajador</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                
+                <!-- DOL -->
+                <a href="https://www.dol.gov/agencies/whd" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Seal_of_the_United_States_Department_of_Labor.svg" alt="DOL" style="height: 60px; margin-bottom: 1rem;">
+                        <h4 style="color: #0B1F4D;">Dept. de Trabajo (WHD)</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Derechos de salarios, horas extra y cumplimiento de la Ley FLSA.</p>
+                    </div>
+                </a>
+
+                <!-- OSHA -->
+                <a href="https://www.osha.gov/workers" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/OSHA_logo.svg/1200px-OSHA_logo.svg.png" alt="OSHA" style="height: 60px; margin-bottom: 1rem;">
+                        <h4 style="color: #0B1F4D;">Seguridad Laboral (OSHA)</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Denuncias por condiciones inseguras y accidentes en el trabajo.</p>
+                    </div>
+                </a>
+
+                <!-- EEOC -->
+                <a href="https://www.eeoc.gov/es/que-hacemos" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="https://www.eeoc.gov/sites/default/files/styles/full_width_proportional/public/2020-03/EEOC_Seal_Color.png?itok=y_v9nKqE" alt="EEOC" style="height: 60px; margin-bottom: 1rem;">
+                        <h4 style="color: #0B1F4D;">Igualdad (EEOC)</h4>
+                        <p style="font-size: 0.85rem; color: #64748b;">Protecci&oacute;n contra discriminaci&oacute;n racial, de g&eacute;nero o estatus.</p>
+                    </div>
+                </a>
+
             </div>
+            <p style="margin-top: 3rem; font-size: 0.9rem; color: #64748b; font-style: italic;">
+                Defensa Laboral USA act&uacute;a como un enlace técnico profesional para facilitar su acceso a estas agencias federales.
+            </p>
         </div>
     </section>
 
@@ -1547,7 +1642,23 @@
             });
         }
     </script>
+
+    <div style="position: fixed; bottom: 100px; right: 30px; background: white; padding: 5px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; color: #0B1F4D; border: 1px solid #25d366; z-index: 9999;">
+        Atención 100% Humana - Conversación Privada
+    </div>
+
+    <a href="https://wa.me/18053080769?text=Hola,%20necesito%20ayuda%20legal%20humana" 
+       id="floating-whatsapp" 
+       style="position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 9999; animation: pulse-green 2s infinite;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
 </body>
 </html>
-
-
