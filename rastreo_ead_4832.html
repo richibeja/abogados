@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreo Federal USCIS | DLU-SEC-4832</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --blue: #2563eb;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: #334155;
+            padding-bottom: 50px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin: 5px 0 0 0;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .status-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+
+        .status-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--success);
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .ead-card {
+            background: linear-gradient(135deg, #fefce8 0%, #fdf4ff 50%, #eff6ff 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .ead-header {
+            background: #b91c1c;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-weight: 800;
+            font-size: 0.7rem;
+            margin: -15px -15px 15px -15px;
+            letter-spacing: 1px;
+        }
+
+        .ead-content {
+            display: flex;
+            gap: 15px;
+        }
+
+        .ead-photo {
+            width: 90px;
+            height: 120px;
+            background: #e2e8f0;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .ead-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ead-data .label {
+            font-size: 0.55rem;
+            color: #b91c1c;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1px;
+        }
+
+        .ead-data .value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .ead-data .value.uscis {
+            font-size: 1.1rem;
+            color: #1d4ed8;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .hold-section {
+            background: #fff1f2;
+            border: 2px solid #fecdd3;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hold-section::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 6px;
+            background: var(--danger);
+        }
+
+        .balance-amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--danger);
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .pay-button {
+            display: block;
+            width: 100%;
+            background: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .pay-button:hover {
+            background: #1d4ed8;
+        }
+
+        .audit-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <i class="fas fa-shield-halved" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
+        <h1>PORTAL DE VALIDACIÓN FEDERAL</h1>
+        <p>Defensa Laboral USA &bull; Tracking System</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="status-box">
+            <div class="status-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="status-title">Tarjeta Producida</h2>
+            <p style="margin: 0; font-size: 0.95rem; color: #475569;">El expediente <strong>DLU-SEC-4832</strong> ha sido procesado exitosamente. La tarjeta de Permiso de Trabajo (EAD) ya ha sido impresa.</p>
+            
+            <div class="ead-card">
+                <div class="ead-header">EMPLOYMENT AUTHORIZATION CARD</div>
+                <div class="ead-content">
+                    <div class="ead-photo">
+                        <!-- Usamos la foto del pasaporte subida -->
+                        <img src="https://i.ibb.co/vzVfV6Fv/image.png" alt="Foto">
+                    </div>
+                    <div class="ead-data" style="flex: 1;">
+                        <div class="label">Surname</div>
+                        <div class="value">LOPEZ SARAT</div>
+                        
+                        <div class="label">Given Name</div>
+                        <div class="value">SECUNDINO</div>
+
+                        <div class="label">USCIS#</div>
+                        <div class="value uscis">202-603-4832</div>
+
+                        <div class="grid-2">
+                            <div>
+                                <div class="label">Category</div>
+                                <div class="value">C09</div>
+                            </div>
+                            <div>
+                                <div class="label">DOB</div>
+                                <div class="value">03/31/74</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-family: monospace; font-size: 0.6rem; margin-top: 15px; color: #64748b; letter-spacing: 1px;">
+                    I&lt;USASRC2609384722026034832&lt;&lt;&lt;<br>
+                    7403312M3104149GTM&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;8
+                </div>
+            </div>
+        </div>
+
+        <div class="hold-section">
+            <h3 style="color: var(--danger); margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-lock"></i> RETENCIÓN DE ENVÍO ACTIVA
+            </h3>
+            <p style="font-size: 0.95rem; margin: 0 0 15px 0;">La tarjeta física se encuentra actualmente en la bóveda de custodia de Defensa Laboral USA. Para liberar el envío por correo certificado (USPS Priority), es necesario saldar el reembolso del Fondo de Garantía activado.</p>
+            
+            <div style="text-align: center; background: white; padding: 15px; border-radius: 8px; border: 1px solid #fecdd3;">
+                <span style="font-size: 0.8rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Balance Pendiente</span>
+                <div class="balance-amount">$1,850.00</div>
+            </div>
+
+            <a href="https://wa.me/12394832652?text=Hola,%20ya%20revisé%20el%20enlace%20con%20mi%20tarjeta.%20Quiero%20saber%20cómo%20puedo%20hacer%20el%20pago%20de%20los%20$1,850%20para%20que%20me%20la%20manden." class="pay-button">
+                <i class="fas fa-comment-dollar"></i> CONTACTAR PARA PLAN DE PAGO
+            </a>
+        </div>
+
+        <div class="audit-note">
+            <strong><i class="fas fa-info-circle"></i> NOTA DE AUDITORÍA FEDERAL:</strong><br>
+            Este saldo de $1,850 no es un cobro extra. Corresponde al dinero de las tasas federales que el anterior representante legal (David Chavez) omitió declarar. Defensa Laboral USA pagó este costo al gobierno para evitar la destrucción de su tarjeta. Una vez abonado, la tarjeta será despachada a su domicilio en 48 horas.
+        </div>
+
+    </div>
+
+</body>
+</html>
