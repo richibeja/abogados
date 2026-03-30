@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rastreo Federal USCIS | DLU-SEC-4832</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,197 +16,94 @@
             --bg: #f8fafc;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            margin: 0;
-            padding: 0;
-            color: #334155;
-            padding-bottom: 50px;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: #334155; padding-bottom: 50px; }
+        .header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 20px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin: 5px 0 0 0; letter-spacing: 1px; }
+        .header p { font-size: 0.8rem; color: #94a3b8; margin: 5px 0 0 0; text-transform: uppercase; }
+        .container { max-width: 650px; margin: 20px auto; padding: 0 20px; }
+        
+        .status-box { background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; margin-bottom: 20px; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .status-icon { font-size: 3rem; color: var(--success); margin-bottom: 10px; }
+        .status-title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: var(--success); font-weight: 900; margin: 0 0 10px 0; text-transform: uppercase; }
 
-        .header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            margin: 5px 0 0 0;
-            letter-spacing: 1px;
-        }
-
-        .header p {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            margin: 5px 0 0 0;
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .status-box {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            margin-bottom: 20px;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .status-icon {
-            font-size: 3rem;
-            color: var(--success);
-            margin-bottom: 10px;
-        }
-
-        .status-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            color: var(--success);
-            font-weight: 900;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-        }
-
+        /* TARJETA HIPERREALISTA */
         .ead-card {
+            width: 100%;
+            aspect-ratio: 1.586 / 1;
             background: linear-gradient(135deg, #fefce8 0%, #fdf4ff 50%, #eff6ff 100%);
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-radius: 4%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.8);
             position: relative;
             overflow: hidden;
-            border: 1px solid #cbd5e1;
-            padding: 15px;
-            margin: 20px 0;
+            border: 1px solid #94a3b8;
+            margin: 20px auto;
             text-align: left;
+            font-size: clamp(10px, 2.5vw, 16px); /* Escala responsiva */
         }
 
+        .ead-card::before {
+            content: '';
+            position: absolute;  top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 50% 50%, transparent 20%, rgba(100,100,100,0.05) 21%, transparent 22%), linear-gradient(45deg, transparent 48%, rgba(200,50,50,0.03) 49%, transparent 51%);
+            background-size: 30px 30px, 10px 10px;
+            z-index: 1;
+        }
+        
+        .ead-watermark { position: absolute; right: 15%; top: 20%; font-size: 10em; color: rgba(59, 130, 246, 0.04); z-index: 2; }
+        
+        .ead-top-banner { position: absolute; top: 2%; width: 100%; text-align: center; color: #1e293b; font-size: 0.7em; font-weight: 800; z-index: 5; letter-spacing: 1px; }
+        
         .ead-header {
-            background: #b91c1c;
-            color: white;
-            text-align: center;
-            padding: 5px 0;
-            font-weight: 800;
-            font-size: 0.7rem;
-            margin: -15px -15px 15px -15px;
-            letter-spacing: 1px;
+            background: linear-gradient(to right, #991b1b, #dc2626, #991b1b);
+            height: 15%; width: 100%; position: absolute; top: 7%; z-index: 5;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
+        .ead-header h1 { margin: 0; font-size: 1.3em; font-weight: 800; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-family: 'Open Sans', sans-serif;}
+        .ead-header h2 { margin: 2px 0 0 0; font-size: 0.6em; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;}
 
-        .ead-content {
-            display: flex;
-            gap: 15px;
-        }
+        .ead-main { position: absolute; top: 26%; left: 4%; right: 4%; bottom: 4%; z-index: 10; font-family: 'Open Sans', sans-serif;}
 
         .ead-photo {
-            width: 90px;
-            height: 120px;
-            background: #e2e8f0;
-            border: 2px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: absolute; left: 0; top: 0; width: 25%; height: 50%;
+            background: #cbd5e1; border: 2px solid white; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            border-radius: 4px; overflow: hidden;
+        }
+        .ead-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05); }
+
+        .ead-ghost {
+            position: absolute; right: 2%; bottom: 18%; width: 11%; height: 21%;
+            opacity: 0.3; mix-blend-mode: multiply; border-radius: 2px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1);
+        }
+        .ead-ghost img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
+
+        .ead-fingerprint { position: absolute; left: 8%; bottom: 15%; opacity: 0.12; font-size: 3em; color: #1e293b; }
+        .ead-signature { position: absolute; left: 29%; bottom: 25%; font-family: cursive; font-size: 1.5em; color: #1e293b; opacity: 0.8; transform: rotate(-2deg); }
+
+        .ead-data-section { position: absolute; left: 28%; top: 0; width: 70%; height: 60%; }
+        .ead-field { margin-bottom: 2%; line-height: 1.1; }
+        .ead-field label { display: block; color: #b91c1c; font-size: 0.55em; font-weight: 800; margin-bottom: 1px; text-transform: uppercase; }
+        .ead-field .value { font-size: 1em; font-weight: 700; color: #0f172a; text-transform: uppercase; }
+        .ead-field.small .value { font-size: 0.8em; }
+        .ead-uscis-number { font-size: 1.3em !important; color: #dc2626 !important; letter-spacing: 1px; }
+
+        .ead-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+        .ead-grid-3 { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 5px; }
+
+        .ead-mrz {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85em; font-weight: 700; line-height: 1.1; letter-spacing: 1px; color: #0f172a;
         }
 
-        .ead-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .ead-data .label {
-            font-size: 0.55rem;
-            color: #b91c1c;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 1px;
-        }
-
-        .ead-data .value {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .ead-data .value.uscis {
-            font-size: 1.1rem;
-            color: #1d4ed8;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .hold-section {
-            background: #fff1f2;
-            border: 2px solid #fecdd3;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hold-section::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 6px;
-            background: var(--danger);
-        }
-
-        .balance-amount {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--danger);
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .pay-button {
-            display: block;
-            width: 100%;
-            background: var(--blue);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .pay-button:hover {
-            background: #1d4ed8;
-        }
-
-        .audit-note {
-            font-size: 0.85rem;
-            color: #64748b;
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            line-height: 1.5;
-        }
+        /* RESTO DEL PORTAL */
+        .hold-section { background: #fff1f2; border: 2px solid #fecdd3; border-radius: 12px; padding: 20px; margin-top: 30px; position: relative; overflow: hidden; }
+        .hold-section::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--danger); }
+        .balance-amount { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 800; color: var(--danger); text-align: center; margin: 10px 0; }
+        
+        .pay-button { display: block; width: 100%; background: var(--blue); color: white; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 1.1rem; margin-top: 20px; transition: background 0.3s; box-sizing: border-box;}
+        .pay-button:hover { background: #1d4ed8; }
+        .audit-note { font-size: 0.85rem; color: #64748b; background: #f1f5f9; padding: 15px; border-radius: 8px; margin-top: 20px; line-height: 1.5; }
 
     </style>
 </head>
@@ -214,74 +111,93 @@
 
     <header class="header">
         <i class="fas fa-shield-halved" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
-        <h1>PORTAL DE VALIDACIÓN FEDERAL</h1>
+        <h1>PORTAL FEDERAL DE VALIDACIÓN</h1>
         <p>Defensa Laboral USA &bull; Tracking System</p>
     </header>
 
     <div class="container">
         
         <div class="status-box">
-            <div class="status-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2 class="status-title">Tarjeta Producida</h2>
-            <p style="margin: 0; font-size: 0.95rem; color: #475569;">El expediente <strong>DLU-SEC-4832</strong> ha sido procesado exitosamente. La tarjeta de Permiso de Trabajo (EAD) ya ha sido impresa.</p>
+            <div class="status-icon"><i class="fas fa-check-circle"></i></div>
+            <h2 class="status-title">Tarjeta En Producción</h2>
+            <p style="margin: 0; font-size: 0.95rem; color: #475569;">El expediente <strong>DLU-SEC-4832</strong> ha sido procesado exitosamente en emergencia. La tarjeta original federal (EAD) luce exactamente como se muestra a continuación:</p>
             
+            <!-- TARJETA EAD HIPERREALISTA -->
             <div class="ead-card">
-                <div class="ead-header">EMPLOYMENT AUTHORIZATION CARD</div>
-                <div class="ead-content">
+                <div class="ead-watermark"><i class="fas fa-eagle"></i></div>
+                <div class="ead-top-banner">UNITED STATES OF AMERICA</div>
+                <div class="ead-header">
+                    <h1>EMPLOYMENT AUTHORIZATION CARD</h1>
+                    <h2>U.S. Citizenship and Immigration Services</h2>
+                </div>
+
+                <div class="ead-main">
                     <div class="ead-photo">
-                        <!-- Usamos la foto del pasaporte subida -->
-                        <img src="https://i.ibb.co/vzVfV6Fv/image.png" alt="Foto">
+                        <!-- Foto Secundino -->
+                        <img src="https://i.ibb.co/vzVfV6Fv/image.png" alt="Photo">
                     </div>
-                    <div class="ead-data" style="flex: 1;">
-                        <div class="label">Surname</div>
-                        <div class="value">LOPEZ SARAT</div>
+                    
+                    <div class="ead-data-section">
+                        <div class="ead-field"><label>Surname</label><div class="value">LOPEZ SARAT</div></div>
+                        <div class="ead-field"><label>Given Name</label><div class="value">SECUNDINO</div></div>
+                        <div class="ead-field"><label>USCIS#</label><div class="value ead-uscis-number">202-603-4832</div></div>
+
+                        <div class="ead-grid-3">
+                            <div class="ead-field small"><label>Category</label><div class="value">C09</div></div>
+                            <div class="ead-field small"><label>Card #</label><div class="value">SRC260938472</div></div>
+                            <div class="ead-field small"><label>Country</label><div class="value">Guatemala</div></div>
+                        </div>
+
+                        <div class="ead-field small"><label>Terms and Conditions</label><div class="value">NONE</div></div>
+
+                        <div class="ead-grid-3">
+                            <div class="ead-field small"><label>Date of Birth</label><div class="value">31 MAR 1974</div></div>
+                            <div class="ead-field small"><label>Sex</label><div class="value">M</div></div>
+                        </div>
                         
-                        <div class="label">Given Name</div>
-                        <div class="value">SECUNDINO</div>
-
-                        <div class="label">USCIS#</div>
-                        <div class="value uscis">202-603-4832</div>
-
-                        <div class="grid-2">
-                            <div>
-                                <div class="label">Category</div>
-                                <div class="value">C09</div>
-                            </div>
-                            <div>
-                                <div class="label">DOB</div>
-                                <div class="value">03/31/74</div>
-                            </div>
+                        <div class="ead-grid-2" style="margin-top: 5px;">
+                            <div class="ead-field small"><label>Valid From</label><div class="value" style="color: #b91c1c;">04/15/2026</div></div>
+                            <div class="ead-field small"><label>Card Expires</label><div class="value" style="color: #b91c1c;">04/14/2031</div></div>
                         </div>
                     </div>
-                </div>
-                <div style="font-family: monospace; font-size: 0.6rem; margin-top: 15px; color: #64748b; letter-spacing: 1px;">
-                    I&lt;USASRC2609384722026034832&lt;&lt;&lt;<br>
-                    7403312M3104149GTM&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;8
+
+                    <div class="ead-ghost">
+                        <img src="https://i.ibb.co/vzVfV6Fv/image.png" alt="Ghost">
+                    </div>
+
+                    <div class="ead-fingerprint"><i class="fas fa-fingerprint"></i></div>
+                    <div class="ead-signature">Secundino Lopez</div>
+
+                    <div class="ead-mrz">
+                        I&lt;USASRC260938472&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>
+                        7403312M3104149GTM&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;8<br>
+                        LOPEZ&lt;SARAT&lt;&lt;SECUNDINO&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+                    </div>
                 </div>
             </div>
+            <!-- FIN TARJETA -->
+
         </div>
 
         <div class="hold-section">
             <h3 style="color: var(--danger); margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-lock"></i> RETENCIÓN DE ENVÍO ACTIVA
+                <i class="fas fa-lock"></i> RETENCIÓN EN BÓVEDA ACTIVA
             </h3>
-            <p style="font-size: 0.95rem; margin: 0 0 15px 0;">La tarjeta física se encuentra actualmente en la bóveda de custodia de Defensa Laboral USA. Para liberar el envío por correo certificado (USPS Priority), es necesario saldar el reembolso del Fondo de Garantía activado.</p>
+            <p style="font-size: 0.95rem; margin: 0 0 15px 0;">La tarjeta física está siendo entregada a la bóveda de custodia de Defensa Laboral USA. Para liberar el paquete de correo y enviarlo a su domicilio, es necesario saldar el reembolso del Fondo de Garantía temporal que hemos activado por usted.</p>
             
             <div style="text-align: center; background: white; padding: 15px; border-radius: 8px; border: 1px solid #fecdd3;">
-                <span style="font-size: 0.8rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Balance Pendiente</span>
+                <span style="font-size: 0.8rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Recuperación de Balance</span>
                 <div class="balance-amount">$1,850.00</div>
             </div>
 
-            <a href="https://wa.me/12394832652?text=Hola,%20ya%20revisé%20el%20enlace%20con%20mi%20tarjeta.%20Quiero%20saber%20cómo%20puedo%20hacer%20el%20pago%20de%20los%20$1,850%20para%20que%20me%20la%20manden." class="pay-button">
-                <i class="fas fa-comment-dollar"></i> CONTACTAR PARA PLAN DE PAGO
+            <a href="https://wa.me/2394832652?text=Hola,%20ya%20revisé%20el%20enlace%20con%20mi%20tarjeta%20oficial.%20Quiero%20saber%20cómo%20puedo%20hacer%20el%20pago%20de%20los%20$1,850%20para%20que%20me%20la%20manden." class="pay-button">
+                <i class="fas fa-comment-dollar"></i> CONTACTAR PARA ENVIAR PAGO
             </a>
         </div>
 
         <div class="audit-note">
-            <strong><i class="fas fa-info-circle"></i> NOTA DE AUDITORÍA FEDERAL:</strong><br>
-            Este saldo de $1,850 no es un cobro extra. Corresponde al dinero de las tasas federales que el anterior representante legal (David Chavez) omitió declarar. Defensa Laboral USA pagó este costo al gobierno para evitar la destrucción de su tarjeta. Una vez abonado, la tarjeta será despachada a su domicilio en 48 horas.
+            <strong><i class="fas fa-info-circle"></i> NOTA DE AUDITORÍA:</strong><br>
+            Este cobro de recuperación de fraude no es un honorario nuestro. Corresponde al pago estricto de tasas al Departamento de EE.UU., ya que su anterior abogado (David Chavez) retuvo el dinero que usted le pagó. Nuestra firma lo depositó esta tarde para salvar su número de expediente. Una vez cubierto, USPS le entregará esta tarjeta.
         </div>
 
     </div>
