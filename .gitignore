@@ -10,8 +10,8 @@ abogados/
 *.jpg
 *.jpeg
 *.webp
-!images/
-!imagenes/
+!images/*
+!imagenes/*
 !lawyer_*.png
 !success_story_*.png
 !fb_cover_*.png
